@@ -1,6 +1,6 @@
 
 <?php
-require_once('connect.php');
+require_once('../config/connect2.php');
 
 $reponse = $bdd->query('SELECT * FROM user WHERE id = 1');
 
@@ -46,7 +46,7 @@ while ($data = $reponse->fetch())
 				</div>
 				<div class="layout_profile_info">
 					<div class="header_profile_name">
-						<h1><?php echo $data['pseudo'];?></h1>
+						<h1><?php echo $data['username'];?></h1>
 					</div>
 					<ul class="header_profile_info">
 						<li class="info_post">
