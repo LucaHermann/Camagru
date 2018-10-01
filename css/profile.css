@@ -1,0 +1,271 @@
+strong{
+    margin-right: 30px;
+    float: right;
+    color: grey;
+}
+
+h1{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 200;
+}
+
+body{
+    font-size: 14px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    position:relative;
+    display:flex;
+    justify-content: flex-start;
+    flex-direction:column;
+    margin:0;
+    width:100vw;
+    overflow:hidden;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 200;
+}
+
+#container{
+    overflow: scroll;
+    display:flex;
+    width: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    position: relative;
+    background-color: rgba(250, 250, 250, 1);
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#footer{
+    height: 90px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#footer_bar{
+    position: fixed;
+    height: 50px;
+    width: 101%;
+    margin-top: -10px;
+    margin-left: -10px;
+    bottom: 0;
+}
+
+#nav_bar {
+    height: 75px;
+    background-color: white;
+}
+
+.position_navbar{
+    max-width: 935px;
+    width: 935px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 75px;
+}
+
+.logo_appareil{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    max-width: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    margin-top: 20px;
+    float: left;
+}
+
+.logo_camagru{
+    border-left-style: solid;
+    border-left-width: thin;
+    border-color: rgba(0, 0, 0, 1);
+    position: relative;
+    width: 105px;
+    height: 35px;
+    max-width: 225px;
+    min-width: 35px;
+    min-height: 35px;
+    margin-top: 18px;
+    margin-left: 10px;
+    float: left;
+}
+
+.logo_setting{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    max-width: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.logo_logout{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    max-width: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    margin-left: 20px;
+}
+
+.header_content_left {
+    display:flex;
+    overflow:hidden;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.header_content_right {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2px;
+}
+
+.layout_profile{
+    position:relative;
+    display:flex;
+    width: 100%;
+    max-width: 935px;
+    background-color: rgba(250, 250, 250, 1);
+    padding-top: 60px;
+}
+
+
+.layout_profile_info{
+    max-width: 614px;
+    width: 100%;
+}
+
+.header_profile_name{
+    margin-bottom: 20px;
+}
+
+#header_profile{
+    flex-direction: row;
+    margin-bottom: 44px;
+    flex-grow: 1;
+    justify-content: center;
+    display: flex;
+    max-width: 292px;
+}
+
+.header_profile_picture{
+    width: 100%;
+    max-width: 290px;
+    margin-right: 31px;
+    justify-content: center;
+}
+
+.header_profile_picture_sd{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+
+.header_profile_picture {
+    margin-right: 31px;
+    justify-content: center;
+    width: 100%;
+    max-width: 290px;
+}
+
+.header_profile_picture_sd {
+     width: 150px;
+     height: 150px;
+     margin: auto;
+}
+
+.header_profile_name {
+    margin-bottom: 20px;
+}
+
+.header_profile_info {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.info_post {
+    margin-left: 0;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#container_profile_picture {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.roundimage{
+    overflow: hidden;
+    border-radius: 80px;
+    width: 150px;
+    height: 150px;
+    display: block;
+    flex: 0 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile_picture_base{
+    flex-direction: column;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    height: 300px;
+}
+
+.profile_row_picture{
+    display: flex;
+    margin-bottom: 28px;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+}
+
+.profile_picture{
+    margin: 0px 15px;
+    max-width: 293px;
+    max-height: 293px;
+}
+
+.dislay_pic{
+    width: 100%;
+    display: flex;
+    height: auto;
+    max-width: 293px;
+    max-height: 293px;
+}

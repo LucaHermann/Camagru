@@ -1,0 +1,255 @@
+ html { 
+    overflow-y: hidden; 
+} 
+
+body{
+    height: 100%;
+    background-color: rgba(250, 250,250, 1);
+    font-size: 14px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    position:relative;
+    display:flex;
+    justify-content: flex-start;
+    flex-direction:column;
+    margin:0;
+    width:100vw;
+    overflow:hidden;
+}
+
+p {
+   font-size: 12px;
+   color: #003569;
+}
+
+a {
+    color: #3897f0;
+    text-decoration: none;
+}
+
+#container{
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: relative;
+    background-color: rgba(250, 250, 250, 1);
+    justify-content: center;
+    align-items: center;
+}
+
+#container_sign_up {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 935px;
+    width: 100%;
+    padding-top: 70px;
+}
+
+#formulary {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0 0 10px;
+}
+
+#formulary_top_container {
+    width: auto;
+    padding: 25px 0;
+    border-top-style: solid;
+    border-top-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#formulary_title {
+    display: flex;
+    justify-content: center;
+    margin: 22px auto 12px;
+}
+
+#formulary_annoucement {
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+}
+
+#formulary_form {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#formulary_email {
+   margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-direction: row;
+    max-height: 36px;
+    height: 36px;
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    border-top-style: solid;
+    border-top-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#formulary_fullname {
+   margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-direction: row;
+    max-height: 36px;
+    height: 36px;
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    border-top-style: solid;
+    border-top-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#formulary_username {
+   margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-direction: row;
+    max-height: 36px;
+    height: 36px;
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    border-top-style: solid;
+    border-top-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#formulary_password {
+   margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-direction: row;
+    max-height: 36px;
+    height: 36px;
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    border-top-style: solid;
+    border-top-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#formulary_sd {
+    width: 30vw;
+    height: 1vw;
+    background-color: rgb(250, 250, 250);
+}
+
+#formulary_bot_container {
+    padding: 10px 0;
+    border-top-style: solid;
+    border-top-width: thin;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+}
+
+#formulary_sign_up_link {
+    font-size: 14px;
+    margin: 15px;
+    text-align: center;
+}
+
+.logo{
+    max-width: 175px;
+    max-height: 50px;
+}
+
+.annoucement {
+    font-size: 1vw;
+    text-align: center;
+    color: #999;
+}
+
+.button {
+    background-color: lightskyblue;
+    border: none;
+    color: white;
+    text-align: center;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    height: 28px;
+    max-width: 268px;
+    margin-top: 21px;
+}
+
+.button:hover {
+    opacity: 2;
+}
+
+.form_design{
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    display: flex;
+    padding: 0;
+    position: relative;
+    max-width: 268px;
+}
+
+.position_button{
+    margin: 8px 40px;
+    display: block;
+    position: relative;
+    max-width: 268px;
+    max-height: 28px;
+}
