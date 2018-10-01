@@ -1,3 +1,6 @@
+<?php
+	require_once('../config/connect2.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,25 +20,18 @@
 						<h2 class="annoucement">Sign up to see photos from your friends.</h2>
 					</div>
 					<div id="formulary_form">
-						<form class="form_design">
-								<label for="formulary_email"></label>
-								<input type="text" id="formulary_email" placeholder="Email">
-								<label for="formulary_fullname"></label>
-								<input type="text" id="formulary_fullname" placeholder="Fullname">
-								<label for="formulary_username"></label>
-								<input type="text" id="formulary_username" placeholder="Username">
-								<label for="formulary_password"></label>
-								<input type="password" id="formulary_password" placeholder="Password">
+						<form method="post" action="sign_up_validation.php" class="form_design">
+								<input type="text" name="email" id="formulary_email" placeholder="Email" autocomplete="email">
+								<input type="text" name="fullname" id="formulary_fullname" placeholder="Fullname"  autocomplete="fullname">
+								<input type="text" name="username" id="formulary_username" placeholder="Username"  autocomplete="username">
+								<input type="password" name="password" id="formulary_password" placeholder="Password"  autocomplete="current-password">
+								<input class="button" type="submit" name="register" value="Register"/>
 							</form>
-								<button class="button">Next</button>
 					</div>
 				</div>
 				<div id="formulary_sd"></div>
 				<div id="formulary_bot_container">
-					<p id="formulary_sign_up_link">
-						Have an account? 
-                        <a href="sign_in.php">Sign in here</a>
-                    </p>
+					<p id="formulary_sign_up_link"> Have an account? <a href="sign_in.php">Sign in </a></p>
 				</div>
             </div>
         </div>
