@@ -18,10 +18,10 @@
     $fn = htmlspecialchars($_POST['fullname']);
     $un = htmlspecialchars($_POST['username']);
     $pw =  hash('whirlpool', $_POST['password']);
+    $img = htmlspecialchars($_POST['file']);
     echo "test1";
     // check if the pseudo was available
-    $res = $bdd->query('SELECT count(username) AS nb FROM user WHERE username = :un');
-    echo "test1.5";
+    $res = $bdd->query('SELECT COUNT(username) AS nb FROM user WHERE username = :un');
     $res->execute(array('username' => $un));
     echo "test2";
     $username_check_available = $res->fetch();
@@ -29,7 +29,7 @@
             echo "Le pseudo " . $un . " n'est pas disponible<br>";
             exit();}
     echo "test3";
-    $res = $bdd->query('SELECT count(email) AS nb FROM user WHERE email = :email');
+    $res = $bdd->query('SELECT COUNT(email) AS nb FROM user WHERE email = :email');
     $res->execute(array('email' => $email));
     echo "test4";
     // check if the email was available
