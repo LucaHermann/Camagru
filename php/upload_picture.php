@@ -1,4 +1,32 @@
-<!DOCTYPE html>
+<?php
+require_once('connect.php');
+
+$date = date("Y-m-d");
+
+
+if (isset($_POST['photo'])){
+    $data = htmlentities($_POST['photo'], ENT_QUOTES);
+    $data = str_replace(" ", "+", $data);
+    $tab  = explode(",", $data);
+    echo "ca marche presque.";
+    $base = $tab[1];
+    $decoded = base64_encode($base);
+    //file_put_contents($decoded);
+}   
+
+try {
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO image (img_path, date, id_user)
+    VALUES ('".$decoded."', '".$date."', 3)";
+    $bdd->exec($sql);
+    echo "New record created successfully";
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+ ?>
+<!-- <!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/take_picture.css"/>
@@ -11,7 +39,7 @@
 				<a href="take_picture.php">
 					<div class="logo_appareil"><img src="../ressources/logo_appareil.png"width="30px"height="30px"></div>
 				</a>
-				<a href="index_log.php"> <!-- a changer en index.php quand bdd faite -->
+				<a href="index_log.php"> <!-- a changer en index.php quand bdd faite 
 					<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
 				</a>
 			</div>
@@ -30,7 +58,6 @@
 			<div class="container_content_left">
 				<div class="insta_post">  
 					<div class="post_content">
-					<div id="prev" ></div>
 						<video id="sourcevid" width='400' autoplay="true"></video>
 							<canvas id="cvs" ></canvas>
 							<img src="../ressources/logo_name.png" >        
@@ -45,9 +72,6 @@
 								<img src="http://placekitten.com/g/30/30" alt="1" class="pp_sd"/>
 							</a>
 						</div>
-						<button onclick='ouvrir_camera()' >ouvrir camera</button>
-						<button onclick='photo()' class="logo_take_pic"><img src="../ressources/logo_appareil.png" class="logo_take_pic"></button>
-						<button onclick='fermer()' >fermer camera</button>
 						<div class="alignment_name_other_user">
 							<div class="name_other_user">
 								<a class="account_name_header" title="#">Filters</a>
@@ -69,8 +93,6 @@
 					</div>
 				</div>
 				<hr class="for_beauty">
-				<input id="file" type="file"/>
-				<button onclick='env()'>Save uploaded picture</button>
 				<div id="jaxa">
 					<button onclick='prepare_envoi()'>Save picture !</button>
 				</div>
@@ -84,4 +106,22 @@
 	</div>
 	<script src="../js/take_pic.js"></script>
 </body>
-</html>
+
+
+//  if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0) return FALSE;
+    //  echo "lol1";
+    //  if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize) return FALSE;
+    //  echo "lol2";
+    //  $ext = strtolower(substr(strrchr($_FILES[$index]['name'],'.'),1));
+    //  if ($extensions !== FALSE AND !in_array($ext,$extensions)) return FALSE;
+    //  print_r($_FILES['pic']);
+    //  $image = file_get_contents($_FILES['pic']['tmp_name']);
+    //  if (isset($image)){
+    //     $data = htmlentities($image, ENT_QUOTES);
+    //     $data = str_replace(" ", "+", $image);
+    //     $tab  = explode(",", $data);
+    //     $base = $tab[1];
+    //     $decoded = base64_encode($image);
+    //     //file_put_contents($decoded);
+    // }
+    </html> -->
