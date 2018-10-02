@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('connect.php');
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ require_once('connect.php');
 				<a href="profile.php">
                     <div class="logo_profile"><img src="../ressources/logo_account.png" width="30px"height="30px"></div>
                 </a>
-                <a href="">
+                <a href="sign_out.php">
                     <div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
                 </a>
 			</div>

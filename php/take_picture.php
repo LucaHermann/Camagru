@@ -11,7 +11,7 @@
 				<a href="take_picture.php">
 					<div class="logo_appareil"><img src="../ressources/logo_appareil.png"width="30px"height="30px"></div>
 				</a>
-				<a href="index_delog.php"> <!-- a changer en index.php quand bdd faite -->
+				<a href="index.php">
 					<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
 				</a>
 			</div>
@@ -19,7 +19,7 @@
 				<a href="profile.php">
 					<div class="logo_account"><img src="../ressources/logo_account.png"width="30px"height="30px"></div>
 				</a>
-				<a href="">
+				<a href="sign_out.php">
                     <div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
                 </a>
 			</div>
