@@ -21,16 +21,18 @@
     $img = $_POST['file'];
     echo "test1";
     // check if the pseudo was available
-    $res = $bdd->query('SELECT COUNT(username) AS nb FROM user WHERE username = :un');
-    $res->execute(array('username' => $un));
+    $res = $bdd->prepare('SELECT username FROM user WHERE username = :un');
+    $res->bindValue(':un', $un, PDO::PARAM_STR);
+    $res->execute();
     echo "test2";
     $username_check_available = $res->fetch();
     if ($username_check_available['nb'] != 0){
             echo "Le pseudo " . $un . " n'est pas disponible<br>";
             exit();}
     echo "test3";
-    $res = $bdd->query('SELECT COUNT(email) AS nb FROM user WHERE email = :email');
-    $res->execute(array('email' => $email));
+    $res = $bdd->prepare('SELECT email FROM user WHERE email = :email');
+    $res->bindValue(':email', $email, PDO::PARAM_STR);
+    $res->execute();
     echo "test4";
     // check if the email was available
     $email_check_available = $res->fetch();
