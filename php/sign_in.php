@@ -1,3 +1,7 @@
+<?php
+	require_once('../config/connect2.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +22,10 @@
                         </a>
                     </div>
                     <div id="formulary_form">
-                        <form method="post" name="login" action="sign_in.php" class="form_design">
-                            <label for="formulary_login"></label>
-                            <input type="text" name="user" id="formulary_login" placeholder="Login">
-                            <label for="formulary_password"></label>
-                            <input type="password" name="password" id="formulary_password" placeholder="Password">
-                            <input  class="button" type="submit" value="Log in"/>
+                        <form method="post" action="sign_in_validation.php" name="login" action="sign_in.php" class="form_design">
+                            <input type="text" name="login" id="formulary_login" placeholder="Login" autocomplete="login">
+                            <input type="password" name="password" id="formulary_password" placeholder="Password" autocomplete="current-password">
+                            <input class="button" type="submit" value="Log in"/>
                         </form>
                         <div id="formulary_decoration">OR</div>
                         <div class="formulary_forget_password">

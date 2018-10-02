@@ -25,7 +25,8 @@
 								<input type="text" name="fullname" id="formulary_fullname" placeholder="Fullname"  autocomplete="fullname">
 								<input type="text" name="username" id="formulary_username" placeholder="Username"  autocomplete="username">
 								<input type="password" name="password" id="formulary_password" placeholder="Password"  autocomplete="current-password">
-								<input type="file" name="file" id="formulary_password" placeholder="Profile Pics" autocomplete="file">
+								<label for="file">Profile picture upload :</label>
+								<input type="file" name="file" placeholder="Profile Pics" autocomplete="file">
 								<input class="button" type="submit" name="register" value="Register"/>
 							</form>
 					</div>
