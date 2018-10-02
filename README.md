@@ -4,5 +4,5 @@ Ce premier projet vous remet dans le bain après la piscine PHP : vous allez dev
 Php, html, css only no frameworks.
 
 
-Front finished soon need to do the best part.... back-end now❣️.
+Front finished do the best part.... back-end now❣️.
 BDD finished 📚❣️
