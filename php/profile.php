@@ -3,8 +3,10 @@
 session_start();
 require_once('../config/connect2.php');
 
-$reponse = $bdd->query('SELECT * FROM user WHERE id = 1');
+$idasked = $_GET['id'];
 
+$reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
+$reponse->execute();
 while ($data = $reponse->fetch())
 {
 ?>
@@ -53,7 +55,8 @@ while ($data = $reponse->fetch())
 						<li class="info_post">
 						<?php
 						$reponse->closeCursor();
-						$reponse = $bdd->query("SELECT COUNT(idimg) AS nbpost FROM image WHERE id_user = 1");
+						$reponse = $bdd->prepare("SELECT COUNT(idimg) AS nbpost FROM image WHERE id_user = '.$idasked.'");
+						$reponse->execute();
 						$data = $reponse->fetch();
 						$reponse->closeCursor();
 						?>
@@ -64,7 +67,8 @@ while ($data = $reponse->fetch())
 			</div>
 			<?php 
 			}
-			$reponse = $bdd->query("SELECT * FROM image WHERE id_user = 1 ORDER BY idimg DESC");
+			$reponse = $bdd->prepare("SELECT * FROM image WHERE id_user = ".$idasked." ORDER BY idimg DESC");
+			$reponse->execute();
 			?>
 			<div id="container_profile_picture">
 				<div class="profile_picture_base">
