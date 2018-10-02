@@ -17,8 +17,9 @@
     mail($email, $sujet, $message, $headers);
     $fn = htmlspecialchars($_POST['fullname']);
     $un = htmlspecialchars($_POST['username']);
-    $pw =  hash('whirlpool', $_POST['password']);
-    $img = $_POST['file'];
+    $pw =  $_POST['password'];
+    echo "$pw";
+    //$img = $_POST['file'];
     // check if the pseudo was available
     $res = $bdd->prepare('SELECT username FROM user WHERE username = :un');
     $res->bindValue(':un', $un, PDO::PARAM_STR);
@@ -39,9 +40,11 @@
     if (strlen($pw) < 8){
         echo "Le mot de passe est trop court (8 caracteres minimum)<br>";
     exit();}
-    if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/gm', $pw)){
+    if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$#', $pw)){
         echo "Le mot de passe n'est pas assez complexe, il doit contenir au minimum une majuscule, une minuscule et un chiffre.<br>";
     exit();}
+    $pw =  hash('whirlpool', $_POST['password']);
+     echo "$pw";
     echo "test7";
     $res = $bdd->prepare('INSERT INTO  `user` (`email`,  `fullname`, `username`, `password`) VALUES (:email, :fn, :un , :pw)');
     $res->bindValue(':email', $email, PDO::PARAM_STR);
