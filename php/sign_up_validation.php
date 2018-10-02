@@ -49,6 +49,5 @@
     $res->bindValue(':un', $un, PDO::PARAM_STR);
     $res->bindValue(':pw', $pw, PDO::PARAM_STR);
     $res->execute();
-    echo "bravo";
     header('Location: /Camagru/php/sign_in.php');
 ?>
