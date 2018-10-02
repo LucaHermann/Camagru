@@ -18,7 +18,7 @@
     $fn = htmlspecialchars($_POST['fullname']);
     $un = htmlspecialchars($_POST['username']);
     $pw =  hash('whirlpool', $_POST['password']);
-    $img = htmlspecialchars($_POST['file']);
+    $img = $_POST['file'];
     echo "test1";
     // check if the pseudo was available
     $res = $bdd->query('SELECT COUNT(username) AS nb FROM user WHERE username = :un');
