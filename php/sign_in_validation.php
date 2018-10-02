@@ -17,11 +17,11 @@ if ($req[0] == "1") // L'utilisateur est trouvé, connexion
 {
     session_start();
     $_SESSION['username'] = $un;
-    header('Location: index_log.php');
+    header('Location: index.php');
 }
 else // Pas d'utilisateur trouvé, erreur
 {
-    header('Location: ../config/is_connected.php');
+    header('Location: sign_in.php');
 }
 
 ?>

@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 require_once('../config/connect2.php');
 
 $reponse = $bdd->query('SELECT * FROM user WHERE id = 1');

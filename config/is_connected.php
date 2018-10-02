@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['login']) && $_SESSION['login'] != null)
+if (isset($_SESSION['username']) && $_SESSION['username'] != null)
     header('Location: connexion.php?error=1');
 
 ?>
