@@ -18,8 +18,7 @@
     $fn = htmlspecialchars($_POST['fullname']);
     $un = htmlspecialchars($_POST['username']);
     $pw =  $_POST['password'];
-    echo "$pw";
-    //$img = $_POST['file'];
+    // $img = $_POST['file'];
     // check if the pseudo was available
     $res = $bdd->prepare('SELECT username FROM user WHERE username = :un');
     $res->bindValue(':un', $un, PDO::PARAM_STR);
@@ -44,14 +43,12 @@
         echo "Le mot de passe n'est pas assez complexe, il doit contenir au minimum une majuscule, une minuscule et un chiffre.<br>";
     exit();}
     $pw =  hash('whirlpool', $_POST['password']);
-     echo "$pw";
-    echo "test7";
     $res = $bdd->prepare('INSERT INTO  `user` (`email`,  `fullname`, `username`, `password`) VALUES (:email, :fn, :un , :pw)');
     $res->bindValue(':email', $email, PDO::PARAM_STR);
-    $res->bindValue(':fn', $fullname, PDO::PARAM_STR);
-    $res->bindValue(':un', $username, PDO::PARAM_STR);
-    $res->bindValue(':pw', $email, PDO::PARAM_STR);
+    $res->bindValue(':fn', $fn, PDO::PARAM_STR);
+    $res->bindValue(':un', $un, PDO::PARAM_STR);
+    $res->bindValue(':pw', $pw, PDO::PARAM_STR);
     $res->execute();
-    echo "test8";
+    echo "bravo";
     header('Location: /Camagru/php/sign_in.php');
 ?>
