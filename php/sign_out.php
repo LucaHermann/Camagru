@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['login'] = "";
+$_SESSION['username'] = "";
 session_destroy();
-header('Location: connexion.php?status=1');
+header('Location: index.php');
 ?>
