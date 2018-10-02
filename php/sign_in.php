@@ -1,3 +1,7 @@
+<?php
+	require_once('../config/connect2.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,17 +22,11 @@
                         </a>
                     </div>
                     <div id="formulary_form">
-                        <form class="form_design">
-                            <label for="formulary_login"></label>
-                            <input type="text" id="formulary_login" placeholder="Login">
-                            <label for="formulary_password"></label>
-                            <input type="password" id="formulary_password" placeholder="Password">
+                        <form method="post" action="sign_in_validation.php" name="login" action="sign_in.php" class="form_design">
+                            <input type="text" name="login" id="formulary_login" placeholder="Login" autocomplete="login">
+                            <input type="password" name="password" id="formulary_password" placeholder="Password" autocomplete="current-password">
+                            <input class="button" type="submit" value="Log in"/>
                         </form>
-                        <div class="position_button">
-                            <div class="position_button">
-                                <button class="button">Log in</button>
-                            </div>
-                        </div>
                         <div id="formulary_decoration">OR</div>
                         <div class="formulary_forget_password">
                             <a href="forgot_password.php" id="formulary_forget_password_sd">Forgot password?</a>
@@ -36,11 +34,7 @@
                     </div>
                     <div id="formulary_fd"></div>
                     <div id="formulary_sign_up">
-                        <p id="formulary_sign_up_link">
-                            Don't have an account?
-                            <a href="sign_up.php"> Sign up</a>
-                             here
-                        </p>
+                        <p id="formulary_sign_up_link">Don't have an account?<a href="sign_up.php"> Sign up</a></p>
                     </div>
                 </div>
             </div>

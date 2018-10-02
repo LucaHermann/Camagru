@@ -1,6 +1,7 @@
 
 <?php
-require_once('connect.php');
+session_start();
+require_once('../config/connect2.php');
 
 $idasked = $_GET['id'];
 
@@ -21,7 +22,7 @@ while ($data = $reponse->fetch())
 				<a href="take_picture.php">
 					<div class="logo_appareil"><img src="../ressources/logo_appareil.png"width="30px"height="30px"></div>
                 </a>
-                <a href="index_log.php"> <!-- a changer en index.php quand bdd faite -->
+                <a href="index.php">
                     <div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
                 </a>
 			</div>
@@ -29,7 +30,7 @@ while ($data = $reponse->fetch())
 				<a href="setting.php">
 					<div class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>
 				</a>
-				<a href="">
+				<a href="sign_out.php">
                     <div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
                 </a>
 			</div>
@@ -48,7 +49,7 @@ while ($data = $reponse->fetch())
 				</div>
 				<div class="layout_profile_info">
 					<div class="header_profile_name">
-						<h1><?php echo $data['pseudo'];?></h1>
+						<h1><?php echo $data['username'];?></h1>
 					</div>
 					<ul class="header_profile_info">
 						<li class="info_post">

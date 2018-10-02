@@ -201,10 +201,6 @@ strong{
     padding: 10px 0;
     border-top-style: solid;
     border-top-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
     border-color: rgba(230, 230, 230, 1);
 }
 
@@ -233,9 +229,10 @@ strong{
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
-    width: 100%;
+    width: 70%;
     height: 28px;
-
+    margin-top: 15px;
+    margin-left: 52px;
 }
 
 .button:hover {
@@ -271,7 +268,7 @@ strong{
     position: relative;
 }
 
-.position_button{
+.blank{
     margin: 8px 40px;
     display: block;
     position: relative;
