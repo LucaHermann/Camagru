@@ -49,8 +49,12 @@
     echo "Le mot de passe n'est pas assez complexe, il doit contenir au minimum une majuscule, une minuscule et un chiffre.<br>";
     exit();}
     echo "test7";
-    $var = $bdd->prepare('INSERT INTO  `user` (`email`,  `fullname`, `username`, `password`) VALUES (:email, :fn, :un , :pw)');
-    $var->execute(array('email' => $email, 'fn' => $fn, 'un' => $un, 'pw' => $pw));
+    $res = $bdd->prepare('INSERT INTO  `user` (`email`,  `fullname`, `username`, `password`) VALUES (:email, :fn, :un , :pw)');
+    $res->bindValue(':email', $email, PDO::PARAM_STR);
+    $res->bindValue(':fn', $fullname, PDO::PARAM_STR);
+    $res->bindValue(':un', $username, PDO::PARAM_STR);
+    $res->bindValue(':pw', $email, PDO::PARAM_STR);
+    $res->execute();
     echo "test8";
     header('Location: /Camagru/php/sign_in.php');
 ?>
