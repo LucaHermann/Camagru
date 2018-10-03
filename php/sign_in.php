@@ -23,7 +23,7 @@
                     </div>
                     <div id="formulary_form">
                         <form method="post" action="sign_in_validation.php" name="login" action="sign_in.php" class="form_design">
-                            <input type="text" name="login" id="formulary_login" placeholder="Login" autocomplete="login">
+                            <input type="text" name="username" id="formulary_login" placeholder="Login" autocomplete="login">
                             <input type="password" name="password" id="formulary_password" placeholder="Password" autocomplete="current-password">
                             <input class="button" type="submit" value="Log in"/>
                         </form>
