@@ -1,6 +1,6 @@
 <?php 
 
-require_once("../config/is_connected.php");
+//require_once("../config/is_connected.php");
 require_once("../config/connect2.php");
 
 $un = htmlspecialchars($_POST['username']); 
