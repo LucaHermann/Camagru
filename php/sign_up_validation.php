@@ -1,6 +1,6 @@
 <?php
     
-    require_once('../config/connect2.php');
+    require_once('../config/connect.php');
     session_start();
     
     $email = htmlspecialchars($_POST['email']);

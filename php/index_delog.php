@@ -1,5 +1,5 @@
 <?php
-require_once('../config/connect2.php');
+require_once('../config/connect.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,10 +15,10 @@ require_once('../config/connect2.php');
 				<div class="logo_camagru"><img src="../ressources/logo_name.png" width="105px"height="35px"style="margin-left:7px"></div>
 			</div>
 			<div class="header_content_right">
-				<a href="profile.php">
+				<a href="sign_in.php">
                     <div class="logo_sign_in"><img src="../ressources/logo_signin.png" width="30px"height="30px"></div>
                 </a>
-                <a href="">
+                <a href="sign_up.php">
                     <div class="logo_sign_up"><img src="../ressources/logo_signup.png" width="30px"height="30px"></div>
                 </a>
 			</div>
