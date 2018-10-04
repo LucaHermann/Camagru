@@ -1,5 +1,4 @@
 <?php
-    
     require_once('../config/connect.php');
     session_start();
     
@@ -48,5 +47,5 @@
     $res->bindValue(':un', $un, PDO::PARAM_STR);
     $res->bindValue(':pw', $pw, PDO::PARAM_STR);
     $res->execute();
-    header('Location: /Camagru/php/sign_in.php');
+    header('Location: sign_in.php');
 ?>
