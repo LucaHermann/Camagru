@@ -1,9 +1,9 @@
 <?php 
 
-require_once("../config/is_connected.php");
+//require_once("../config/is_connected.php");
 require_once("../config/connect2.php");
 
-$un = htmlspecialchars($_POST['login']); 
+$un = htmlspecialchars($_POST['username']); 
 $pw = hash('whirlpool', htmlspecialchars($_POST["password"]));
 
 
@@ -23,5 +23,4 @@ else // Pas d'utilisateur trouvé, erreur
 {
     header('Location: sign_in.php');
 }
-
 ?>
