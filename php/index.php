@@ -1,5 +1,5 @@
 <?php
-require_once('../config/connect2.php');
+require_once('../config/connect.php');
 session_start();
 if (isset($_SESSION['username']))
     require_once('index_log.php');
