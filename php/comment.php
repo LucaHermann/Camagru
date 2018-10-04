@@ -1,5 +1,5 @@
 <?php
-require_once('connect.php');
+require_once('../config/connect2.php');
 
 $date = date("Y-m-d");
 
