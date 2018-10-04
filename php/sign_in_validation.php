@@ -1,7 +1,7 @@
 <?php 
 
 //require_once("../config/is_connected.php");
-require_once("../config/connect2.php");
+require_once("../config/connect.php");
 
 $un = htmlspecialchars($_POST['username']); 
 $pw = hash('whirlpool', htmlspecialchars($_POST["password"]));
