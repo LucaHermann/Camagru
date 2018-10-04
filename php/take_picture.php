@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('../config/connect.php');
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
