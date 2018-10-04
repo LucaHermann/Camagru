@@ -58,17 +58,74 @@ function ouvrir_camera() {
    }
 
    function prepare_envoi(){
-
     var canvas = document.getElementById("cvs");
     var datas = canvas.toDataURL('image/jpeg');
-
     var ajax = new XMLHttpRequest();
-
     ajax.open('POST', './take_pic.php', true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     ajax.send('photo=' + datas);
     console.log("ok");
    }
+
+   function env(){
+    var image = document.getElementById("uppic");
+    var datas = image.toDataURL('image/jpeg');
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', './upload_picture.php', true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    ajax.send('photo=' + datas);
+    console.log("ok");
+   }
+
+   (function() {
+
+    function createThumbnail(file) {
+
+        var reader = new FileReader();
+
+        reader.addEventListener('load', function() {
+
+            var imgElement = document.createElement('img');
+            imgElement.style.maxWidth = '620px';
+            imgElement.style.maxHeight = '462px';
+            imgElement.src = this.result;
+            imgElement.id = 'uppic';
+            prev.appendChild(imgElement);
+            var datas = imgElement.src;
+            var ajax = new XMLHttpRequest();
+            ajax.open('POST', './upload_picture.php', true);
+            ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            ajax.send('photo=' + datas);
+            console.log("ok");
+        });
+        reader.readAsDataURL(file);
+
+    }
+
+    var allowedTypes = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'],
+        fileInput = document.querySelector('#file'),
+        prev = document.querySelector('#prev');
+
+    fileInput.addEventListener('change', function() {
+
+        var files = this.files,
+            filesLen = files.length,
+            imgType;
+
+        for (var i = 0; i < filesLen; i++) {
+
+            imgType = files[i].name.split('.');
+            imgType = imgType[imgType.length - 1];
+
+            if (allowedTypes.indexOf(imgType) != -1) {
+                createThumbnail(files[i]);
+            }
+
+        }
+
+    });
+
+})();
    
    function fermer(){
 

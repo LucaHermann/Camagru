@@ -1,7 +1,7 @@
 strong{
-	margin-right: 30px;
-	float: right;
-	color: grey;
+    margin-right: 30px;
+    float: right;
+    color: grey;
 }
 
 body{
@@ -15,7 +15,17 @@ body{
     width:100vw;
     overflow:hidden;
 }
+canvas{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
+button{
+    background-image: url(../ressources/logo_appareil.png);
+    border: none;
+    padding: 0;
+    margin: auto;
+}
 #container{
     overflow: scroll;
     display:flex;
@@ -43,14 +53,14 @@ body{
 }
 
 #footer{
-	height: 90px;
-	width: 100%;
-	position: absolute;
-	bottom: 0;
+    height: 90px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 #footer_bar{
-	position: fixed;
+    position: fixed;
   /*  background-color: rgba(255, 255, 255, 0);*/
     height: 50px;
     width: 101%;
@@ -112,7 +122,7 @@ body{
     float: left;
 }
 
-.logo_sign_in{
+.logo_account{
     position: relative;
     width: 30px;
     height: 30px;
@@ -123,13 +133,14 @@ body{
     margin-left: 20px;
 }
 
-.logo_sign_up{
+.logo_logout{
     position: relative;
     width: 30px;
     height: 30px;
     max-width: 30px;
     min-width: 30px;
     min-height: 30px;
+    margin-left: 20px;
 }
 
 .header_content_left {
@@ -149,15 +160,23 @@ body{
 .container_content_left{
     position:relative;
     float: left;
-    max-width: 614px;
+    max-width: 620px;
     width: 100%;
-    min-height: 4463px;
+    height: 61.5vw;
     flex-direction: column;
     display: flex;
-    margin: auto;
+}
+
+.container_content_right{
+    position:fixed;
+    width: 293px;
+    padding-left:28px;
+    margin-left:614px;
+    height: 845px;
 }
 
 .insta_post{
+    overflow: scroll;
     border-bottom-style: solid;
     border-bottom-width: thin;
     border-right-style: solid;
@@ -170,7 +189,7 @@ body{
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 103px;
     margin-left: -1px;
     margin-right: -1px;
 }
@@ -192,7 +211,7 @@ body{
 }
 
 .post_content{
-    max-height: 614px;
+    max-height: 462px;
     box-sizing: border-box;
     display: flex;
     position: relative;
@@ -417,4 +436,150 @@ body{
     outline: 0;
     padding: 0;
     resize: none;
+}
+
+.header_other_user{
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-color: rgba(230, 230, 230, 1);
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 62px;
+    justify-content: space-between;
+}
+
+.header_alignment{
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 12px;
+    max-height: 50px;
+    width: 100%;
+    padding-left: 5px;
+    align-items: center;
+    display: flex;  
+}
+
+.header_pp_other_user{
+    align-self: center;
+    display: block;
+    flex: none;
+}
+
+.roundedimage_sd{
+    overflow: hidden;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    flex: 0 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.alignment_name_other_user{
+    justify-content: center;
+    margin-left: 14px;
+    flex-direction: column;
+    display: flex;
+}
+
+.name_other_user{
+    flex-direction: row;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    padding: 0;
+}
+
+.user{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+    height: 18px;
+    justify-content: space-between;
+    margin: 12px 0px;
+}
+
+.user_name{
+    width: 100%;
+    color: #999;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.watch_all{
+    width: 23%;
+    color: #262626;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+}
+
+.position_user{
+    align-items: stretch;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.position_user_sd{
+    height: 250px;
+    overflow: hidden auto;
+}
+
+.alignment_user{
+    flex-direction: column;
+    padding-bottom: 8296px;
+    padding-top: 0px;
+}
+
+.here_it_is{
+        height: 68px;
+}
+
+.position_user::after{
+    background-image: linear-gradient(to bottom,rgba(250,250,250,0),#fafafa 100%);
+    bottom: 0;
+    content: "";
+    height: 16px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.for_beauty{
+    border-top: 1px solid #efefef;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    height: 1px;
+    margin: 0 0 12px;
+    width: 100%;
+    padding: 0;
+}
+
+.logo_take_pic{
+    width: 35px;
+    min-height: 35px;
+}
+
+@media screen and (max-width: 935px){
+    .container_content_right{
+        display: none;
+    }
+    .container_content_left{
+        margin: auto;
+    }
 }
