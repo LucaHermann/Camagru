@@ -23,7 +23,7 @@
                     </div>
                     <div id="formulary_form">
                         <form method="post" action="sign_in_validation.php" name="login" action="sign_in.php" class="form_design">
-                            <input type="text" name="username" id="formulary_login" placeholder="Login" autocomplete="login">
+                            <input type="text" name="username" id="formulary_login" placeholder="Username" autocomplete="login">
                             <input type="password" name="password" id="formulary_password" placeholder="Password" autocomplete="current-password">
                             <input class="button" type="submit" value="Log in"/>
                         </form>
@@ -36,6 +36,10 @@
                     <div id="formulary_sign_up">
                         <p id="formulary_sign_up_link">Don't have an account?<a href="sign_up.php"> Sign up</a></p>
                     </div>
+                     <div id="formulary_index_delog"> <!-- a changer en index.php quand la bdd sera faites -->
+                    Go see our galery
+                        <a id="fid" href="index_delog.php">just here</a>
+                </div>
                 </div>
             </div>
         </div>

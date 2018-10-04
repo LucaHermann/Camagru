@@ -3,7 +3,7 @@
 session_start();
 require_once('../config/connect2.php');
 
-$reponse = $bdd->query('SELECT * FROM user WHERE id = 1');
+$reponse = $bdd->query('SELECT * FROM user WHERE id = 13');
 
 while ($data = $reponse->fetch())
 {
