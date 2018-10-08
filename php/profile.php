@@ -11,8 +11,60 @@ while ($data = $reponse->fetch())
 {
 ?>
 <html>
+	<div id="overlay" onclick="off()">
+		<div class="aff_img_profile">
+			<div class="content_img_profile">
+				<article class="content_img_profile_sd">
+						<div class="header_other_user">
+							<?PHP 
+							$repuser = $bdd->prepare("SELECT id, pseudo, img FROM user WHERE id = :idasked");
+							$repuser->bindvalue(':idasked', $idasked, PDO::PARAM_INT);
+							$repuser->execute();
+							$datauser = $repuser->fetch();
+							echo 
+								'<div class="header_alignment">
+									<div class="header_pp_other_user">
+										<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
+											<img  src="data:image/jpeg;base64,'.base64_encode($datauser['img']).'" alt="1" class="pp_sd"/>
+										</a>
+									</div>
+									<div class="alignment_name_other_user">
+										<div class="name_other_user">
+											<a href="profile.php?id='.$datauser['id'].'" class="account_name_header" title="#">'.$datauser['pseudo'].'</a>
+										</div>
+									</div>
+								</div>';
+							?>
+						</div>
+						<!-- <div class="comments">
+								<ul class="comment_area">
+								<?PHP
+								// $rep = $bdd->prepare('SELECT DISTINCT text, pseudo FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+								// $rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
+								// $rep->execute();
+								// while($repdata = $rep->fetch()){
+								// 	echo '	<li class="the_comment">
+								// 		<div class="name_aera">
+								// 				<a class="name" href="#" title="#">'.$repdata['pseudo'].'</a>
+								// 				<span class="quote">'.$repdata['text'].'</span>
+								// 		</div>
+								// 	</li>';}
+									?>
+								</ul>
+						</div> -->
+						<div class="img_overlay">
+							<div class="pos_article">
+								<div class="pos_article_sd" id="img_over">
+								</div>						
+							</div>
+						</div>
+				</article>
+			</div>
+		</div> 
+	</div>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/profile.css"/>
+		<script src="../js/profile.js"></script>
 		<title>Camagru</title>
 	</head>
 <body>
@@ -49,7 +101,7 @@ while ($data = $reponse->fetch())
 				</div>
 				<div class="layout_profile_info">
 					<div class="header_profile_name">
-						<h1><?php echo $data['username'];?></h1>
+						<h1><?php echo $data['pseudo'];?></h1>
 					</div>
 					<ul class="header_profile_info">
 						<li class="info_post">
@@ -85,8 +137,8 @@ while ($data = $reponse->fetch())
 							{
 								if ($j == $nbdata)
 									break;
-								echo '<div class="profile_picture">
-										<img class="dislay_pic" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" width="293px" height="293px"/>
+								echo ' <div id="prof" class="profile_picture">
+											<img onclick="on()" name="a" class="dislay_pic" id="affpic" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" "/>						      
 									 </div>';
 								$j++;
 								$i++;
@@ -103,10 +155,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<div id="footer">
+	<!-- <div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div>
+	</div> -->
 </body>
 </html>
