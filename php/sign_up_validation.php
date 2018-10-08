@@ -41,7 +41,7 @@
     exit();}
     if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$#', $pw)){
         echo "Le mot de passe n'est pas assez complexe, il doit contenir au minimum une majuscule, une minuscule et un chiffre.<br>";
-    exit();}
+    exit();}  
     $pw =  hash('whirlpool', $_POST['password']);
     $res = $bdd->prepare('INSERT INTO  `user` (`email`,  `fullname`, `username`, `password`) VALUES (:email, :fn, :un , :pw)');
     $res->bindValue(':email', $email, PDO::PARAM_STR);

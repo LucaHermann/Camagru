@@ -66,10 +66,11 @@ function ouvrir_camera() {
     ajax.send('photo=' + datas);
     console.log("ok");
    }
+   
 
    function env(){
-    var image = document.getElementById("uppic");
-    var datas = image.toDataURL('image/jpeg');
+    var image = document.getElementById("uploadpic");
+    var datas = image.src
     var ajax = new XMLHttpRequest();
     ajax.open('POST', './upload_picture.php', true);
     ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -89,14 +90,14 @@ function ouvrir_camera() {
             imgElement.style.maxWidth = '620px';
             imgElement.style.maxHeight = '462px';
             imgElement.src = this.result;
-            imgElement.id = 'uppic';
+            imgElement.id = 'uploadpic';
             prev.appendChild(imgElement);
-            var datas = imgElement.src;
-            var ajax = new XMLHttpRequest();
-            ajax.open('POST', './upload_picture.php', true);
-            ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            ajax.send('photo=' + datas);
-            console.log("ok");
+            // var datas = imgElement.src;
+            // var ajax = new XMLHttpRequest();
+            // ajax.open('POST', './upload_picture.php', true);
+            // ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            // ajax.send('photo=' + datas);
+            // console.log("ok");
         });
         reader.readAsDataURL(file);
 

@@ -36,11 +36,11 @@ require_once('../config/connect.php');
 					<div class="insta_post">  
 						<div class="header_post">
 							<a href="profile.php?id='.$data['id'].'" class="roundedimage">
-								<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_encode($data['img']). '"/>
+								<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>
 							</a>
 							<div class="header_name">
 								<div class="header_name_sd">
-									<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['pseudo'].'</a>
+									<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
 								</div>
 							</div>
 						</div>
@@ -63,13 +63,13 @@ require_once('../config/connect.php');
 							</section>
 							<div class="comments">
 								<ul class="comment_area">';
-								$rep = $bdd->prepare('SELECT DISTINCT text, pseudo FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+								$rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 								$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 								$rep->execute();
 								while($repdata = $rep->fetch()){
 									echo '	<li class="the_comment">
 										<div class="name_aera">
-												<a class="name" href="#" title="#">'.$repdata['pseudo'].'</a>
+												<a class="name" href="#" title="#">'.$repdata['username'].'</a>
 												<span class="quote">'.$repdata['text'].'</span>
 										</div>
 									</li>';}

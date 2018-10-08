@@ -1,7 +1,7 @@
-function prepare_envoi_comment(){
+function comment(){
 
-    var canvas = document.getElementById("cvs");
-    var datas = canvas.toDataURL('image/jpeg');
+    var canvas = document.getElementById("comment");
+    var datas = canvas;
 
     var ajax = new XMLHttpRequest();
 

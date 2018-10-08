@@ -1,6 +1,5 @@
 <?php
 require_once('../config/connect.php');
-session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,11 +38,11 @@ session_start();
 					<div class="insta_post">  
 						<div class="header_post">
 							<a href="profile.php?id='.$data['id'].'" class="roundedimage">
-								<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_encode($data['img']). '"/>
+								<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>
 							</a>
 							<div class="header_name">
 								<div class="header_name_sd">
-									<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['pseudo'].'</a>
+									<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
 								</div>
 							</div>
 						</div>
@@ -66,22 +65,22 @@ session_start();
 							</section>
 							<div class="comments">
 								<ul class="comment_area">';
-								$rep = $bdd->prepare('SELECT DISTINCT text, pseudo FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+								$rep = $bdd->prepare('SELECT DISTINCT id, text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 								$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 								$rep->execute();
 								while($repdata = $rep->fetch()){
 									echo '	<li class="the_comment">
 										<div class="name_aera">
-												<a class="name" href="#" title="#">'.$repdata['pseudo'].'</a>
+												<a class="name" href="profile.php?id='.$repdata['id'].'" title="#">'.$repdata['username'].'</a>
 												<span class="quote">'.$repdata['text'].'</span>
 										</div>
 									</li>';}
 							echo '</ul>
 							</div>
 							<section class="writing_area">
-								<form class="enter_comment" method="POST" action="comment.php"> 
-									<input type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
-									<input type="hidden"  name="idimg"  value="'.$data['idimg'].'">
+								<form class="enter_comment" method="POST" > 
+									<input id="comment" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+									<input onclick="comment();" type="hidden"  name="idimg"  value="'.$data['idimg'].'">
 								</form>
 						</section>
 						</div>
@@ -92,19 +91,20 @@ session_start();
 			<div class="container_content_right">
 				<div class="header_other_user">
 				<?PHP 
-				$repuser = $bdd->prepare('SELECT id, pseudo, img FROM user WHERE id=1');
+				$repuser = $bdd->prepare('SELECT id, username, img FROM user WHERE id = :idusr');
+				$repuser->bindvalue(':idusr', $_SESSION['id'], PDO::PARAM_INT);
 				$repuser->execute();
 				$datauser = $repuser->fetch();
 				echo 
 					'<div class="header_alignment">
 						<div class="header_pp_other_user">
 							<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
-								<img  src="data:image/jpeg;base64,'.base64_encode($datauser['img']).'" alt="1" class="pp_sd"/>
+								<img  src="data:image/jpeg;base64,'.base64_decode($datauser['img']).'" alt="1" class="pp_sd"/>
 							</a>
 						</div>
 						<div class="alignment_name_other_user">
 							<div class="name_other_user">
-								<a href="profile.php?id='.$datauser['id'].'" class="account_name_header" title="#">'.$datauser['pseudo'].'</a>
+								<a href="profile.php?id='.$_SESSION['id'].'" class="account_name_header" title="#">'.$datauser['username'].'</a>
 							</div>
 						</div>
 					</div>';
@@ -118,7 +118,8 @@ session_start();
 					<div class="position_user_sd">
 						<div class="alignment_user">
 						<?PHP
-						$repotheruser = $bdd->prepare('SELECT id, pseudo, img FROM user WHERE id!=1');
+						$repotheruser = $bdd->prepare('SELECT id, username, img FROM user WHERE id != :idusr');
+						$repotheruser->bindvalue(':idusr', $_SESSION['id'], PDO::PARAM_INT);
 						$repotheruser->execute();
 						while($dataotheruser = $repotheruser->fetch()){
 							echo '
@@ -126,12 +127,12 @@ session_start();
 								<div class="header_alignment">
 									<div class="header_pp_other_user">
 										<a href="profile.php?id='.$dataotheruser['id'].'" class="roundedimage_sd">
-											<img src="data:image/jpeg;base64,'.base64_encode($dataotheruser['img']).'" alt="1" class="pp_sd"/>
+											<img src="data:image/jpeg;base64,'.base64_decode($dataotheruser['img']).'" alt="1" class="pp_sd"/>
 										</a>
 									</div>
 									<div class="alignment_name_other_user">
 										<div class="name_other_user">
-											<a href="profile.php?id='.$dataotheruser['id'].'" class="account_name_header" title="#">'.$dataotheruser['pseudo'].'</a>
+											<a href="profile.php?id='.$dataotheruser['id'].'" class="account_name_header" title="#">'.$dataotheruser['username'].'</a>
 										</div>
 									</div>
 								</div>

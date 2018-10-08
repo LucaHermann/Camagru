@@ -1,12 +1,13 @@
 <?php
 require_once('../config/connect.php');
+session_start();
 
 $date = date("Y-m-d");
 
 if (isset($_POST['text']) && isset($_POST['idimg'])){
     $text = $_POST['text'];
     $imgid = $_POST['idimg'];
-    $userid = 1; // recuperation avec session start
+    $userid = $_SESSION['id']; // recuperation avec session start
 }
 
 try {
