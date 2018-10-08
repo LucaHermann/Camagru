@@ -141,3 +141,6 @@ function ouvrir_camera() {
 
     video.srcObject = null;
    }
+
+
+   

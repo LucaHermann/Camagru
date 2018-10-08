@@ -28,6 +28,7 @@ h1 {
     font-weight: 200;
 }
 
+
 #container{
     overflow: scroll;
     display:flex;
@@ -258,14 +259,155 @@ h1 {
 
 .profile_picture{
     margin: 0px 15px;
-    max-width: 293px;
+    min-width: 293px;
     max-height: 293px;
 }
 
 .dislay_pic{
     width: 100%;
     display: flex;
-    height: auto;
+    height: 100%;
     max-width: 293px;
     max-height: 293px;
+}
+
+.aff_img_profile{
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 0 40px;
+        display: flex;
+    min-height: 100%;
+    overflow: auto;
+    width: auto;
+    z-index: 1;
+}
+
+#overlay {
+    overflow: auto;
+    position: fixed; 
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    justify-content: space-between;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 2; 
+    cursor: pointer;
+}
+
+.content_img_profile{
+    margin: auto;
+    max-width: 935px;
+    pointer-events: auto;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    background-color: #fff;
+    position: relative;
+}
+
+.content_img_profile_sd{
+    width: 100%;
+    padding: 0;
+}
+
+.header_other_user{
+    border-bottom: 1px solid #efefef;
+    margin-right: 0;
+    padding: 20px 0;
+    position: absolute;
+    right: 24px;
+    top: 0;
+    width: 287px;
+}
+
+.header_alignment{
+    flex-direction: row;
+    height: 100%;
+    max-height: 50px;
+    width: 100%;
+    padding-left: 5px;
+    align-items: center;
+    display: flex;  
+}
+
+.header_pp_other_user{
+    align-self: center;
+    display: block;
+    flex: none;
+}
+
+.roundedimage_sd{
+    overflow: hidden;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    flex: 0 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.alignment_name_other_user{
+    justify-content: center;
+    margin-left: 14px;
+    flex-direction: column;
+    display: flex;
+}
+
+.name_other_user{
+    flex-direction: row;
+    font-size: 14px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    padding: 0;
+}
+
+.pp_sd{
+    width: 40px;
+    height: 40px;
+}
+.account_name_header{
+    text-decoration: none;
+    color: #262626;
+    flex-grow: 0;   
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 5px;
+    margin-left: -5px;
+    flex-shrink: 1;
+}
+
+.img_overlay{
+    left: 0;
+    justify-content: center;
+    margin-right: 335px;
+    min-height: 450px;
+}
+
+.pos_article{
+    background-color: #efefef;
+    display: block;
+    width: 100%;
+}
+
+.aff_img_profile::after, .aff_img_profile::before{
+    content: '';
+    display: block;
+    flex-basis: 40px;
+    flex-shrink: 0;
+}
+
+.pos_article_sd{
+    display: block;
+    overflow: hidden;
+    /* padding-bottom: 100%; */
 }
