@@ -5,7 +5,7 @@ session_start();
 $idasked = $_GET['id'];
 
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
-$reponse = $bdd->bindValue('id', $idasked, PDO::PARAM_INT);
+//$reponse = $bdd->bindValue('id', $idasked, PDO::PARAM_INT);
 $reponse->execute();
 while ($data = $reponse->fetch())
 {
