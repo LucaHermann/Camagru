@@ -2,7 +2,14 @@
 require_once('../config/connect.php');
 session_start();
 
-$idasked = $_GET['id'];
+if(isset($_GET['id']))
+{
+	$idasked = $_GET['id'];
+}
+else
+{
+	$idasked = $_SESSION['id'];
+}
 
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
 //$reponse = $bdd->bindValue('id', $idasked, PDO::PARAM_INT);
@@ -17,7 +24,7 @@ while ($data = $reponse->fetch())
 				<article class="content_img_profile_sd">
 						<div class="header_other_user">
 							<?PHP 
-							$repuser = $bdd->prepare("SELECT id, pseudo, img FROM user WHERE id = :idasked");
+							$repuser = $bdd->prepare("SELECT id, username, img FROM user WHERE id = :idasked");
 							$repuser->bindvalue(':idasked', $idasked, PDO::PARAM_INT);
 							$repuser->execute();
 							$datauser = $repuser->fetch();
@@ -25,12 +32,12 @@ while ($data = $reponse->fetch())
 								'<div class="header_alignment">
 									<div class="header_pp_other_user">
 										<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
-											<img  src="data:image/jpeg;base64,'.base64_encode($datauser['img']).'" alt="1" class="pp_sd"/>
+											<img  src="data:image/jpeg;base64,'.base64_decode($datauser['img']).'" alt="1" class="pp_sd"/>
 										</a>
 									</div>
 									<div class="alignment_name_other_user">
 										<div class="name_other_user">
-											<a href="profile.php?id='.$datauser['id'].'" class="account_name_header" title="#">'.$datauser['pseudo'].'</a>
+											<a href="profile.php?id='.$datauser['id'].'" class="account_name_header" title="#">'.$datauser['username'].'</a>
 										</div>
 									</div>
 								</div>';
@@ -39,13 +46,13 @@ while ($data = $reponse->fetch())
 						<!-- <div class="comments">
 								<ul class="comment_area">
 								<?PHP
-								// $rep = $bdd->prepare('SELECT DISTINCT text, pseudo FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+								// $rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 								// $rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 								// $rep->execute();
 								// while($repdata = $rep->fetch()){
 								// 	echo '	<li class="the_comment">
 								// 		<div class="name_aera">
-								// 				<a class="name" href="#" title="#">'.$repdata['pseudo'].'</a>
+								// 				<a class="name" href="#" title="#">'.$repdata['username'].'</a>
 								// 				<span class="quote">'.$repdata['text'].'</span>
 								// 		</div>
 								// 	</li>';}
@@ -61,6 +68,26 @@ while ($data = $reponse->fetch())
 				</article>
 			</div>
 		</div> 
+	</div>
+	<div id="overlay_sd" onclick="off_sd()">
+	<div id="prev" style="display:none;">
+	</div>
+		<div class="add_img_profile">
+			<div class="content_upload">
+				<div class="title_upload">
+					<h3 classe="title">Change Profile Photo</h3>
+				</div>
+				<div class="div_button">
+					<!-- <button id="files" type="file" class="up_button"> Upload Photo</button> -->
+					<form enctype="multipart/form-data" style="border-top: 1px solid #efefef;    margin-bottom: 0;">
+						<label for="file" class="up_button">Upload Photo</label>
+						<input id="file" type="file" style="display:none;"/>
+					</form>
+					<button class="up_button_cancel">Cancel</button>
+				</div>
+
+			</div>
+		</div>
 	</div>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/profile.css"/>
@@ -92,16 +119,16 @@ while ($data = $reponse->fetch())
 		<div class="layout_profile">
 			<div id="header_profile">
 				<div class="header_profile_picture">
-					<div class="header_profile_picture_sd">
+					<div onclick="on_sd()" class="header_profile_picture_sd">
 							<?php
-								echo '<img class="roundimage" src="data:image/jpeg;base64,' .base64_encode($data['img']). '"/>';
+								echo '<img class="roundimage" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>';
 							?>
 						</div>
 					</div>
 				</div>
 				<div class="layout_profile_info">
 					<div class="header_profile_name">
-						<h1><?php echo $data['pseudo'];?></h1>
+						<h1><?php echo $data['username'];?></h1>
 					</div>
 					<ul class="header_profile_info">
 						<li class="info_post">
