@@ -10,7 +10,6 @@ else
 {
 	$idasked = $_SESSION['id'];
 }
-
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
 //$reponse = $bdd->bindValue('id', $idasked, PDO::PARAM_INT);
 $reponse->execute();
@@ -28,7 +27,7 @@ while ($data = $reponse->fetch())
 							$repuser->bindvalue(':idasked', $idasked, PDO::PARAM_INT);
 							$repuser->execute();
 							$datauser = $repuser->fetch();
-							echo 
+							echo
 								'<div class="header_alignment">
 									<div class="header_pp_other_user">
 										<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
@@ -41,24 +40,24 @@ while ($data = $reponse->fetch())
 										</div>
 									</div>
 								</div>';
-							?>
+							 ?>
 						</div>
-						<!-- <div class="comments">
+						<div class="comments">
 								<ul class="comment_area">
 								<?PHP
-								// $rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
-								// $rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
-								// $rep->execute();
-								// while($repdata = $rep->fetch()){
-								// 	echo '	<li class="the_comment">
-								// 		<div class="name_aera">
-								// 				<a class="name" href="#" title="#">'.$repdata['username'].'</a>
-								// 				<span class="quote">'.$repdata['text'].'</span>
-								// 		</div>
-								// 	</li>';}
+								$rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+								$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
+								$rep->execute();
+								while($repdata = $rep->fetch()){
+									echo '	<li class="the_comment">
+										<div class="name_aera">
+												<a class="name" href="#" title="#">'.$repdata['username'].'</a>
+												<span class="quote">'.$repdata['text'].'</span>
+										</div>
+									</li>';}
 									?>
 								</ul>
-						</div> -->
+						</div>
 						<div class="img_overlay">
 							<div class="pos_article">
 								<div class="pos_article_sd" id="img_over">
@@ -78,7 +77,7 @@ while ($data = $reponse->fetch())
 					<h3 classe="title">Change Profile Photo</h3>
 				</div>
 				<div class="div_button">
-					<!-- <button id="files" type="file" class="up_button"> Upload Photo</button> -->
+					<button id="files" type="file" class="up_button"> Upload Photo</button>
 					<form enctype="multipart/form-data" style="border-top: 1px solid #efefef;    margin-bottom: 0;">
 						<label for="file" class="up_button">Upload Photo</label>
 						<input id="file" type="file" style="display:none;"/>
@@ -182,10 +181,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<!-- <div id="footer">
+	<div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div> -->
+	</div>
 </body>
 </html>

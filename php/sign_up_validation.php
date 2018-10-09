@@ -37,7 +37,7 @@
     if (strlen($pw) < 8){
         echo "Le mot de passe est trop court (8 caracteres minimum)<br>";
     exit();}
-    if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$#', $pw)){
+    if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$#', $pw)){
         echo "Le mot de passe n'est pas assez complexe, il doit contenir au minimum une majuscule, une minuscule et un chiffre.<br>";
     exit();}
     $pw =  hash('whirlpool', $_POST['password']);
