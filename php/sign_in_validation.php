@@ -5,16 +5,17 @@ $un = htmlspecialchars($_POST['username']);
 $pw = hash('whirlpool', htmlspecialchars($_POST["password"]));
 
 
-$req = $bdd->prepare('SELECT COUNT(*) FROM user WHERE username = :un AND password = :pw');
+$req = $bdd->prepare('SELECT id, username FROM user WHERE username = :un AND password = :pw');
 $req->bindValue(':un', $un, PDO::PARAM_STR);
 $req->bindValue(':pw', $pw, PDO::PARAM_STR);
 $req->execute();
-$req = $req->fetch();
+$user = $req->fetch();
 
-if ($req[0] == "1") // L'utilisateur est trouvé, connexion
+if ($user) // L'utilisateur est trouvé, connexion
 {
     session_start();
-    $_SESSION['username'] = $un;
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['id'] = $user['id'];
     header('Location: index.php');
 }
 else // Pas d'utilisateur trouvé, erreur
