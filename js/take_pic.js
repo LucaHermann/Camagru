@@ -1,8 +1,13 @@
 function ouvrir_camera() {
-
+    var imgElementss = document.querySelector('#uploadpic');
+            if (imgElementss){
+            prev.removeChild(imgElementss);
+            }
     navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 400 } }).then(function(mediaStream) {
 
      var video = document.getElementById('sourcevid');
+     document.getElementById('cvs').style.display = "none";
+     video.style.display = "block";
      video.srcObject = mediaStream;
 
      var tracks = mediaStream.getTracks();
@@ -22,10 +27,13 @@ function ouvrir_camera() {
    }
 
    function photo(){
-
+    document.getElementById("dispbut").style.display = "none";
+    document.getElementById("jaxa").style.display = "block";
     var vivi = document.getElementById('sourcevid');
+    vivi.style.display = "none";
     //var canvas1 = document.createElement('canvas');
     var canvas1 = document.getElementById('cvs')
+    canvas1.style.display = "block";
     var ctx =canvas1.getContext('2d');
     canvas1.height=vivi.videoHeight
     canvas1.width=vivi.videoWidth
@@ -86,23 +94,26 @@ function ouvrir_camera() {
 
         reader.addEventListener('load', function() {
 
+            var imgElementss = document.querySelector('#uploadpic');
+            if (imgElementss){
+            prev.removeChild(imgElementss);
+            }
             var imgElement = document.createElement('img');
             imgElement.style.maxWidth = '620px';
             imgElement.style.maxHeight = '462px';
+            imgElement.style.marginTop = "15px";
+            imgElement.style.marginBottom = "15px";
             imgElement.src = this.result;
             imgElement.id = 'uploadpic';
             prev.appendChild(imgElement);
-            // var datas = imgElement.src;
-            // var ajax = new XMLHttpRequest();
-            // ajax.open('POST', './upload_picture.php', true);
-            // ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            // ajax.send('photo=' + datas);
-            // console.log("ok");
+            document.getElementById('sourcevid').style.display = "none";
+            document.getElementById('cvs').style.display = "none"
+            document.getElementById("jaxa").style.display = "none";
+            document.getElementById("dispbut").style.display = "block";
         });
         reader.readAsDataURL(file);
 
     }
-
     var allowedTypes = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'],
         fileInput = document.querySelector('#file'),
         prev = document.querySelector('#prev');
@@ -131,6 +142,7 @@ function ouvrir_camera() {
    function fermer(){
 
     var video = document.getElementById('sourcevid');
+    video.style.display = "none";
     var mediaStream=video.srcObject;
     console.log(mediaStream)
     var tracks = mediaStream.getTracks();

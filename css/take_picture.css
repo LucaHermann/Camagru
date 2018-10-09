@@ -192,6 +192,7 @@ button{
     margin-bottom: 103px;
     margin-left: -1px;
     margin-right: -1px;
+    background-color: white;
 }
 
 .header_post{
@@ -573,6 +574,10 @@ button{
 .logo_take_pic{
     width: 35px;
     min-height: 35px;
+}
+
+.but_pic{
+    display: none;
 }
 
 @media screen and (max-width: 935px){

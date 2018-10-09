@@ -8,8 +8,11 @@ if(isset($_GET['id']))
 	{
 		$uppic = "block";
 	}
+	else
+	{
+		$uppic = "none";
+	}
 	$idasked = $_GET['id'];
-	$uppic = "none";
 }
 else
 {
@@ -24,7 +27,9 @@ while ($data = $reponse->fetch())
 {
 ?>
 <html>
-	<div id="overlay" onclick="off()">
+	<div id="overlay" >
+		<div class="off" onclick="off()">
+		</div>
 		<div class="aff_img_profile">
 			<div class="content_img_profile">
 				<article class="content_img_profile_sd">
@@ -49,26 +54,33 @@ while ($data = $reponse->fetch())
 								</div>';
 							?>
 						</div>
-						<!-- <div class="comments">
-								<ul class="comment_area">
-								<?PHP
-								// $rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
-								// $rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
-								// $rep->execute();
-								// while($repdata = $rep->fetch()){
-								// 	echo '	<li class="the_comment">
-								// 		<div class="name_aera">
-								// 				<a class="name" href="#" title="#">'.$repdata['username'].'</a>
-								// 				<span class="quote">'.$repdata['text'].'</span>
-								// 		</div>
-								// 	</li>';}
-									?>
-								</ul>
-						</div> -->
 						<div class="img_overlay">
 							<div class="pos_article">
 								<div class="pos_article_sd" id="img_over">
 								</div>						
+							</div>
+						</div>
+						<div class="comment_profil_area">
+							<section class="buttons">
+								<div class="like_button">
+									<img src="../ressources/logo_like.png" class="post_button">
+								</div>
+								<div class="comment_button">
+									<img src="../ressources/logo_commentary.png" class="post_button">
+								</div>
+						</section>
+							<section class="like_area">
+								<div class="likes">
+									<span>143</span> likes
+								</div>
+							</section>
+							<section class="writing_area">
+								<form class="enter_comment" name="com" method="POST"> 
+									<input id="comment" onkeypress="if (event.key == 'Enter') comment_send()" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+									<input type="hidden"  id="idimg" >
+								</form>
+						</section>
+						<div class="comments"  id="comment_profile">
 							</div>
 						</div>
 				</article>
@@ -173,7 +185,7 @@ while ($data = $reponse->fetch())
 								if ($j == $nbdata)
 									break;
 								echo ' <div id="prof" class="profile_picture">
-											<img onclick="on(this)" name="a" class="dislay_pic" id="affpic" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" "/>						      
+											<img onclick="on(this)" name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" "/>						      
 									 </div>';
 								$j++;
 								$i++;

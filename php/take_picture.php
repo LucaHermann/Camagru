@@ -35,9 +35,9 @@ session_start();
 				<div class="insta_post">  
 					<div class="post_content">
 					<div id="prev" ></div>
-						<video id="sourcevid" width='400' autoplay="true"></video>
-							<canvas id="cvs" ></canvas>
-							<img src="../ressources/logo_name.png" >        
+						<video id="sourcevid" width='400' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
+							<canvas id="cvs" style="display:none;"></canvas>
+							<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
 					</div>
 				</div>				
 			</div>
@@ -55,9 +55,9 @@ session_start();
 								<img  src="data:image/jpeg;base64,'.base64_decode($datauser['img']).'" alt="1" class="pp_sd"/>
 							</a>
 						</div>
-						<button onclick="ouvrir_camera()" >ouvrir camera</button>
+						<button onclick="ouvrir_camera()" >Open</button>
 						<button onclick="photo()" class="logo_take_pic"><img src="../ressources/logo_appareil.png" class="logo_take_pic"></button>
-						<button onclick="fermer()" >fermer camera</button>
+						<button onclick="fermer()" >Close</button>
 					</div>';
 				?>
 				</div>
@@ -77,9 +77,11 @@ session_start();
 				<hr class="for_beauty">
 				<form class="button_up_pic">
 					<input id="file" type="file"/>
-					<button onclick='env()'>Save uploaded picture</button>
-					<div id="jaxa">
-						<button onclick='prepare_envoi()'>Save picture !</button>
+					<div class="but_pic" id="dispbut">
+					<button onclick='env()' id="saveup" >Save uploaded picture</button>
+					</div>
+					<div id="jaxa" class="but_pic">
+						<button onclick='prepare_envoi()' id="savecam" >Save picture !</button>
 					</div>
 				</form>
 			</div>

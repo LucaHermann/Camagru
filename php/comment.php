@@ -7,10 +7,11 @@ $date = date("Y-m-d");
 if (isset($_POST['text']) && isset($_POST['idimg'])){
     $text = $_POST['text'];
     $imgid = $_POST['idimg'];
-    $userid = $_SESSION['id']; // recuperation avec session start
+    $userid = $_SESSION['id'];// recuperation avec session start
 }
 
 try {
+
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = $bdd->prepare('INSERT INTO comment (img_id, user_id, text, date)
     VALUES (:idimg , :iduser, :text, :date)');
@@ -25,7 +26,7 @@ try {
     }
 catch(PDOException $e)
     {
-    echo $sql . "<br>" . $e->getMessage();
+    var_dump($e->getMessage());
     }
 
  ?>

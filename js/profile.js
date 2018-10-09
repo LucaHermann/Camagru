@@ -1,4 +1,7 @@
+var img_id;
+
 function on(image) {
+    img_id = image;
     document.getElementById("overlay").style.display = "block";
     prev = document.querySelector('#img_over');
     var imgElement = document.createElement('img');
@@ -7,6 +10,8 @@ function on(image) {
         imgElement.src = image.src;
         imgElement.id = "childpic";
         prev.appendChild(imgElement);
+        comment(image);
+
 }
 
 // document.onclick = function (event)
@@ -94,3 +99,27 @@ function env(){
     });
 
 })();
+
+function comment(image){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            leselect = xhr.responseText;
+            document.getElementById('comment_profile').innerHTML = leselect;
+        }
+    }
+    xhr.open("POST","aff_profile_comment.php",true);
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send("idimg="+image.id);
+}
+
+function comment_send(){
+    var image = img_id;
+    var donnee = document.getElementById('comment').value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','comment.php',true);
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send("idimg="+image.id+"&text="+donnee);
+    console.log("ok");
+    on();
+}

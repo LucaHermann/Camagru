@@ -5,6 +5,7 @@ require_once('../config/connect.php');
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/index_log.css"/>
+	<script src="../js/comment.js"></script>
 	<title>Camagru</title>
 </head>
 <body>
@@ -78,9 +79,9 @@ require_once('../config/connect.php');
 							echo '</ul>
 							</div>
 							<section class="writing_area">
-								<form class="enter_comment" method="POST" > 
-									<input id="comment" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
-									<input onclick="comment();" type="hidden"  name="idimg"  value="'.$data['idimg'].'">
+								<form class="enter_comment" method="POST">'; 
+									?><input id="comment" onkeypress="if (event.key == 'Enter') comment_send()" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…"><?PHP
+								echo '<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
 								</form>
 						</section>
 						</div>
