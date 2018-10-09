@@ -1,4 +1,5 @@
 <?php
+    
     require_once('../config/connect.php');
     session_start();
     
@@ -17,6 +18,7 @@
     $fn = htmlspecialchars($_POST['fullname']);
     $un = htmlspecialchars($_POST['username']);
     $pw =  $_POST['password'];
+    // $img = $_POST['file'];
     // check if the pseudo was available
     $res = $bdd->prepare('SELECT COUNT(username) AS nb FROM user WHERE username = :un');
     $res->bindValue(':un', $un, PDO::PARAM_STR);
@@ -47,5 +49,5 @@
     $res->bindValue(':un', $un, PDO::PARAM_STR);
     $res->bindValue(':pw', $pw, PDO::PARAM_STR);
     $res->execute();
-    header('Location: sign_in.php');
+    header('Location: /Camagru/php/sign_in.php');
 ?>
