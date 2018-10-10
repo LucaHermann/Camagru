@@ -108,6 +108,7 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
+	<!-- CSS A REGLER -->
 	</div>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/profile.css"/>
