@@ -1,6 +1,5 @@
 <?php
     require_once('../config/connect.php');
-    session_start();
     
     $email = htmlspecialchars($_POST['email']);
     // send email to the new user for notify her/his account was succesfully created
