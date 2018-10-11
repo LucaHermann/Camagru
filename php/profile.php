@@ -62,8 +62,7 @@ while ($data = $reponse->fetch())
 						</div>
 						<div class="comment_profil_area">
 							<section class="buttons">
-								<div class="like_button">
-									<img src="../ressources/logo_like.png" class="post_button">
+								<div class="like_button" id="like_button">
 								</div>
 								<div class="comment_button">
 									<img src="../ressources/logo_commentary.png" class="post_button">
@@ -71,7 +70,7 @@ while ($data = $reponse->fetch())
 						</section>
 							<section class="like_area">
 								<div class="likes">
-									<span>143</span> likes
+								<?PHP echo '<span id="likedisp"></span> likes';?>
 								</div>
 							</section>
 							<section class="writing_area">

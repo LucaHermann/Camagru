@@ -10,7 +10,10 @@ function on(image) {
         imgElement.src = image.src;
         imgElement.id = "childpic";
         prev.appendChild(imgElement);
+        isliked(image.id);
+        nblike(image.id);
         comment(image);
+
 
 }
 
@@ -120,6 +123,57 @@ function comment_send(){
     xhr.open('POST','comment.php',true);
     xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     xhr.send("idimg="+image.id+"&text="+donnee);
+    comment(image)
     console.log("ok");
-    on();
+}
+
+function nblike(imgid) {
+    var xhrnb = new XMLHttpRequest();
+    xhrnb.open('POST','./nblike.php',true);
+    xhrnb.onreadystatechange = function(){
+        if(xhrnb.readyState == 4 && xhrnb.status == 200){
+            leselect = xhrnb.responseText;
+            document.getElementById('likedisp').innerHTML = leselect;
+        }
+    }
+    xhrnb.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhrnb.send("idimg="+imgid); 
+}
+
+function like_send(image){
+    var img = img_id;
+    if (image.alt  == 2){
+        image.alt  = 1;
+   image.src = "../ressources/logo_liked.png"
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','./like.php',true);
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send("idimg="+img.id);
+    nblike(img.id);
+    console.log("ok");
+    }
+    else{
+        image.alt  = 2;
+        image.src = "../ressources/logo_like.png";
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST','./unlike.php',true);
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.send("idimg="+img.id);
+        nblike(img.id);
+        console.log("ok");
+        
+    }
+}
+
+function isliked(imgid) {
+    var xhrnb = new XMLHttpRequest();
+    xhrnb.open('POST','./isliked.php',true);
+    xhrnb.onreadystatechange = function(){
+        if(xhrnb.readyState == 4 && xhrnb.status == 200){
+            leselect = xhrnb.responseText;
+            document.getElementById('like_button').innerHTML = leselect;
+        }
+    }
+    xhrnb.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhrnb.send("idimg="+imgid); 
 }
