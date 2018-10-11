@@ -20,7 +20,7 @@ $rep->execute();
 $rep = $rep->fetch();
 
 
-if ($req[0] == "1") // L'utilisateur est trouvé, connexion
+if ($user) // L'utilisateur est trouvé, connexion
 {
     session_start();
     $_SESSION['username'] = $un;
