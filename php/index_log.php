@@ -6,6 +6,7 @@ require_once('../config/connect.php');
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/index_log.css"/>
 	<script src="../js/comment.js"></script>
+	<script src="../js/like.js"></script>
 	<title>Camagru</title>
 </head>
 <body>
@@ -33,8 +34,30 @@ require_once('../config/connect.php');
 				<?PHP
 				$reponse = $bdd->prepare('SELECT * FROM image, user WHERE image.id_user = user.id ORDER BY idimg DESC');
 				$reponse->execute();
+				$reponselike = $bdd->prepare('SELECT * FROM likes WHERE id_utilisateur = :iduser');
+				$reponselike->bindvalue(':iduser',  $_SESSION['id'], PDO::PARAM_INT);
+				$reponselike->execute();
+				$datalike =  $reponselike->fetchAll();
+				$j = 0;
 				
 				while ($data = $reponse->fetch()){
+					$i = 0;
+					$da = 0;
+					while($datalike[$i]){
+						if ($datalike[$i]['id_image'] == $data['idimg']){
+							$da = 1;
+							while($datalike[$i]){
+								$i++;
+							}
+						}
+						else{
+							// echo $datalike[$i]['id_image'];
+							// echo $data['idimg'];
+							$da = 0;
+						}
+						$i++;
+					}
+					//echo $da;
 				echo '
 					<div class="insta_post">  
 						<div class="header_post">
@@ -52,17 +75,27 @@ require_once('../config/connect.php');
 						</div>
 						<div class="post_buttons_comment">
 							<section class="buttons">
-								<div class="like_button">
-									<img src="../ressources/logo_like.png" class="post_button">
-								</div>
+								<div class="like_button">';
+								if ($da == 1) {
+									echo '<img onclick="like_send(this)" alt="1" name="'.$data['idimg'].'" id="like" src="../ressources/logo_liked.png" class="post_button">';
+									//break;
+								}
+								else{
+									echo '<img onclick="like_send(this)" alt="2" name="'.$data['idimg'].'" id="like" src="../ressources/logo_like.png" class="post_button">';
+								}
+								echo '</div>
 								<div class="comment_button">
 									<img src="../ressources/logo_commentary.png" class="post_button">
 								</div>
 							</section>
 							<section class="like_area">
-								<div class="likes">
-									<span>143</span> likes
-								</div>
+								<div class="likes" >
+								<input type="hidden" id="likesss" value="'.$j.'">';
+								$nblike = $bdd->prepare('SELECT COUNT(id_image) AS nblike FROM likes WHERE id_image = '.$data['idimg'].'');
+								$nblike->execute();
+								$datanb = $nblike->fetch();
+								echo '<span id="likedisp'.$data['idimg'].'">'.$datanb['nblike'].'</span> likes';
+								echo '</div>
 							</section>
 							<div class="comments">
 								<ul class="comment_area">';
@@ -78,14 +111,15 @@ require_once('../config/connect.php');
 									</li>';}
 							echo '</ul>
 							</div>
-							<section class="writing_area">
-								<form class="enter_comment" method="POST">'; 
-									?><input id="comment" onkeypress="if (event.key == 'Enter') comment_send()" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…"><?PHP
-								echo '<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
+							<section class="writing_area">';
+								?><form class="enter_comment" onkeypress="if (event.key == 'Enter') comment_send(this)" method="POST"><?PHP
+								echo '<input id="comment" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+								<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
 								</form>
 						</section>
 						</div>
 					</div>';
+					$j++;
 				}
 				?>				
 			</div>
@@ -126,7 +160,7 @@ require_once('../config/connect.php');
 							echo '
 							<div class="here_it_is">
 								<div class="header_alignment">
-									<div class="header_pp_other_user">
+									<div class="header_pp_other_user" >
 										<a href="profile.php?id='.$dataotheruser['id'].'" class="roundedimage_sd">
 											<img src="data:image/jpeg;base64,'.base64_decode($dataotheruser['img']).'" alt="1" class="pp_sd"/>
 										</a>
