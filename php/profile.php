@@ -39,7 +39,7 @@ while ($data = $reponse->fetch())
 							$repuser->bindvalue(':idasked', $idasked, PDO::PARAM_INT);
 							$repuser->execute();
 							$datauser = $repuser->fetch();
-							echo 
+							echo
 								'<div class="header_alignment">
 									<div class="header_pp_other_user">
 										<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
@@ -52,7 +52,7 @@ while ($data = $reponse->fetch())
 										</div>
 									</div>
 								</div>';
-							?>
+							 ?>
 						</div>
 						<div class="img_overlay">
 							<div class="pos_article">
@@ -202,10 +202,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<!-- <div id="footer">
+	<div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div> -->
+	</div>
 </body>
 </html>
