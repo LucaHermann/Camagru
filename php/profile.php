@@ -75,12 +75,12 @@ while ($data = $reponse->fetch())
 							</section>
 							<section class="writing_area">
 								<form class="enter_comment" name="com" method="POST"> 
-									<input id="comment" onkeypress="if (event.key == 'Enter') comment_send()" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+									<input id="comment" onkeypress="if (event.key == 'Enter'){comment_send(); return false;}" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
 									<input type="hidden"  id="idimg" >
 								</form>
 						</section>
 						<div class="comments"  id="comment_profile">
-							</div>
+						</div>
 						</div>
 				</article>
 			</div>

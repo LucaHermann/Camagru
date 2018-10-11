@@ -119,11 +119,16 @@ function comment(image){
 function comment_send(){
     var image = img_id;
     var donnee = document.getElementById('comment').value;
+    document.getElementById('comment').value = "";
     var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){    
+            comment(image);
+        }
+    }
     xhr.open('POST','comment.php',true);
     xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     xhr.send("idimg="+image.id+"&text="+donnee);
-    comment(image)
     console.log("ok");
 }
 
