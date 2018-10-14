@@ -45,7 +45,7 @@ a {
     margin: 0 auto;
     max-width: 935px;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 30px;
 }
 
 #formulary {
@@ -75,7 +75,7 @@ a {
 #formulary_title {
     display: flex;
     justify-content: center;
-    margin: 22px auto 12px;
+    margin: 10px auto 12px;
 }
 
 #formulary_annoucement {

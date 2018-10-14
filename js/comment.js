@@ -1,12 +1,9 @@
-function prepare_envoi_comment(){
-
-    var canvas = document.getElementById("cvs");
-    var datas = canvas.toDataURL('image/jpeg');
-
-    var ajax = new XMLHttpRequest();
-
-    ajax.open('POST', './take_pic.php', true);
-    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    ajax.send('photo=' + datas);
+function comment_send(form){
+    var image =  form.elements[1].value;
+    var donnee = form.elements[0].value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST','./comment.php',true);
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send("idimg="+image+'&'+"text="+donnee);
     console.log("ok");
-   }
+}

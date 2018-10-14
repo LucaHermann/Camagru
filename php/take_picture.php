@@ -1,8 +1,7 @@
 <?php
-session_start();
 require_once('../config/connect.php');
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -36,29 +35,31 @@ require_once('../config/connect.php');
 				<div class="insta_post">  
 					<div class="post_content">
 					<div id="prev" ></div>
-						<video id="sourcevid" width='400' autoplay="true"></video>
-							<canvas id="cvs" ></canvas>
-							<img src="../ressources/logo_name.png" >        
+						<video id="sourcevid" width='400' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
+							<canvas id="cvs" style="display:none;"></canvas>
+							<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
 					</div>
 				</div>				
 			</div>
 			<div class="container_content_right">
 				<div class="header_other_user">
-					<div class="header_alignment">
+				<?PHP 
+				$repuser = $bdd->prepare('SELECT id, username, img FROM user WHERE id = :idusr');
+				$repuser->bindvalue(':idusr', $_SESSION['id'], PDO::PARAM_INT);
+				$repuser->execute();
+				$datauser = $repuser->fetch();
+				echo 
+					'<div class="header_alignment">
 						<div class="header_pp_other_user">
-							<a class="roundedimage_sd">
-								<img src="http://placekitten.com/g/30/30" alt="1" class="pp_sd"/>
+							<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
+								<img  src="data:image/jpeg;base64,'.base64_decode($datauser['img']).'" alt="1" class="pp_sd"/>
 							</a>
 						</div>
-						<button onclick='ouvrir_camera()' >ouvrir camera</button>
-						<button onclick='photo()' class="logo_take_pic"><img src="../ressources/logo_appareil.png" class="logo_take_pic"></button>
-						<button onclick='fermer()' >fermer camera</button>
-						<div class="alignment_name_other_user">
-							<div class="name_other_user">
-								<a class="account_name_header" title="#">Filters</a>
-							</div>
-						</div>
-					</div>
+						<button onclick="ouvrir_camera()" >Open</button>
+						<button onclick="photo()" class="logo_take_pic"><img src="../ressources/logo_appareil.png" class="logo_take_pic"></button>
+						<button onclick="fermer()" >Close</button>
+					</div>';
+				?>
 				</div>
 				<div class="user">
 					<span class="user_name">Choose</span>
@@ -74,19 +75,23 @@ require_once('../config/connect.php');
 					</div>
 				</div>
 				<hr class="for_beauty">
-				<input id="file" type="file"/>
-				<button onclick='env()'>Save uploaded picture</button>
-				<div id="jaxa">
-					<button onclick='prepare_envoi()'>Save picture !</button>
-				</div>
+				<form class="button_up_pic">
+					<input id="file" type="file"/>
+					<div class="but_pic" id="dispbut">
+					<button onclick='env()' id="saveup" >Save uploaded picture</button>
+					</div>
+					<div id="jaxa" class="but_pic">
+						<button onclick='prepare_envoi()' id="savecam" >Save picture !</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	<div id="footer">
+	<!-- <div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div>
+	</div> -->
 	<script src="../js/take_pic.js"></script>
 </body>
 </html>

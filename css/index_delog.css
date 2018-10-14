@@ -206,6 +206,7 @@ body{
 .display_picture{
     width: 100%;
     display: flex;
+    max-height: 614px;
 }
 
 .post_buttons_comment{

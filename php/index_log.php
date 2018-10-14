@@ -5,6 +5,8 @@ require_once('../config/connect.php');
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/index_log.css"/>
+	<script src="../js/comment.js"></script>
+	<script src="../js/like.js"></script>
 	<title>Camagru</title>
 </head>
 <body>
@@ -32,17 +34,39 @@ require_once('../config/connect.php');
 				<?PHP
 				$reponse = $bdd->prepare('SELECT * FROM image, user WHERE image.id_user = user.id ORDER BY idimg DESC');
 				$reponse->execute();
+				$reponselike = $bdd->prepare('SELECT * FROM likes WHERE id_utilisateur = :iduser');
+				$reponselike->bindvalue(':iduser',  $_SESSION['id'], PDO::PARAM_INT);
+				$reponselike->execute();
+				$datalike =  $reponselike->fetchAll();
+				$j = 0;
 				
 				while ($data = $reponse->fetch()){
+					$i = 0;
+					$da = 0;
+					while($datalike[$i]){
+						if ($datalike[$i]['id_image'] == $data['idimg']){
+							$da = 1;
+							while($datalike[$i]){
+								$i++;
+							}
+						}
+						else{
+							// echo $datalike[$i]['id_image'];
+							// echo $data['idimg'];
+							$da = 0;
+						}
+						$i++;
+					}
+					//echo $da;
 				echo '
 					<div class="insta_post">  
 						<div class="header_post">
 							<a href="profile.php?id='.$data['id'].'" class="roundedimage">
-								<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_encode($data['img']). '"/>
+								<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>
 							</a>
 							<div class="header_name">
 								<div class="header_name_sd">
-									<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['pseudo'].'</a>
+									<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
 								</div>
 							</div>
 						</div>
@@ -51,59 +75,71 @@ require_once('../config/connect.php');
 						</div>
 						<div class="post_buttons_comment">
 							<section class="buttons">
-								<div class="like_button">
-									<img src="../ressources/logo_like.png" class="post_button">
-								</div>
+								<div class="like_button">';
+								if ($da == 1) {
+									echo '<img onclick="like_send(this)" alt="1" name="'.$data['idimg'].'" id="like" src="../ressources/logo_liked.png" class="post_button">';
+									//break;
+								}
+								else{
+									echo '<img onclick="like_send(this)" alt="2" name="'.$data['idimg'].'" id="like" src="../ressources/logo_like.png" class="post_button">';
+								}
+								echo '</div>
 								<div class="comment_button">
 									<img src="../ressources/logo_commentary.png" class="post_button">
 								</div>
 							</section>
 							<section class="like_area">
-								<div class="likes">
-									<span>143</span> likes
-								</div>
+								<div class="likes" >
+								<input type="hidden" id="likesss" value="'.$j.'">';
+								$nblike = $bdd->prepare('SELECT COUNT(id_image) AS nblike FROM likes WHERE id_image = '.$data['idimg'].'');
+								$nblike->execute();
+								$datanb = $nblike->fetch();
+								echo '<span id="likedisp'.$data['idimg'].'">'.$datanb['nblike'].'</span> likes';
+								echo '</div>
 							</section>
 							<div class="comments">
 								<ul class="comment_area">';
-								$rep = $bdd->prepare('SELECT DISTINCT text, pseudo FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+								$rep = $bdd->prepare('SELECT DISTINCT id, text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 								$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 								$rep->execute();
 								while($repdata = $rep->fetch()){
 									echo '	<li class="the_comment">
 										<div class="name_aera">
-												<a class="name" href="#" title="#">'.$repdata['pseudo'].'</a>
+												<a class="name" href="profile.php?id='.$repdata['id'].'" title="#">'.$repdata['username'].'</a>
 												<span class="quote">'.$repdata['text'].'</span>
 										</div>
 									</li>';}
 							echo '</ul>
 							</div>
-							<section class="writing_area">
-								<form class="enter_comment" method="POST" action="comment.php"> 
-									<input type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
-									<input type="hidden"  name="idimg"  value="'.$data['idimg'].'">
+							<section class="writing_area">';
+								?><form class="enter_comment" onkeypress="if (event.key == 'Enter') comment_send(this)" method="POST"><?PHP
+								echo '<input id="comment" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+								<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
 								</form>
 						</section>
 						</div>
 					</div>';
+					$j++;
 				}
 				?>				
 			</div>
 			<div class="container_content_right">
 				<div class="header_other_user">
 				<?PHP 
-				$repuser = $bdd->prepare('SELECT id, pseudo, img FROM user WHERE id=1');
+				$repuser = $bdd->prepare('SELECT id, username, img FROM user WHERE id = :idusr');
+				$repuser->bindvalue(':idusr', $_SESSION['id'], PDO::PARAM_INT);
 				$repuser->execute();
 				$datauser = $repuser->fetch();
 				echo 
 					'<div class="header_alignment">
 						<div class="header_pp_other_user">
 							<a href="profile.php?id='.$datauser['id'].'" class="roundedimage_sd">
-								<img  src="data:image/jpeg;base64,'.base64_encode($datauser['img']).'" alt="1" class="pp_sd"/>
+								<img  src="data:image/jpeg;base64,'.base64_decode($datauser['img']).'" alt="1" class="pp_sd"/>
 							</a>
 						</div>
 						<div class="alignment_name_other_user">
 							<div class="name_other_user">
-								<a href="profile.php?id='.$datauser['id'].'" class="account_name_header" title="#">'.$datauser['pseudo'].'</a>
+								<a href="profile.php?id='.$_SESSION['id'].'" class="account_name_header" title="#">'.$datauser['username'].'</a>
 							</div>
 						</div>
 					</div>';
@@ -117,20 +153,21 @@ require_once('../config/connect.php');
 					<div class="position_user_sd">
 						<div class="alignment_user">
 						<?PHP
-						$repotheruser = $bdd->prepare('SELECT id, pseudo, img FROM user WHERE id!=1');
+						$repotheruser = $bdd->prepare('SELECT id, username, img FROM user WHERE id != :idusr');
+						$repotheruser->bindvalue(':idusr', $_SESSION['id'], PDO::PARAM_INT);
 						$repotheruser->execute();
 						while($dataotheruser = $repotheruser->fetch()){
 							echo '
 							<div class="here_it_is">
 								<div class="header_alignment">
-									<div class="header_pp_other_user">
+									<div class="header_pp_other_user" >
 										<a href="profile.php?id='.$dataotheruser['id'].'" class="roundedimage_sd">
-											<img src="data:image/jpeg;base64,'.base64_encode($dataotheruser['img']).'" alt="1" class="pp_sd"/>
+											<img src="data:image/jpeg;base64,'.base64_decode($dataotheruser['img']).'" alt="1" class="pp_sd"/>
 										</a>
 									</div>
 									<div class="alignment_name_other_user">
 										<div class="name_other_user">
-											<a href="profile.php?id='.$dataotheruser['id'].'" class="account_name_header" title="#">'.$dataotheruser['pseudo'].'</a>
+											<a href="profile.php?id='.$dataotheruser['id'].'" class="account_name_header" title="#">'.$dataotheruser['username'].'</a>
 										</div>
 									</div>
 								</div>
