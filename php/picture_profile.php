@@ -1,5 +1,5 @@
 <?php
-require_once('../config/connect2.php');
+require_once('../config/connect.php');
 ?>
 <!DOCTYPE html>
 <html>

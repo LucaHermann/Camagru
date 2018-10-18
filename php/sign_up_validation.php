@@ -1,7 +1,6 @@
 <?php
     
     require_once('../config/connect.php');
-    session_start();
     
     $email = htmlspecialchars($_POST['email']);
     // send email to the new user for notify her/his account was succesfully created
@@ -39,15 +38,19 @@
     if (strlen($pw) < 8){
         echo "Le mot de passe est trop court (8 caracteres minimum)<br>";
     exit();}
-    if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$#', $pw)){
+    if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$#', $pw)){
         echo "Le mot de passe n'est pas assez complexe, il doit contenir au minimum une majuscule, une minuscule et un chiffre.<br>";
     exit();}  
     $pw =  hash('whirlpool', $_POST['password']);
     $res = $bdd->prepare('INSERT INTO  `user` (`email`,  `fullname`, `username`, `password`, `img`) VALUES (:email, :fn, :un , :pw, "")');
     $res->bindValue(':email', $email, PDO::PARAM_STR);
+    echo '4';
     $res->bindValue(':fn', $fn, PDO::PARAM_STR);
+    echo '5';
     $res->bindValue(':un', $un, PDO::PARAM_STR);
+    echo '6';
     $res->bindValue(':pw', $pw, PDO::PARAM_STR);
+    echo '7';
     $res->execute();
     header('Location: /Camagru/php/sign_in.php');
 ?>
