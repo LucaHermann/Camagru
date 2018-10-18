@@ -34,10 +34,11 @@ session_start();
 			<div class="container_content_left">
 				<div class="insta_post">  
 					<div class="post_content">
-					<div id="prev" ></div>
-						<video id="sourcevid" width='400' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
-							<canvas id="cvs" style="display:none;"></canvas>
-							<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
+						<div style="position:absolute;margin-top:15px;width:100%;height:100%;"><img id="fifi" src="" style="" ></div>
+						<div id="prev"></div>
+						<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
+						<canvas id="cvs" style="display:none;"></canvas>
+						<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
 					</div>
 				</div>				
 			</div>
@@ -69,6 +70,9 @@ session_start();
 						<div class="alignment_user">
 							<div class="here_it_is">
 								<div class="header_alignment">
+									<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 125px; width:350px; height:325px;">
+									<img onclick="filtre(this)" src="../ressources/test_sd.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 50px; margin-left: 200px; width:200px; height:200px;">
+									<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 150px; width:300px; height:300px;">
 								</div>
 							</div>
 						</div>
