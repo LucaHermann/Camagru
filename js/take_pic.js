@@ -140,6 +140,11 @@ function ouvrir_camera() {
 
 })();
    
+    function filtre(image){
+        document.getElementById("fifi").src = image.src;
+        document.getElementById("fifi").style = image.name;
+    }
+
    function fermer(){
 
     var video = document.getElementById('sourcevid');
