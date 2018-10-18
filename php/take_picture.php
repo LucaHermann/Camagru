@@ -34,7 +34,7 @@ session_start();
 			<div class="container_content_left">
 				<div class="insta_post">  
 					<div class="post_content">
-						<div style="position:absolute;margin-top:15px;width:100%;height:100%;"><img id="fifi" src="" style="" ></div>
+						<div style="position:absolute;margin-top:15px;width:100%;height:100%;"><img id="fifi" src="" style="" name=""></div>
 						<div id="prev"></div>
 						<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
 						<canvas id="cvs" style="display:none;"></canvas>
