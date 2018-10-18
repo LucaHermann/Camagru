@@ -167,7 +167,7 @@ body{
     border-left-style: solid;
     border-left-width: thin;
     border-color: rgba(230, 230, 230, 1);
-    display: flex;
+    max-width: 600px;
     flex-direction: column;
     position: relative;
     margin-bottom: 60px;

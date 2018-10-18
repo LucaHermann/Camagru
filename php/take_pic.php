@@ -4,6 +4,7 @@ session_start();
 
 
 $date = date("Y-m-d");
+$trick = "../ressources/";
 
 
 if (isset($_POST['photo'])){
@@ -16,10 +17,20 @@ if (isset($_POST['photo'])){
     //file_put_contents($decoded);
 }
 
+if (isset($_POST['filter_path']) && isset($_POST['filter_style'])){
+    $tmp = explode("/", $_POST['filter_path']);
+    $path = $trick.$tmp[5];
+    $style = $_POST['filter_style'];
+}
+else{
+    $path = "";
+    $style = "";
+}
+
 try {
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO image (img_path, date, id_user)
-    VALUES ('".$decoded."', '".$date."', '".$_SESSION['id']."')";
+    $sql = "INSERT INTO image (img_path, date, id_user, filter_path, filter_style)
+    VALUES ('".$decoded."', '".$date."', '".$_SESSION['id']."', '".$path."', '".$style."')";
     $bdd->exec($sql);
     echo "New record created successfully";
     }
