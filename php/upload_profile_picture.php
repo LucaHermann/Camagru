@@ -1,7 +1,6 @@
 <?php
-session_start();
 require_once('../config/connect.php');
-
+session_start();
 
 
 $date = date("Y-m-d");

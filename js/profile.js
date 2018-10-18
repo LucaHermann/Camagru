@@ -6,7 +6,7 @@ function on(image) {
     prev = document.querySelector('#img_over');
     var imgElement = document.createElement('img');
         imgElement.style.width = '100%';
-        imgElement.style.height = '100%';
+        // imgElement.style.height = '100%';
         imgElement.src = image.src;
         imgElement.id = "childpic";
         prev.appendChild(imgElement);
