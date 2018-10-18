@@ -34,10 +34,11 @@ session_start();
 			<div class="container_content_left">
 				<div class="insta_post">  
 					<div class="post_content">
-					<div id="prev" ></div>
-					<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
-					<canvas id="cvs" style="display:none;"></canvas>
-					<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
+						<div style="position:absolute;"><img src="../ressources/test_sd.png" style="width:200px; height:200px;"></div>
+						<div id="prev"></div>
+						<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
+						<canvas id="cvs" style="display:none;"></canvas>
+						<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
 					</div>
 				</div>				
 			</div>
@@ -69,6 +70,9 @@ session_start();
 						<div class="alignment_user">
 							<div class="here_it_is">
 								<div class="header_alignment">
+									<img src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;">
+									<img src="../ressources/test_sd.png" style="width:50px; height:50px; margin-left:30px;">
+									<img src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;">
 								</div>
 							</div>
 						</div>
