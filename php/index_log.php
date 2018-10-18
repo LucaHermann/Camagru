@@ -97,8 +97,8 @@ require_once('../config/connect.php');
 								echo '<span id="likedisp'.$data['idimg'].'">'.$datanb['nblike'].'</span> likes';
 								echo '</div>
 							</section>
-							<div class="comments">
-								<ul class="comment_area">';
+							<div class="comments" id="comment'.$data['idimg'].'">';
+								echo '<ul class="comment_area">';
 								$rep = $bdd->prepare('SELECT DISTINCT id, text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 								$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 								$rep->execute();
@@ -112,11 +112,25 @@ require_once('../config/connect.php');
 							echo '</ul>
 							</div>
 							<section class="writing_area">';
-								?><form class="enter_comment" onkeypress="if (event.key == 'Enter') comment_send(this)" method="POST"><?PHP
-								echo '<input id="comment" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+								?><form class="enter_comment" onkeypress="if (event.key == 'Enter'){comment_send(this); return false;}" <?PHP echo 'method="POST">
+								<input id="comment_index'.$data['idimg'].'" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
 								<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
-								</form>
-						</section>
+								</form>';
+								// ?><script>
+								// var image = document.getElementById('idimg').value;
+								// alert(image);
+								// var xhr = new XMLHttpRequest();
+								// xhr.onreadystatechange = function(){
+								// 	if(xhr.readyState == 4 && xhr.status == 200){
+								// 		leselect = xhr.responseText;
+								// 		document.getElementById('comment'+image).innerHTML = leselect;
+								// 	}
+								// }
+								// xhr.open("POST","aff_index_comment.php",true);
+								// xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+								// xhr.send("idimg="+image);
+								// </script><?PHP
+						echo '</section>
 						</div>
 					</div>';
 					$j++;
