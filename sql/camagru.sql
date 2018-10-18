@@ -58,8 +58,8 @@ CREATE TABLE `image` (
 --
 
 CREATE TABLE `likes` (
-  `img_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `id_image` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -105,8 +105,8 @@ ALTER TABLE `image`
 -- Index pour la table `likes`
 --
 ALTER TABLE `likes`
-  ADD KEY `img_id` (`img_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `id_image` (`id_image`),
+  ADD KEY `id_utilisateur` (`id_utilisateur`);
 
 --
 -- Index pour la table `user`
@@ -152,8 +152,8 @@ ALTER TABLE `image`
   ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
 
 --
--- Contraintes pour la table `like`
+-- Contraintes pour la table `likes`
 --
 ALTER TABLE `likes`
-  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`img_id`) REFERENCES `image` (`idimg`);
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`id_image`) REFERENCES `image` (`idimg`);
