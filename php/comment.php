@@ -8,9 +8,6 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
     $text = $_POST['text'];
     $imgid = $_POST['idimg'];
     $userid = $_SESSION['id'];// recuperation avec session start
-    echo $text;
-    echo $imgid;
-    echo $date;
 }
 
 try {

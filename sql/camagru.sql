@@ -48,7 +48,9 @@ CREATE TABLE `image` (
   `date` date NOT NULL,
   `id_user` int(11) NOT NULL,
   `idimg` int(11) NOT NULL,
-  `img_path` longblob NOT NULL
+  `img_path` longblob NOT NULL,
+  `filter_path` varchar(200),
+  `filter_style` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
