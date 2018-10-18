@@ -35,9 +35,9 @@ session_start();
 				<div class="insta_post">  
 					<div class="post_content">
 					<div id="prev" ></div>
-						<video id="sourcevid" width='400' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
-							<canvas id="cvs" style="display:none;"></canvas>
-							<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
+					<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
+					<canvas id="cvs" style="display:none;"></canvas>
+					<img src="../ressources/logo_name.png" style="margin-bottom: 26px;" >        
 					</div>
 				</div>				
 			</div>

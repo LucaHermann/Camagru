@@ -3,7 +3,7 @@ function ouvrir_camera() {
             if (imgElementss){
             prev.removeChild(imgElementss);
             }
-    navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 400 } }).then(function(mediaStream) {
+    navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 600 } }).then(function(mediaStream) {
 
      var video = document.getElementById('sourcevid');
      document.getElementById('cvs').style.display = "none";
@@ -99,10 +99,11 @@ function ouvrir_camera() {
             prev.removeChild(imgElementss);
             }
             var imgElement = document.createElement('img');
-            imgElement.style.maxWidth = '620px';
-            imgElement.style.maxHeight = '462px';
+            imgElement.style.maxWidth = '600px';
+            imgElement.style.maxHeight = '450px';
             imgElement.style.marginTop = "15px";
             imgElement.style.marginBottom = "15px";
+            imgElement.style.width = "100%";
             imgElement.src = this.result;
             imgElement.id = 'uploadpic';
             prev.appendChild(imgElement);
