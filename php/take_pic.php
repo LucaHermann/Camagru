@@ -4,7 +4,7 @@ session_start();
 
 
 $date = date("Y-m-d");
-$trick = "..";
+$trick = "../ressources/";
 
 
 if (isset($_POST['photo'])){
@@ -18,7 +18,8 @@ if (isset($_POST['photo'])){
 }
 
 if (isset($_POST['filter_path']) && isset($_POST['filter_style'])){
-    $path = $trick.substr($_POST['filter_path'], -23);
+    $tmp = explode("/", $_POST['filter_path']);
+    $path = $trick.$tmp[5];
     $style = $_POST['filter_style'];
 }
 else{
