@@ -293,7 +293,8 @@ body{
 }
 
 .comments{
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
     background: 0 0;
     border: 0;
     font-size: inherit;

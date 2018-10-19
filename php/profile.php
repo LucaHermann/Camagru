@@ -186,15 +186,14 @@ while ($data = $reponse->fetch())
 									break;
 								echo ' <div id="prof" class="profile_picture">
 											<img onclick="on(this)" name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" "/>						      
-									 </div>';
+									</div>';
 								$j++;
 								$i++;
 							}
 							echo '</div>';
 							if ($j == $nbdata)
 									break;
-						}
-						
+						}	
 					}
 					$reponse->closeCursor();
 					?>
@@ -202,10 +201,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<!-- <div id="footer">
+	<div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div> -->
+	</div>
 </body>
 </html>
