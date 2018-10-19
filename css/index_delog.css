@@ -285,11 +285,12 @@ body{
 }
 
 .comments{
+    overflow-x: hidden;
+    overflow-y: auto;
     background: 0 0;
     border: 0;
     font-size: inherit;
-    height: 18px;
-    max-height: 80px;
+    max-height: 65px;
     outline: 0;
     padding: 0;
     resize: none;
