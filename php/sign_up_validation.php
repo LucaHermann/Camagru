@@ -4,9 +4,9 @@
     session_start();
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo("$email is a valid email address");
+    echo("$email is a valid email address<br>");
     } else {
-        echo("$email is not a valid email address");
+    echo("$email is not a valid email address<br>");
     }
     $email = htmlspecialchars($_POST['email']);
     // send email to the new user for notify her/his account was succesfully created

@@ -33,9 +33,9 @@
                     Don't have an account?
                         <a href="sign_up.php">Sign up here</a>
                 </div>
-                <div id="formulary_index_delog"> <!-- a changer en index.php quand la bdd sera faites -->
+                <div id="formulary_index_delog">
                     Go see our galery
-                        <a href="index_delog.php">just here</a>
+                        <a href="index.php">just here</a>
                 </div>
 			</div>
         </div>
