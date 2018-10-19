@@ -201,10 +201,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<div id="footer">
+	<!-- <div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div>
+	</div> -->
 </body>
 </html>

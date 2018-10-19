@@ -294,6 +294,8 @@ body{
     outline: 0;
     padding: 0;
     resize: none;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .comment_area{
