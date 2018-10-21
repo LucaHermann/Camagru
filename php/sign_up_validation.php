@@ -1,8 +1,9 @@
 <?php
-    
+
 	require_once('../config/connect.php');
 	session_start();
 
+	$email = $_POST['email'];
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 	echo("$email is a valid email address<br>");
 	} else {
@@ -23,7 +24,6 @@
 	$fn = htmlspecialchars($_POST['fullname']);
 	$un = htmlspecialchars($_POST['username']);
 	$pw =  $_POST['password'];
-	// $img = $_POST['file'];
 	// check if the pseudo was availableœ
 	$res = $bdd->prepare('SELECT COUNT(username) AS nb FROM user WHERE username = :un');
 	$res->bindValue(':un', $un, PDO::PARAM_STR);
