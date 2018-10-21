@@ -21,7 +21,6 @@ else
 }
 
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
-//$reponse = $bdd->bindValue('id', $idasked, PDO::PARAM_INT);
 $reponse->execute();
 while ($data = $reponse->fetch())
 {
@@ -187,15 +186,14 @@ while ($data = $reponse->fetch())
 								echo ' <div id="prof" class="profile_picture">
 											<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifi" src="'.$data[$j]['filter_path'].'" style="'.$data[$j]['filter_style_profile'].'" name=""></div>
 											<img onclick="on(this)" name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" "/>						      
-									 </div>';
+									</div>';
 								$j++;
 								$i++;
 							}
 							echo '</div>';
 							if ($j == $nbdata)
 									break;
-						}
-						
+						}	
 					}
 					$reponse->closeCursor();
 					?>
@@ -203,10 +201,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<!-- <div id="footer">
+	<div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div> -->
+	</div>
 </body>
 </html>
