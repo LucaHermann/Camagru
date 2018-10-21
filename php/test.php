@@ -1,3 +1,4 @@
+
 <?php
 require_once('../config/connect.php');
 $req1 = $bdd->prepare('SELECT id_user FROM image WHERE idimg = :idimg');
