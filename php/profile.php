@@ -21,7 +21,6 @@ else
 }
 
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
-//$reponse = $bdd->bindValue('id', $idasked, PDO::PARAM_INT);
 $reponse->execute();
 while ($data = $reponse->fetch())
 {
@@ -201,10 +200,10 @@ while ($data = $reponse->fetch())
 			</div>
 		</div>
 	</div>
-	<!-- <div id="footer">
+	<div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div> -->
+	</div>
 </body>
 </html>
