@@ -91,11 +91,11 @@ session_start();
 			</div>
 		</div>
 	</div>
-	<!-- <div id="footer">
+	<div id="footer">
 		<div id="footer_bar">
 			<strong> © Mdauphin Lhermann </strong>
 		</div>
-	</div> -->
+	</div>
 	<script src="../js/take_pic.js"></script>
 </body>
 </html>
