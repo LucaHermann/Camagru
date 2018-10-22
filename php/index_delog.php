@@ -5,10 +5,12 @@ require_once('../config/connect.php');
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/index_delog.css"/>
+	<script src="../js/comment_delog.js"></script>
+	<script src="../js/like_delog.js"></script>
 	<title>Camagru</title>
 </head>
 <body>
-	<div class="header">
+<div class="header">
 		<div class="position_navbar">
 			<div class="header_content_left">
 				<div class="logo_appareil"><img src="../ressources/logo_appareil.png" width="30px"height="30px"></div>
@@ -30,8 +32,30 @@ require_once('../config/connect.php');
 				<?PHP
 				$reponse = $bdd->prepare('SELECT * FROM image, user WHERE image.id_user = user.id ORDER BY idimg DESC');
 				$reponse->execute();
+				$reponselike = $bdd->prepare('SELECT * FROM likes WHERE id_utilisateur = :iduser');
+				$reponselike->bindvalue(':iduser',  $_SESSION['id'], PDO::PARAM_INT);
+				$reponselike->execute();
+				$datalike =  $reponselike->fetchAll();
+				$j = 0;
 				
 				while ($data = $reponse->fetch()){
+					$i = 0;
+					$da = 0;
+					while($datalike[$i]){
+						if ($datalike[$i]['id_image'] == $data['idimg']){
+							$da = 1;
+							while($datalike[$i]){
+								$i++;
+							}
+						}
+						else{
+							// echo $datalike[$i]['id_image'];
+							// echo $data['idimg'];
+							$da = 0;
+						}
+						$i++;
+					}
+					//echo $da;
 				echo '
 					<div class="insta_post">  
 						<div class="header_post">
@@ -45,44 +69,56 @@ require_once('../config/connect.php');
 							</div>
 						</div>
 						<div class="post_content">
+							<div style="position:absolute;width:100%;height:100%;z-index:1;"><img id="fifi" src="'.$data['filter_path'].'" style="'.$data['filter_style'].'" name=""></div>
 							<img src="data:image/jpeg;base64,' .base64_decode($data['img_path']). '" class="display_picture">
 						</div>
 						<div class="post_buttons_comment">
 							<section class="buttons">
-								<div class="like_button">
-									<img src="../ressources/logo_like.png" class="post_button">
-								</div>
+								<div class="like_button">';
+								if ($da == 1) {
+									echo '<img onclick="like_send(this)" alt="1" name="'.$data['idimg'].'" id="like" src="../ressources/logo_liked.png" class="post_button">';
+									//break;
+								}
+								else{
+									echo '<img onclick="like_send(this)" alt="2" name="'.$data['idimg'].'" id="like" src="../ressources/logo_like.png" class="post_button">';
+								}
+								echo '</div>
 								<div class="comment_button">
 									<img src="../ressources/logo_commentary.png" class="post_button">
 								</div>
 							</section>
 							<section class="like_area">
-								<div class="likes">
-									<span>143</span> likes
-								</div>
+								<div class="likes" >
+								<input type="hidden" id="likesss" value="'.$j.'">';
+								$nblike = $bdd->prepare('SELECT COUNT(id_image) AS nblike FROM likes WHERE id_image = '.$data['idimg'].'');
+								$nblike->execute();
+								$datanb = $nblike->fetch();
+								echo '<span id="likedisp'.$data['idimg'].'">'.$datanb['nblike'].'</span> likes';
+								echo '</div>
 							</section>
-							<div class="comments">
-								<ul class="comment_area">';
-								$rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+							<div class="comments" id="comment'.$data['idimg'].'">';
+								echo '<ul class="comment_area">';
+								$rep = $bdd->prepare('SELECT DISTINCT id, text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 								$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 								$rep->execute();
 								while($repdata = $rep->fetch()){
 									echo '	<li class="the_comment">
 										<div class="name_aera">
-												<a class="name" href="#" title="#">'.$repdata['username'].'</a>
+												<a class="name" href="profile.php?id='.$repdata['id'].'" title="#">'.$repdata['username'].'</a>
 												<span class="quote">'.$repdata['text'].'</span>
 										</div>
 									</li>';}
 							echo '</ul>
 							</div>
-							<section class="writing_area">
-								<form class="enter_comment" method="POST" action="comment.php"> 
-									<input type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
-									<input type="hidden"  name="idimg"  value="'.$data['idimg'].'">
-								</form>
-						</section>
+							<section class="writing_area">';
+								?><form class="enter_comment" onkeypress="if (event.key == 'Enter'){comment_send(this); return false;}" <?PHP echo 'method="POST">
+								<input id="comment_index'.$data['idimg'].'" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
+								<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
+								</form>';
+						echo '</section>
 						</div>
 					</div>';
+					$j++;
 				}
 				?>				
 			</div>
