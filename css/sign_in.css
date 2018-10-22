@@ -1,296 +1,296 @@
 html { 
-    overflow-y: hidden; 
-    height: 100%;
+  overflow-y: hidden; 
+  height: 100%;
 } 
 
 body{
-    height: 100%;
-    background-color: rgba(250, 250,250, 1);
-    font-size: 14px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    position:relative;
-    display:flex;
-    justify-content: flex-start;
-    flex-direction:column;
-    margin:0;
-    width:100vw;
-    overflow:hidden;
+  height: 100%;
+  background-color: rgba(250, 250,250, 1);
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative;
+  display:flex;
+  justify-content: flex-start;
+  flex-direction:column;
+  margin:0;
+  width:100vw;
+  overflow:hidden;
 }
 
 p {
-   font-size: 12px;
-   color: #003569;
+  font-size: 12px;
+  color: #003569;
 }
 
 a {
-    color: #3897f0;
-    text-decoration: none;
+  color: #3897f0;
+  text-decoration: none;
 }
 
 strong{
-    margin-right: 30px;
-    float: right;
-    color: grey;
+  margin-right: 30px;
+  float: right;
+  color: grey;
 }
 
 #container{
-    display: flex;
-    width: 100%;
-    left: 0;
-    right: 0;
-    position: relative;
-    background-color: rgba(250, 250, 250, 1);
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  left: 0;
+  right: 0;
+  position: relative;
+  background-color: rgba(250, 250, 250, 1);
+  justify-content: center;
+  align-items: center;
 }
 
 #container_sign_in {
-    align-items: center;
-    justify-content: center;
-    margin: 30px auto 0;
-    max-width: 935px;
-    padding-bottom: 44px;
-    width: 100%;
-    flex-grow: 1;
-    flex-direction: row;
-    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto 0;
+  max-width: 935px;
+  padding-bottom: 44px;
+  width: 100%;
+  flex-grow: 1;
+  flex-direction: row;
+  display: flex;
 }
 
 #mockup_iphone {
-    align-self: center;
-    background-position: 0 0;
-    height: 618px;
-    max-width: 454px;
-    margin-left: -35px;
-    margin-right: -15px;
+  align-self: center;
+  background-position: 0 0;
+  height: 618px;
+  max-width: 454px;
+  margin-left: -35px;
+  margin-right: -15px;
 }
 
 #iphone_pic{
-    flex-basis: 454px;
-    height: 580px;
-    margin-left: -35px;
-    margin-right: -15px;
-    align-self: center;
+  flex-basis: 454px;
+  height: 580px;
+  margin-left: -35px;
+  margin-right: -15px;
+  align-self: center;
 }
 
 #formulary_sd{
-    background-color: rgba(250, 250,250, 1);
-    width: 28vw;
-    height: 3.2vw;
+  background-color: rgba(250, 250,250, 1);
+  width: 28vw;
+  height: 3.2vw;
 }
 
 #formulary_td{
-    max-width: 350px;
-    background-color: rgba(255, 255, 255, 1);
-    margin: 0 0 10px;
-    border-top-style: solid;
-    border-top-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-color: rgba(230, 230, 230, 1);
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 1);
+  margin: 0 0 10px;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: rgba(230, 230, 230, 1);
 }
 
 #formulary {
-    flex-grow: 1;
-    justify-content: center;
-    margin-top: 12px;
-    max-width: 350px;;
-    height: auto;
+  flex-grow: 1;
+  justify-content: center;
+  margin-top: 12px;
+  max-width: 350px;;
+  height: auto;
 }
 
 #formulary_title {
-    margin: 22px auto 12px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+  margin: 22px auto 12px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 #formulary_form {
-    justify-content: center;
-    align-items: center;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-color: rgba(230, 230, 230, 1); 
+  justify-content: center;
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: rgba(230, 230, 230, 1); 
 }
 
 #formulary_login {
-    margin: 0 40px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-direction: row;
-    max-height: 36px;
-    height: 36px;
-    background-color: rgb(250, 250, 250);
-    border-top-style: solid;
-    border-top-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-color: rgba(230, 230, 230, 1);
+  margin: 0 40px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-direction: row;
+  max-height: 36px;
+  height: 36px;
+  background-color: rgb(250, 250, 250);
+  border-top-style: solid;
+  border-top-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: rgba(230, 230, 230, 1);
 }
 
 #formulary_password {
-    margin: 0 40px 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-direction: row;
-    max-height: 36px;
-    height: 36px;
-    background-color: rgb(250, 250, 250);
-    border-top-style: solid;
-    border-top-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-color: rgba(230, 230, 230, 1);    
+  margin: 0 40px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-direction: row;
+  max-height: 36px;
+  height: 36px;
+  background-color: rgb(250, 250, 250);
+  border-top-style: solid;
+  border-top-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: rgba(230, 230, 230, 1);    
 }
 
 #formulary_decoration {
-    color: #999;
-    margin: 10px 40px 18px;
-    display: flex;
-    justify-content: center;  
+  color: #999;
+  margin: 10px 40px 18px;
+  display: flex;
+  justify-content: center;  
 }
 
 .formulary_forget_password{
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
-    line-height: 14px;
-    margin-bottom: 20px;
-    margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 20px;
+  margin-top: 12px;
 }
 
 
 #formulary_forget_password {
-    text-align: center;
-    color: #003569;
+  text-align: center;
+  color: #003569;
 }
 
 #formulary_fd {
-    background-color: rgba(250, 250,250, 1);
-    width: 100%;
-    height: 50px;
-    margin-left: -1px;
-    z-index: 1;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-color: rgba(250, 250, 250, 1);
+  background-color: rgba(250, 250,250, 1);
+  width: 100%;
+  height: 50px;
+  margin-left: -1px;
+  z-index: 1;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-color: rgba(250, 250, 250, 1);
 }
 
 #formulary_sign_up {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 10px;
-    padding: 10px 0;
-    border-top-style: solid;
-    border-top-width: thin;
-    border-color: rgba(230, 230, 230, 1);
+  display: flex;
+  justify-content: center;
+  margin: 0 0 10px;
+  padding: 10px 0;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-color: rgba(230, 230, 230, 1);
 }
 
 #formulary_sign_up_link {
-    font-size: 14px;
-    margin: 15px;
-    text-align: center;
+  font-size: 14px;
+  margin: 15px;
+  text-align: center;
 }
 
 #formulary_index_delog{
-    display: flex;
-    justify-content: center;
-    margin: 0 0 10px;
-    padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 10px;
+  padding: 10px 0;
 }
 
 #fid{
-    margin-left: 7px;
+  margin-left: 7px;
 }
 .logo {
-    width: 175px;
-    height: 51px;
-    display: block;
-    overflow: hidden;
-    text-indent: 110%;
-    white-space: nowrap;
+  width: 175px;
+  height: 51px;
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
 }
 
 .button {
-    background-color: lightskyblue;
-    border: none;
-    color: white;
-    text-align: center;
-    opacity: 0.6;
-    transition: 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    width: 70%;
-    height: 28px;
-    margin-top: 15px;
-    margin-left: 52px;
+  background-color: lightskyblue;
+  border: none;
+  color: white;
+  text-align: center;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  width: 70%;
+  height: 28px;
+  margin-top: 15px;
+  margin-left: 52px;
 }
 
 .button:hover {
-    opacity: 2;
+  opacity: 2;
 }
 
 #footer{
-    position: fixed;
-    z-index: 1;
-    height: 90px;
-    width: 100%;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  z-index: 1;
+  height: 90px;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #footer_bar{
-  /*  background-color: rgba(255, 255, 255, 0);*/
-    height: 50px;
-    width: 100%;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
+/*  background-color: rgba(255, 255, 255, 0);*/
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .form_design{
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    display: flex;
-    padding: 0;
-    position: relative;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  position: relative;
 }
 
 .blank{
-    margin: 8px 40px;
-    display: block;
-    position: relative;
-    max-width: 268px;
-    max-height: 28px;
+  margin: 8px 40px;
+  display: block;
+  position: relative;
+  max-width: 268px;
+  max-height: 28px;
 }
 
 @media screen and (max-width: 875px){
-    #mockup_iphone{
-        display: none;
-    }
-    #formulary{
-        margin: auto;
-    }
+  #mockup_iphone{
+      display: none;
+  }
+  #formulary{
+      margin: auto;
+  }
 }
