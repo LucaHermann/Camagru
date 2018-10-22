@@ -13,7 +13,7 @@ $req1 = $bdd->prepare('SELECT id_user FROM image WHERE idimg = :idimg');
     $req2->execute();
     echo '3<br>';
     $data2[0] = $req2->fetch();
-    echo 'req2 ok';
+    echo 'req2 ok<br>';
     $email = $data2[0]; 
     $sujet = 'New Comment';
     $message = '<html>';
