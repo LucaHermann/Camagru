@@ -6,7 +6,6 @@ require_once("../config/connect.php");
 $un = htmlspecialchars($_POST['username']); 
 $pw = hash('whirlpool', htmlspecialchars($_POST["password"]));
 
-
 $req = $bdd->prepare('SELECT COUNT(*) FROM user WHERE username = :un AND password = :pw');
 $req->bindValue(':un', $un, PDO::PARAM_STR);
 $req->bindValue(':pw', $pw, PDO::PARAM_STR);

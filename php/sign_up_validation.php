@@ -17,7 +17,7 @@
 	$message .= '<p>Bonjour, <br> Felicitation ton compte a bien été crée ! </p>';
 	$message .= '<p>Rendez-vous sur Camagru.</p>';
 	$message .= '</html>';
-	$headers = 'MIME-Version: 1.0'."\r\n";
+	$headers .= 'MIME-Version: 1.0'."\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
 	$headers .= 'From: "Camagru"<nepasrepondre@camagru.fr>'."\n";
 	mail($email, $sujet, $message, $headers);
