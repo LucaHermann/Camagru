@@ -24,8 +24,8 @@ session_start();
 					<div class="logo_account"><img src="../ressources/logo_account.png"width="30px"height="30px"></div>
 				</a>
 				<a href="sign_out.php">
-                    <div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
-                </a>
+          <div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
+        </a>
 			</div>
 		</div>
 	</div>
@@ -82,10 +82,10 @@ session_start();
 				<form class="button_up_pic">
 					<input id="file" type="file"/>
 					<div class="but_pic" id="dispbut">
-					<button onclick='env()' id="saveup" >Save uploaded picture</button>
+					<button onclick='env()' id="saveup">Save uploaded picture</button>
 					</div>
 					<div id="jaxa" class="but_pic">
-						<button onclick='prepare_envoi()' id="savecam" >Save picture !</button>
+						<button onclick='prepare_envoi()' id="savecam">Save picture !</button>
 					</div>
 				</form>
 			</div>
