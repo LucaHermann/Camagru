@@ -9,7 +9,7 @@ if(isset($_POST['idimg'])){
         echo '	<li class="the_comment">
                 <div class="name_aera">
                   <a class="name" href="#" title="#">'.$repdata['username'].'</a>
-                  <span class="quote">'.$repdata['text'].'</span>
+                  <span class="quote">'.htmltspecialchars($repdata['text']).'</span>
                 </div>
                 </li>';
             }

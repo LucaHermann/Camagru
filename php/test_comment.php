@@ -2,13 +2,20 @@
 <?php
 require_once('../config/connect.php');
 $req1 = $bdd->prepare('SELECT id_user FROM image WHERE idimg = :idimg');
-    $req1->bindValue(':idimg', $_POST['idimg'], PDO::PARAM_INT);
-    $req1->execute();
-    $data1[0] = $req1->fetch();
-    echo 'req1ok<br>';
+    $req1->execute(array('idimg' => $_POST['idimg']));    
+// $req1->bindValue(':idimg', $_POST['idimg'], PDO::PARAM_INT);
+    
+    // $req1->execute();
+    // $data1[0] = $req1->fetch();
+    if ($test = $req1->fetch())
+    {
+        echo 'req1ok<br>';
+        echo $test;
+    }
     $req2 = $bdd->prepare('SELECT email FROM user WHERE id = :iduser');
     echo '1<br>';
-    $req2 = $bdd->bindvalue('iduser', $data2[0], PDO::PARAM_INT);
+    echo $data2[0].'okok';
+    $req2 = $bdd->bindvalue('iduser', $data2[0].email, PDO::PARAM_INT);
     echo '2<br>';
     $req2->execute();
     echo '3<br>';
