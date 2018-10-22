@@ -62,12 +62,16 @@ function ouvrir_camera() {
 
   function prepare_envoi(){
   var filter = document.getElementById("fifi");
+  if (filter.src == "")
+    alert("yo");
+  else
+    alert(filter.src);
   var canvas = document.getElementById("cvs");
   var datas = canvas.toDataURL('image/jpeg');
   var ajax = new XMLHttpRequest();
   ajax.open('POST', './take_pic.php', true);
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  ajax.send('photo=' + datas + '&filter_path=' + filter.src + "&filter_style=" + filter.name);
+  ajax.send('photo=' + datas + '&filter_path=' + filter.src + "&filter_style=" + filter.name + "&filter_style_profile=" + filter.name);
   }
   
 
@@ -138,7 +142,7 @@ function ouvrir_camera() {
   function filtre(image){
       document.getElementById("fifi").src = image.src;
       document.getElementById("fifi").style = image.name;
-      document.getElementById("fifi").name = image.name;
+      document.getElementById("fifi").name = image.alt;
   }
 
   function fermer(){
