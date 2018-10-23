@@ -6,13 +6,13 @@ $rep = $bdd->prepare('SELECT DISTINCT text, username FROM user, comment, image W
   $rep->bindvalue(':idimg', $_POST['idimg'], PDO::PARAM_INT);
   $rep->execute();
   while($repdata = $rep->fetch()){
-      echo '	<li class="the_comment">
-              <div class="name_aera">
-                <a class="name" href="#" title="#">'.$repdata['username'].'</a>
-                <span class="quote">'.htmltspecialchars($repdata['text']).'</span>
-              </div>
-              </li>';
-          }
+    echo '	<li class="the_comment">
+      <div class="name_aera">
+        <a class="name" href="#" title="#">'.htmlentities($repdata['username']).'</a>
+          <span class="quote">'.htmlentities($repdata['text']).'</span>
+        </div>
+    </li>';
+  }
 }
 echo "</ul>";
 ?>

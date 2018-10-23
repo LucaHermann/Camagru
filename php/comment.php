@@ -20,9 +20,13 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
     $email = $test2['email'];
   }
   $text = $_POST['text'];
+  $antixss = $text;
+  $antixss = strip_tags($antixss);
+  $new_text = htmlspecialchars($antixss, ENT_QUOTES);
+  $text = $new_text;
   $imgid = $_POST['idimg'];
   $userid = $_SESSION['id'];// recuperation avec session start
-  $email = $email; 
+  $email = $email;
   $sujet = 'New Comment';
   $message = '<html>';
   $message .= '<head><title> New comment! </title></head>';
