@@ -200,7 +200,7 @@ position: fixed;
 }
 
 .post_content{
-  max-height: 614px;
+  max-height: 450px;
   box-sizing: border-box;
   display: flex;
   position: relative;
@@ -213,7 +213,7 @@ position: fixed;
 
 .display_picture{
   width: 100%;
-  max-height: 614px;
+  max-height: 450px;
   display: flex;
 }
 

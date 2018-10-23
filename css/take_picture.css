@@ -230,6 +230,17 @@ button{
   width: 100%;
 }
 
+.last_post{
+  margin: 0px 15px;
+}
+
+.display_picture_filter{
+  width: 100%;
+  display: flex;
+  max-width: 300px;
+  max-height: 225px;
+}
+
 .header_post{
   border-bottom-style: solid;
   border-bottom-width: thin;
