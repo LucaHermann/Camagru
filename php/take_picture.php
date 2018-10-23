@@ -93,7 +93,6 @@ session_start();
 			<div class="container_content_bot">
 				<div class="filter_pic">
 					<div class="last_post">
-						<h1>hello dewffsesfsefseffesfesfeseegrdg</h1>
 					</div>
 				</div>
 			</div>
