@@ -1,222 +1,222 @@
 strong{
-    margin-right: 30px;
-    float: right;
-    color: grey;
+  margin-right: 30px;
+  float: right;
+  color: grey;
 }
 
 body{
-    font-size: 14px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    position:relative;
-    display:flex;
-    justify-content: flex-start;
-    flex-direction:column;
-    margin:0;
-    width:100vw;
-    overflow:hidden;
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative;
+  display:flex;
+  justify-content: flex-start;
+  flex-direction:column;
+  margin:0;
+  width:100vw;
+  overflow:hidden;
 }
 
 #container{
-    display:flex;
-    width: 100%;
-    left: 0;
-    right: 0;
-    position: relative;
-    background-color: rgba(255, 255, 255, 1);
-    justify-content: center;
-    align-items: center;
+  display:flex;
+  width: 100%;
+  left: 0;
+  right: 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  justify-content: center;
+  align-items: center;
 }
 
 .header{
-    position:relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-color: rgba(230, 230, 230, 1);
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-color: rgba(230, 230, 230, 1);
 }
 
 #footer{
-    height: 90px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+  height: 90px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 #footer_bar{
-    position: fixed;
-  /*  background-color: rgba(255, 255, 255, 0);*/
-    height: 50px;
-    width: 101%;
-    margin-top: -10px;
-    margin-left: -10px;
-    bottom: 0;
+  position: fixed;
+/*  background-color: rgba(255, 255, 255, 0);*/
+  height: 50px;
+  width: 101%;
+  margin-top: -10px;
+  margin-left: -10px;
+  bottom: 0;
 }
 
 #nav_bar {
-    height: 75px;
-    background-color: white;
+  height: 75px;
+  background-color: white;
 }
 
 .position_navbar{
-    max-width: 935px;
-    width: 935px;
-    display: flex;
-    overflow: hidden;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    height: 75px;
+  max-width: 935px;
+  width: 935px;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 75px;
 }
 
 .logo_appareil{
-    position: relative;
-    width: 35px;
-    height: 35px;
-    max-width: 35px;
-    min-width: 35px;
-    min-height: 35px;
-    margin-top: 20px;
-    float: left;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  max-width: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: 20px;
+  float: left;
 }
 
 .logo_camagru{
-    border-left-style: solid;
-    border-left-width: thin;
-    border-color: rgba(0, 0, 0, 1);
-    position: relative;
-    width: 105px;
-    height: 35px;
-    max-width: 225px;
-    min-width: 35px;
-    min-height: 35px;
-    margin-top: 18px;
-    margin-left: 10px;
-    float: left;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-color: rgba(0, 0, 0, 1);
+  position: relative;
+  width: 105px;
+  height: 35px;
+  max-width: 225px;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: 18px;
+  margin-left: 10px;
+  float: left;
 }
 
 .logo_setting{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    max-width: 30px;
-    min-width: 30px;
-    min-height: 30px;
-    margin-right: 10px;
-    margin-left: 20px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 
 .logo_logout{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    max-width: 30px;
-    min-width: 30px;
-    min-height: 30px;
-    margin-left: 20px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin-left: 20px;
 }
 
 .header_content_left {
-    display:flex;
-    overflow:hidden;
-    margin-left: 5px;
-    margin-bottom: 10px;
+  display:flex;
+  overflow:hidden;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .header_content_right {
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 2px;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2px;
 }
 
 .setting_main {
-    position:relative;
-    display:flex;
-    width: 935px;
-    max-width: 935px;
-    background-color: rgba(255, 255, 255, 1);
-    height: auto;
-    padding-top: 60px;
+  position:relative;
+  display:flex;
+  width: 935px;
+  max-width: 935px;
+  background-color: rgba(255, 255, 255, 1);
+  height: auto;
+  padding-top: 60px;
 }
 
 .setting_form {
-    width: 100%;
-    height: auto;
-    border-top-style: solid;
-    border-top-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-color: rgba(230, 230, 230, 1);
+  width: 100%;
+  height: auto;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: rgba(230, 230, 230, 1);
 }
 
 .input_zone {
-    width: 100%;
-    height: auto;
-    display: flex;
-    text-align: center;
-    margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .input_zone_sd {
-    width: 100%;
-    height: auto;
-    display: flex;
-    text-align: center;
-    margin-bottom: 15px;
-    margin-top: 15px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .input_zone_td {
-    width: 100%;
-    height: auto;
-    display: flex;
-    text-align: center;
-    margin-top: 15px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  text-align: center;
+  margin-top: 15px;
 }
 
 
 .formulary_name {
-    margin-left: 35px;
-    font-size: 14px;
-    text-align: center;
+  margin-left: 35px;
+  font-size: 14px;
+  text-align: center;
 }
 
 p {
-    font-size: 16px;
-    margin-left: 50px;
+  font-size: 16px;
+  margin-left: 50px;
 }
 
 .button {
-    margin-left: 95px;
-    margin-top: 11px;
-    background-color: lightskyblue;
-    border: none;
-    color: white;
-    text-align: center;
-    opacity: 0.6;
-    transition: 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    width: 100%;
-    height: 28px;
-    max-width: 268px;
+  margin-left: 95px;
+  margin-top: 11px;
+  background-color: lightskyblue;
+  border: none;
+  color: white;
+  text-align: center;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  height: 28px;
+  max-width: 268px;
 }
 
 .button:hover {
-    opacity: 2;
+  opacity: 2;
 }
 
 .position_button_td {
-    margin-left: 35px;
+  margin-left: 35px;
 }

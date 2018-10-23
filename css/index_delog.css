@@ -1,424 +1,424 @@
 strong{
-	margin-right: 30px;
-	float: right;
-	color: grey;
+  margin-right: 30px;
+  float: right;
+  color: grey;
 }
 
 body{
-    font-size: 14px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    position:relative;
-    display:flex;
-    justify-content: flex-start;
-    flex-direction:column;
-    margin:0;
-    width:100vw;
-    overflow:hidden;
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative;
+  display:flex;
+  justify-content: flex-start;
+  flex-direction:column;
+  margin:0;
+  width:100vw;
+  overflow:hidden;
 }
 
 #container{
-    overflow: scroll;
-    display:flex;
-    width: 100%;
-    left: 0;
-    right: 0;
-    position: relative;
-    background-color: rgba(250, 250, 250, 1);
-    justify-content: center;
-    align-items: center;
+  overflow: scroll;
+  display:flex;
+  width: 100%;
+  left: 0;
+  right: 0;
+  position: relative;
+  background-color: rgba(250, 250, 250, 1);
+  justify-content: center;
+  align-items: center;
 }
 
 .header{
-    position:relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-color: rgba(230, 230, 230, 1);
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-color: rgba(230, 230, 230, 1);
 }
 
 #footer{
-	height: 90px;
-	width: 100%;
-	position: absolute;
-	bottom: 0;
+height: 90px;
+width: 100%;
+position: absolute;
+bottom: 0;
 }
 
 #footer_bar{
-	position: fixed;
-  /*  background-color: rgba(255, 255, 255, 0);*/
-    height: 50px;
-    width: 101%;
-    margin-top: -10px;
-    margin-left: -10px;
-    bottom: 0;
+position: fixed;
+/*  background-color: rgba(255, 255, 255, 0);*/
+  height: 50px;
+  width: 101%;
+  margin-top: -10px;
+  margin-left: -10px;
+  bottom: 0;
 }
 
 #nav_bar {
-    height: 75px;
-    background-color: white;
+  height: 75px;
+  background-color: white;
 }
 
 #layout_picture{
-    position:relative;
-    display:flex;
-    width: 935px;
-    max-width: 935px;
-    background-color: rgba(250, 250, 250, 1);
-    height: 1275px;
-    padding-top: 60px;
+  position:relative;
+  display:flex;
+  width: 935px;
+  max-width: 935px;
+  background-color: rgba(250, 250, 250, 1);
+  height: 1275px;
+  padding-top: 60px;
 }
 
 
 .position_navbar{
-    max-width: 935px;
-    width: 935px;
-    display: flex;
-    overflow: hidden;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    height: 75px;
+  max-width: 935px;
+  width: 935px;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 75px;
 }
 
 .logo_appareil{
-    position: relative;
-    width: 35px;
-    height: 35px;
-    max-width: 35px;
-    min-width: 35px;
-    min-height: 35px;
-    margin-top: 20px;
-    float: left;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  max-width: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: 20px;
+  float: left;
 }
 
 .logo_camagru{
-    border-left-style: solid;
-    border-left-width: thin;
-    border-color: rgba(0, 0, 0, 1);
-    position: relative;
-    width: 105px;
-    height: 35px;
-    max-width: 225px;
-    min-width: 35px;
-    min-height: 35px;
-    margin-top: 18px;
-    margin-left: 10px;
-    float: left;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-color: rgba(0, 0, 0, 1);
+  position: relative;
+  width: 105px;
+  height: 35px;
+  max-width: 225px;
+  min-width: 35px;
+  min-height: 35px;
+  margin-top: 18px;
+  margin-left: 10px;
+  float: left;
 }
 
 .logo_sign_in{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    max-width: 30px;
-    min-width: 30px;
-    min-height: 30px;
-    margin-right: 10px;
-    margin-left: 20px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 
 .logo_sign_up{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    max-width: 30px;
-    min-width: 30px;
-    min-height: 30px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  min-width: 30px;
+  min-height: 30px;
 }
 
 .header_content_left {
-    display:flex;
-    overflow:hidden;
-    margin-left: 5px;
-    margin-bottom: 10px;
+  display:flex;
+  overflow:hidden;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .header_content_right {
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 2px;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2px;
 }
 
 .container_content_left{
-    position:relative;
-    float: left;
-    max-width: 614px;
-    width: 100%;
-    min-height: 4463px;
-    flex-direction: column;
-    display: flex;
-    margin: auto;
+  position:relative;
+  float: left;
+  max-width: 614px;
+  width: 100%;
+  min-height: 4463px;
+  flex-direction: column;
+  display: flex;
+  margin: auto;
 }
 
 .insta_post{
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-right-style: solid;
-    border-right-width: thin;
-    border-top-style: solid;
-    border-top-width: thin;
-    border-left-style: solid;
-    border-left-width: thin;
-    border-color: rgba(230, 230, 230, 1);
-    max-width: 600px;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 60px;
-    margin-left: -1px;
-    margin-right: -1px;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-color: rgba(230, 230, 230, 1);
+  max-width: 600px;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 60px;
+  margin-left: -1px;
+  margin-right: -1px;
 }
 
 .header_post{
-    border-bottom-style: solid;
-    border-bottom-width: thin;
-    border-color: rgba(230, 230, 230, 1);
-    height: 27px;
-    padding: 16px;
-    max-height: 27px;
-    line-height: 27px;
-    position: relative;
-    margin: 0;
-    flex-direction: row;
-    align-items: center;
-    background-color: white;
-    vertical-align: baseline;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: rgba(230, 230, 230, 1);
+  height: 27px;
+  padding: 16px;
+  max-height: 27px;
+  line-height: 27px;
+  position: relative;
+  margin: 0;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  vertical-align: baseline;
 }
 
 .post_content{
-    max-height: 614px;
-    box-sizing: border-box;
-    display: flex;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
+  max-height: 614px;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
 }
 
 .display_picture{
-    width: 100%;
-    display: flex;
-    max-height: 614px;
+  width: 100%;
+  display: flex;
+  max-height: 614px;
 }
 
 .post_buttons_comment{
-    position: relative;
-    flex-shrink: 0;
-    margin: 0;
-    flex-direction: column;
-    display: flex;
-    align-items: stretch;
-    padding: 0 16px;
-    background-color: white;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0;
+  flex-direction: column;
+  display: flex;
+  align-items: stretch;
+  padding: 0 16px;
+  background-color: white;
 }
 
 .buttons{
-    display: flex;
-    max-height: 40px;
-    margin-top: 4px;
-    flex-shrink: 0;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    flex-direction: row;
+  display: flex;
+  max-height: 40px;
+  margin-top: 4px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  flex-direction: row;
 }
 
 .like_button{
-    float: left;
-    min-height: 40px;
-    min-width: 40px;
-    padding: 0;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    height: 40px;
-    width: 40px;
+  float: left;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 40px;
+  width: 40px;
 }
 
 .comment_button{
-    float: left;
-    min-height: 40px;
-    min-width: 40px;
-    padding: 0;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    height: 40px;
-    width: 40px;    
+  float: left;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 40px;
+  width: 40px;    
 }
 
 .post_button{
-    height: 24px;
-    width: 24px;
+  height: 24px;
+  width: 24px;
 }
 
 .like_area{
-    width: auto;
-    max-height: 18px;
-    margin-bottom: 8px;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: stretch;
-    flex-shrink: 0;
-    padding: 0;
-    position: relative;
+  width: auto;
+  max-height: 18px;
+  margin-bottom: 8px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+  flex-shrink: 0;
+  padding: 0;
+  position: relative;
 }
 
 .likes{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    text-decoration: none;
-    font-weight: 600;
-    color: #262626;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  font-weight: 600;
+  color: #262626;
 
 }
 
 .comments{
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: 0 0;
-    border: 0;
-    font-size: inherit;
-    max-height: 65px;
-    outline: 0;
-    padding: 0;
-    resize: none;
-    overflow-x: hidden;
-    overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: 0 0;
+  border: 0;
+  font-size: inherit;
+  max-height: 65px;
+  outline: 0;
+  padding: 0;
+  resize: none;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .comment_area{
-    width: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 0;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .the_comment{
-    line-height: 17px;
-    overflow: hidden;
-    padding-bottom: 6px;
-    position: relative;
-    width: 100%;
-    word-wrap: break-word;
-    margin-top: -5px;
-    padding-top: 5px;
-    margin-right: -2px;
-    padding-right: 2px;
+  line-height: 17px;
+  overflow: hidden;
+  padding-bottom: 6px;
+  position: relative;
+  width: 100%;
+  word-wrap: break-word;
+  margin-top: -5px;
+  padding-top: 5px;
+  margin-right: -2px;
+  padding-right: 2px;
 }
 
 .name_aera{
-    width: calc(100% - 28px);
-    display: inline-block;
-    flex-direction: row;
+  width: calc(100% - 28px);
+  display: inline-block;
+  flex-direction: row;
 }
 
 .name_aera_sd{
-    width: 100%;
-    flex-shrink: 1;
-    min-width: 0;
-    display: inline-block;
+  width: 100%;
+  flex-shrink: 1;
+  min-width: 0;
+  display: inline-block;
 }
 
 .name{
-    font-weight: 600;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-left: 5px;
-    margin-left: -5px;
-    text-decoration: none;
-    color: #262626;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  margin-left: -5px;
+  text-decoration: none;
+  color: #262626;
 }
 
 .quote{
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .roundedimage{
-    overflow: hidden;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
-    display: block;
-    flex: 0 0 auto;
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  display: block;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .pp{
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .pp_sd{
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .header_name{
-    margin-top: -30px;
-    margin-left: 42px;
+  margin-top: -30px;
+  margin-left: 42px;
 }
 
 .account_name_header{ 
-    color: #262626;
-    flex-grow: 0;   
-    font-weight: 600;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-left: 5px;
-    margin-left: -5px;
-    flex-shrink: 1;
+  color: #262626;
+  flex-grow: 0;   
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  margin-left: -5px;
+  flex-shrink: 1;
 }
 
 .writing_area{
-    background-color: white;
-    border-top-style: solid;
-    border-top-width: thin;
-    border-color: rgba(230, 230, 230, 1);
-    margin-top: 4px;
-    padding-right: 26px;
-    justify-content: center;
-    padding-top: 16px;
-    padding-bottom: 16px;
+  background-color: white;
+  border-top-style: solid;
+  border-top-width: thin;
+  border-color: rgba(230, 230, 230, 1);
+  margin-top: 4px;
+  padding-right: 26px;
+  justify-content: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .enter_comment{
-    max-height: 18px;
-    flex-direction: row;
-    flex-shrink: 1;
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    margin: 0px;
-    border: none;
-    width: 100%
+  max-height: 18px;
+  flex-direction: row;
+  flex-shrink: 1;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  border: none;
+  width: 100%
 }
 
 .comment_box{
-    width: 44vw;
-    background: 0 0;
-    border: 0;
-    color: #262626;
-    font-size: inherit;
-    height: 18px;
-    max-height: 80px;
-    outline: 0;
-    padding: 0;
-    resize: none;
+  width: 44vw;
+  background: 0 0;
+  border: 0;
+  color: #262626;
+  font-size: inherit;
+  height: 18px;
+  max-height: 80px;
+  outline: 0;
+  padding: 0;
+  resize: none;
 }

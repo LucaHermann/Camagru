@@ -11,13 +11,13 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
 
   if ($test = $req1->fetch())
   {
-        $id_user = $test['id_user'];
+    $id_user = $test['id_user'];
   }
   $req2 = $bdd->prepare('SELECT email FROM user WHERE id = :iduser');
   $req2->execute(array('iduser' => $id_user));    
   if ($test2 = $req2->fetch())
   {
-        $email = $test2['email'];
+    $email = $test2['email'];
   }
   $text = $_POST['text'];
   $imgid = $_POST['idimg'];
