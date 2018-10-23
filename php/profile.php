@@ -4,20 +4,19 @@ session_start();
 
 if(isset($_GET['id']))
 {
-if ($_GET['id'] == $_SESSION['id'])
-{
+	if ($_GET['id'] == $_SESSION['id'])
+	{
+		$uppic = "block";
+	}
+	else
+	{
+		$uppic = "none";
+	}
+	$idasked = $_GET['id'];
+}
+else{
+	$idasked = $_SESSION['id'];
 	$uppic = "block";
-}
-else
-{
-	$uppic = "none";
-}
-$idasked = $_GET['id'];
-}
-else
-{
-$idasked = $_SESSION['id'];
-$uppic = "block";
 }
 
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
@@ -54,10 +53,11 @@ while ($data = $reponse->fetch())
 						?>
 					</div>
 					<div class="img_overlay">
-						<div class="pos_article">
-							<div class="pos_article_sd" id="img_over">
-							</div>						
-						</div>
+							<div class="pos_article">
+								<div class="pos_article_sd" id="img_over">
+									<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifioverlay" src="" style="" ></div>
+								</div>						
+							</div>
 					</div>
 					<div class="comment_profil_area">
 						<section class="buttons">
@@ -184,13 +184,17 @@ while ($data = $reponse->fetch())
 							if ($j == $nbdata)
 								break;
 							echo ' <div id="prof" class="profile_picture">
-										<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifi" src="'.$data[$j]['filter_path'].'" style="'.$data[$j]['filter_style_profile'].'" name=""></div>
-										<img onclick="on(this)" name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" "/>						      
+									<form onclick="on(this)">
+										<input type="hidden" id="'.$data[$j]['idimg'].'" value="'.$j.'" name="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" >
+										<input type="hidden" id="'.$data[$j]['filter_path'].'" name="'.$data[$j]['filter_style'].'">
+										<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifi" src="'.$data[$j]['filter_path'].'" style="'.$data[$j]['filter_style_profile'].'"></div>
+										<img  name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '"/>						      
+									</form>
 								</div>';
 							$j++;
 							$i++;
-						}
-						echo '</div>';
+							}
+							echo '</div>';
 						if ($j == $nbdata)
 								break;
 					}	
