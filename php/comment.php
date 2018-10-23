@@ -11,18 +11,22 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
 
   if ($test = $req1->fetch())
   {
-        $id_user = $test['id_user'];
+    $id_user = $test['id_user'];
   }
   $req2 = $bdd->prepare('SELECT email FROM user WHERE id = :iduser');
   $req2->execute(array('iduser' => $id_user));    
   if ($test2 = $req2->fetch())
   {
-        $email = $test2['email'];
+    $email = $test2['email'];
   }
   $text = $_POST['text'];
+  $antixss = $text;
+  $antixss = strip_tags($antixss);
+  $new_text = htmlspecialchars($antixss, ENT_QUOTES);
+  $text = $new_text;
   $imgid = $_POST['idimg'];
   $userid = $_SESSION['id'];// recuperation avec session start
-  $email = $email; 
+  $email = $email;
   $sujet = 'New Comment';
   $message = '<html>';
   $message .= '<head><title> New comment! </title></head>';
@@ -36,7 +40,6 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
 }
 
 try {
-
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $sql = $bdd->prepare('INSERT INTO comment (user_id, img_id, text, date)
   VALUES (:iduser, :idimg , :text, :date)');
@@ -48,10 +51,10 @@ try {
   echo "New record created successfully";
   //header('Location: index_log.php');
   //exit();
-  }
+}
 catch(PDOException $e)
-  {
+{
   var_dump($e->getMessage());
-  }
+}
 
 ?>

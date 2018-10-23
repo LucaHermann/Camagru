@@ -20,13 +20,13 @@ $rep = $rep->fetch();
 
 if ($req[0] == "1") // L'utilisateur est trouvé, connexion
 {
-    session_start();
-    $_SESSION['username'] = $un;
-    $_SESSION['id'] = $rep[0];
-    header('Location: index.php');
+  session_start();
+  $_SESSION['username'] = $un;
+  $_SESSION['id'] = $rep[0];
+  header('Location: index.php');
 }
 else // Pas d'utilisateur trouvé, erreur
 {
-    header('Location: sign_in.php');
+  header('Location: sign_in.php');
 }
 ?>
