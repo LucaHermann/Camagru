@@ -119,18 +119,18 @@ while ($data = $reponse->fetch())
 		<div class="header_content_left">
 			<a href="take_picture.php">
 				<div class="logo_appareil"><img src="../ressources/logo_appareil.png"width="30px"height="30px"></div>
-							</a>
-							<a href="index.php">
-									<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
-							</a>
+			</a>
+				<a href="index.php">
+					<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
+				</a>
 		</div>
 		<div class="header_content_right">
 			<a href="setting.php">
 				<div class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>
 			</a>
 			<a href="sign_out.php">
-									<div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
-							</a>
+				<div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
+			</a>
 		</div>
 	</div>
 </div>
@@ -139,10 +139,10 @@ while ($data = $reponse->fetch())
 		<div id="header_profile">
 			<div class="header_profile_picture">
 				<div onclick="on_sd()" class="header_profile_picture_sd">
-						<?php
-							echo '<img class="roundimage" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>';
-						?>
-					</div>
+					<?php
+						echo '<img class="roundimage" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>';
+					?>
+				</div>
 				</div>
 			</div>
 			<div class="layout_profile_info">
