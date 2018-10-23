@@ -156,3 +156,7 @@ fileInput.addEventListener('change', function() {
     track.stop();
     document.getElementById("message").innerHTML="message: "+tracks[0].label+" déconnecté"
   });
+
+
+video.srcObject = null;
+}
