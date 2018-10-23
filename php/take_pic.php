@@ -18,15 +18,17 @@ if (isset($_POST['photo'])){
 }
 
 if (isset($_POST['filter_path']) && isset($_POST['filter_style'])){
-  $tmp = explode("/", $_POST['filter_path']);
-  $path = $trick.$tmp[5];
-  $style = $_POST['filter_style'];
-  $style_profile = $_POST['filter_style_profile'];
-}
-else{
-  $path = "";
-  $style = "";
-  $style_profile = "";
+    $tmp = explode("/", $_POST['filter_path']);
+    if ($tmp[5] == "take_picture.php" || $tmp[5] == "take_picture.php?"){ 
+        $path = "";
+        $style = "";
+        $style_profile = "";
+    }
+    else{
+    $path = $trick.$tmp[5];
+    $style = $_POST['filter_style'];
+    $style_profile = $_POST['filter_style_profile'];
+    }
 }
 
 try {

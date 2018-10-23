@@ -1,87 +1,91 @@
 function ouvrir_camera() {
-var imgElementss = document.querySelector('#uploadpic');
-        if (imgElementss){
-        prev.removeChild(imgElementss);
-        }
-navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 600 } }).then(function(mediaStream) {
+  var imgElementss = document.querySelector('#uploadpic');
+          if (imgElementss){
+          prev.removeChild(imgElementss);
+          }
+  navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 600 } }).then(function(mediaStream) {
 
-  var video = document.getElementById('sourcevid');
-  document.getElementById('cvs').style.display = "none";
-  video.style.display = "block";
-  video.srcObject = mediaStream;
+    var video = document.getElementById('sourcevid');
+    document.getElementById('cvs').style.display = "none";
+    video.style.display = "block";
+    video.srcObject = mediaStream;
 
-  var tracks = mediaStream.getTracks();
+    var tracks = mediaStream.getTracks();
 
-  document.getElementById("message").innerHTML="message: "+tracks[0].label+" connecté"
-  video.onloadedmetadata = function(e) {
-  video.play();
-  };
-  
-}).catch(function(err) { console.log(err.name + ": " + err.message);
+    document.getElementById("message").innerHTML="message: "+tracks[0].label+" connecté"
+    video.onloadedmetadata = function(e) {
+    video.play();
+    };
+    
+  }).catch(function(err) { console.log(err.name + ": " + err.message);
 
-document.getElementById("message").innerHTML="message: connection refusé"});
-}
+  document.getElementById("message").innerHTML="message: connection refusé"});
+  }
 
-function photo(){
-document.getElementById("dispbut").style.display = "none";
-document.getElementById("jaxa").style.display = "block";
-var vivi = document.getElementById('sourcevid');
-vivi.style.display = "none";
-//var canvas1 = document.createElement('canvas');
-var canvas1 = document.getElementById('cvs')
-canvas1.style.display = "block";
-var ctx =canvas1.getContext('2d');
-canvas1.height=vivi.videoHeight
-canvas1.width=vivi.videoWidth
-ctx.drawImage(vivi, 0,0, vivi.videoWidth, vivi.videoHeight);
+  function photo(){
+  document.getElementById("dispbut").style.display = "none";
+  document.getElementById("jaxa").style.display = "block";
+  var vivi = document.getElementById('sourcevid');
+  vivi.style.display = "none";
+  //var canvas1 = document.createElement('canvas');
+  var canvas1 = document.getElementById('cvs')
+  canvas1.style.display = "block";
+  var ctx =canvas1.getContext('2d');
+  canvas1.height=vivi.videoHeight
+  canvas1.width=vivi.videoWidth
+  ctx.drawImage(vivi, 0,0, vivi.videoWidth, vivi.videoHeight);
 
-//var base64=canvas1.toDataURL("image/png"); //l'image au format base 64
-//document.getElementById('tar').value='';
-//document.getElementById('tar').value=base64;
-}
+  //var base64=canvas1.toDataURL("image/png"); //l'image au format base 64
+  //document.getElementById('tar').value='';
+  //document.getElementById('tar').value=base64;
+  }
 
-function sauver(){
+  function sauver(){
 
-if(navigator.msSaveOrOpenBlob){
+  if(navigator.msSaveOrOpenBlob){
 
-  var blobObject=document.getElementById("cvs").msToBlob()
+    var blobObject=document.getElementById("cvs").msToBlob()
 
-  window.navigator.msSaveOrOpenBlob(blobObject, "image.png");
-}
+    window.navigator.msSaveOrOpenBlob(blobObject, "image.png");
+  }
 
-else{
+  else{
 
+    var canvas = document.getElementById("cvs");
+    var elem = document.createElement('a');
+    elem.href = canvas.toDataURL("image/jpeg");
+    elem.download = "nom.jpeg";
+    var evt = new MouseEvent("click", { bubbles: true,cancelable: true,view: window,});
+    elem.dispatchEvent(evt);
+  }
+  }
+
+  function prepare_envoi(){
+  var filter = document.getElementById("fifi");
+  if (filter.src == "")
+    alert("yo");
+  else
+    alert(filter.src);
   var canvas = document.getElementById("cvs");
-  var elem = document.createElement('a');
-  elem.href = canvas.toDataURL("image/jpeg");
-  elem.download = "nom.jpeg";
-  var evt = new MouseEvent("click", { bubbles: true,cancelable: true,view: window,});
-  elem.dispatchEvent(evt);
-}
-}
+  var datas = canvas.toDataURL('image/jpeg');
+  var ajax = new XMLHttpRequest();
+  ajax.open('POST', './take_pic.php', true);
+  ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  ajax.send('photo=' + datas + '&filter_path=' + filter.src + "&filter_style=" + filter.name+ "&filter_style_profile=" + filter.alt);
+  }
+  
 
-function prepare_envoi(){
-var filter = document.getElementById("fifi");
-var canvas = document.getElementById("cvs");
-var datas = canvas.toDataURL('image/jpeg');
-var ajax = new XMLHttpRequest();
-ajax.open('POST', './take_pic.php', true);
-ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-ajax.send('photo=' + datas + '&filter_path=' + filter.src + "&filter_style=" + filter.name);
-}
+  function env(){
+  var image = document.getElementById("uploadpic");
+  var datas = image.src
+  var ajax = new XMLHttpRequest();
+  ajax.open('POST', './upload_picture.php', true);
+  ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  ajax.send('photo=' + datas);
+  console.log("ok");
+  }
 
-
-function env(){
-var image = document.getElementById("uploadpic");
-var datas = image.src
-var ajax = new XMLHttpRequest();
-ajax.open('POST', './upload_picture.php', true);
-ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-ajax.send('photo=' + datas);
-console.log("ok");
-}
-
-(function() {
+  (function() {
 
 function createThumbnail(file) {
 
@@ -134,23 +138,21 @@ fileInput.addEventListener('change', function() {
 });
 
 })();
+  
+  function filtre(image){
+      document.getElementById("fifi").src = image.src;
+      document.getElementById("fifi").style = image.name;
+      document.getElementById("fifi").name = image.name;
+      document.getElementById("fifi").alt = image.alt;
+  }
 
-function filtre(image){
-    document.getElementById("fifi").src = image.src;
-    document.getElementById("fifi").style = image.name;
-    document.getElementById("fifi").name = image.name;
-}
+  function fermer(){
 
-function fermer(){
-
-var video = document.getElementById('sourcevid');
-video.style.display = "none";
-var mediaStream=video.srcObject;
-var tracks = mediaStream.getTracks();
-tracks.forEach(function(track) {
-  track.stop();
-  document.getElementById("message").innerHTML="message: "+tracks[0].label+" déconnecté"
-});
-
-video.srcObject = null;
-}
+  var video = document.getElementById('sourcevid');
+  video.style.display = "none";
+  var mediaStream=video.srcObject;
+  var tracks = mediaStream.getTracks();
+  tracks.forEach(function(track) {
+    track.stop();
+    document.getElementById("message").innerHTML="message: "+tracks[0].label+" déconnecté"
+  });
