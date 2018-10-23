@@ -22,7 +22,7 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
   $text = $_POST['text'];
   $antixss = $text;
   $antixss = strip_tags($antixss);
-  $new_text = htmlspecialchars($antixss, ETN_NOQUOTES);
+  $new_text = htmlspecialchars($antixss, ENT_NOQUOTES);
   $text = $new_text;
   $imgid = $_POST['idimg'];
   $userid = $_SESSION['id'];// recuperation avec session start
