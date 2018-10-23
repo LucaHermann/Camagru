@@ -232,6 +232,8 @@ button{
 
 .last_post{
   margin: 0px 15px;
+  display: flex;
+  align-items: center;
 }
 
 .display_picture_filter{
