@@ -92,9 +92,17 @@ session_start();
 			</div>
 			<div class="container_content_bot">
 				<div class="filter_pic">
-					<div class="last_post">
-						<img class="display_picture_filter" src="../ressources/test_fvth.jpeg">
-					</div>
+					<?PHP 
+					$reppicfilter = $bdd->prepare('SELECT * FROM image WHERE filter_path != "" ORDER BY idimg DESC');
+					$reppicfilter->execute();
+					while($datafilter = $reppicfilter->fetch()){
+					echo 
+						'<div class="last_post">
+						<div style="position:absolute;z-index:1;" class="display_picture_filter" ><img id="fifi" src="'.$datafilter['filter_path'].'" style="'.$datafilter['filter_style_profile'].'"></div>
+						<img  name="a" class="display_picture_filter" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($datafilter['img_path']). '"/>
+						</div>';
+					}
+					?>
 				</div>
 			</div>
 		</div>
