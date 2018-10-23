@@ -1,17 +1,20 @@
 var img_id;
 
-function on(image) {
-  img_id = image;
+function on(form) {
+  img_id = form.elements[0];
+  var filtre = form.elements[1];
   document.getElementById("overlay").style.display = "block";
   prev = document.querySelector('#img_over');
+  document.getElementById("fifioverlay").src = form.elements[1].id;
+  document.getElementById("fifioverlay").style = form.elements[1].name;
   var imgElement = document.createElement('img');
       imgElement.style.width = '100%';
-      imgElement.src = image.src;
+      imgElement.src = form.elements[0].name;
       imgElement.id = "childpic";
       prev.appendChild(imgElement);
-      isliked(image.id);
-      nblike(image.id);
-      comment(image);
+      isliked(form.elements[0].id);
+      nblike(form.elements[0].id);
+      comment(form.elements[0]);
 }
 
 function off() {
