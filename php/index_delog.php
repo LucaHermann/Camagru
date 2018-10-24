@@ -59,12 +59,12 @@ require_once('../config/connect.php');
 			echo '
 				<div class="insta_post">  
 					<div class="header_post">
-						<a href="profile.php?id='.$data['id'].'" class="roundedimage">
+						<a ?id='.$data['id'].'" class="roundedimage">
 							<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>
 						</a>
 						<div class="header_name">
 							<div class="header_name_sd">
-								<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
+								<a ?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
 							</div>
 						</div>
 					</div>
