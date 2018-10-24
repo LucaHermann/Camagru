@@ -4,5 +4,5 @@ Ce premier projet vous remet dans le bain après la piscine PHP : vous allez dev
 Php, html, css and js vanillia  🍧
 
 
-Front finished do the best part.... back-end now❣️.
+Front finished back-end now❣️.
 BDD finished 📚❣️
