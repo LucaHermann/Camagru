@@ -16,11 +16,11 @@
 						<p class="advertisement">Reset your password just here</p>
 				</div>
 				<form method="post" action="new_password_validation.php" class="form_design">
-						<input type="password" id="formulary_new_password" placeholder="New Password">
+					<input type="password" id="formulary_new_password" placeholder="New Password">
 				</form>
-						<div class="position_button">
-								<button class="button">Reset password</button>
-						</div>
+					<div class="position_button">
+							<button class="button">Reset password</button>
+					</div>
 		</div>
 </div>
 <div id="footer">
