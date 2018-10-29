@@ -228,7 +228,7 @@ button{
   display: flex;
   background-color: white;
   width: 100%;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 
 .last_post{

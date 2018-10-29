@@ -242,13 +242,6 @@ h1 {
   position: relative;
 }
 
-.profile_picture_base{
-  flex-direction: column;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  height: 300px;
-}
-
 .profile_row_picture{
   display: flex;
   margin-bottom: 28px;
@@ -258,13 +251,12 @@ h1 {
 }
 
 .profile_picture{
-  margin: 0px 15px;
+  margin: 0px 8px;
   min-width: 293px;
   max-height: 293px;
 }
 
 .dislay_pic{
-  width: 100%;
   display: flex;
   max-width: 300px;
   max-height: 225px;

@@ -169,7 +169,6 @@ while ($data = $reponse->fetch())
 		$reponse->execute();
 		?>
 		<div id="container_profile_picture">
-			<div class="profile_picture_base">
 				<?php
 				$j = 0;					
 				while ($data = $reponse->fetchAll())
@@ -184,7 +183,7 @@ while ($data = $reponse->fetch())
 							if ($j == $nbdata)
 								break;
 							echo ' <div id="prof" class="profile_picture">
-									<form onclick="on(this)">
+									<form onclick="on(this)" style="margin:0;">
 										<input type="hidden" id="'.$data[$j]['idimg'].'" value="'.$j.'" name="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" >
 										<input type="hidden" id="'.$data[$j]['filter_path'].'" name="'.$data[$j]['filter_style'].'">
 										<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifi" src="'.$data[$j]['filter_path'].'" style="'.$data[$j]['filter_style_profile'].'"></div>
@@ -201,7 +200,6 @@ while ($data = $reponse->fetch())
 				}
 				$reponse->closeCursor();
 				?>
-			</div>
 		</div>
 	</div>
 </div>

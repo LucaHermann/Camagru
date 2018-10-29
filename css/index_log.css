@@ -152,9 +152,10 @@ position: fixed;
   float: left;
   max-width: 614px;
   width: 100%;
-  height: 1150vw;
   flex-direction: column;
   display: flex;
+  margin-bottom: 100px;
+  height: fit-content;
 }
 
 .container_content_right{

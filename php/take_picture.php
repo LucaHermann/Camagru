@@ -35,9 +35,9 @@ session_start();
 				<div class="container_content_left">
 					<div class="insta_post">  
 						<div class="post_content">
-							<div style="position:absolute;margin-top:15px;width:100%;height:100%;"><img id="fifi" src="" style="" name="" alt=""></div>
+							<div style="position:absolute;width:100%;height:100%;"><img id="fifi" src="" style="" name="" alt=""></div>
 							<div id="prev"></div>
-							<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-top: 15px;margin-bottom: 15px;"></video>
+							<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-bottom: 15px;margin-top: 15px;"></video>
 							<canvas id="cvs" style="display:none;"></canvas>      
 						</div> 
 					</div>			
@@ -70,9 +70,9 @@ session_start();
 							<div class="alignment_user">
 								<div class="here_it_is">
 									<div class="header_alignment">
-										<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 125px; width:350px; height:325px;" alt="margin-top: 62.5px; width:172px; height:162.5px;">
-										<img onclick="filtre(this)" src="../ressources/test_sd.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 50px; margin-left: 200px; width:200px; height:200px;" alt="margin-top: 25px; margin-left: 100px; width:100px; height:100px;">
-										<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 150px; min-width:300px; height:300px;" alt="margin-left: 75px; width:150px; height:150px;">
+										<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 166px; margin-left: 10px;" alt="margin-top: 62.5px; width:172px; height:162.5px;">
+										<!-- <img onclick="filtre(this)" src="../ressources/test_sd.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 50px; margin-left: 200px; width:200px; height:200px;" alt="margin-top: 25px; margin-left: 100px; width:100px; height:100px;">
+										<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 150px; min-width:300px; height:300px;" alt="margin-left: 75px; width:150px; height:150px;"> -->
 									</div>
 								</div>
 							</div>
