@@ -1,23 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.3
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le :  mer. 10 oct. 2018 à 18:38
--- Version du serveur :  5.6.35
--- Version de PHP :  7.1.8
+-- Host: localhost:3306
+-- Generation Time: Oct 29, 2018 at 11:11 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de données :  `camagru`
+-- Database: `camagru`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -30,7 +30,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `forgot_password`
+-- Table structure for table `forgot_password`
 --
 
 CREATE TABLE `forgot_password` (
@@ -41,7 +41,7 @@ CREATE TABLE `forgot_password` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `image`
+-- Table structure for table `image`
 --
 
 CREATE TABLE `image` (
@@ -49,15 +49,15 @@ CREATE TABLE `image` (
   `id_user` int(11) NOT NULL,
   `idimg` int(11) NOT NULL,
   `img_path` longblob NOT NULL,
-  `filter_path` varchar(200),
-  `filter_style` varchar(200),
-  `filter_style_profile` varchar(200)
+  `filter_path` varchar(200) DEFAULT NULL,
+  `filter_style` varchar(200) DEFAULT NULL,
+  `filter_style_profile` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `likes`
+-- Table structure for table `likes`
 --
 
 CREATE TABLE `likes` (
@@ -68,7 +68,7 @@ CREATE TABLE `likes` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -77,85 +77,88 @@ CREATE TABLE `user` (
   `fullname` varchar(50) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(1000) NOT NULL,
-  `img` longblob NOT NULL
+  `img` longblob NOT NULL,
+  `pin_pwd` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `img_id` (`img_id`);
 
 --
--- Index pour la table `forgot_password`
+-- Indexes for table `forgot_password`
 --
 ALTER TABLE `forgot_password`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Index pour la table `image`
+-- Indexes for table `image`
 --
 ALTER TABLE `image`
   ADD PRIMARY KEY (`idimg`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Index pour la table `likes`
+-- Indexes for table `likes`
 --
 ALTER TABLE `likes`
   ADD KEY `id_image` (`id_image`),
   ADD KEY `id_utilisateur` (`id_utilisateur`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `image`
+-- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `idimg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `idimg` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`img_id`) REFERENCES `image` (`idimg`);
 
 --
--- Contraintes pour la table `forgot_password`
+-- Constraints for table `forgot_password`
 --
 ALTER TABLE `forgot_password`
   ADD CONSTRAINT `forgot_password_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Contraintes pour la table `image`
+-- Constraints for table `image`
 --
 ALTER TABLE `image`
   ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
 
 --
--- Contraintes pour la table `likes`
+-- Constraints for table `likes`
 --
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `user` (`id`),
