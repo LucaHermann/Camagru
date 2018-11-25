@@ -30,6 +30,7 @@ require_once('../config/connect.php');
 </div>
 <div id="container">
 	<div id="layout_picture">
+	<h1>HELLO</h1>
 		<div class="container_content_left">
 			<?PHP
 			$reponse = $bdd->prepare('SELECT * FROM image, user WHERE image.id_user = user.id ORDER BY idimg DESC');
