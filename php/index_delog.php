@@ -69,8 +69,7 @@ require_once('../config/connect.php');
 						</div>
 					</div>
 					<div class="post_content">
-						<div style="position:absolute;width:100%;height:100%;z-index:1;"><img id="fifi" src="'.$data['filter_path'].'" style="'.$data['filter_style'].'" name=""></div>
-						<img src="data:image/jpeg;base64,' .base64_decode($data['img_path']). '" class="display_picture">
+						<img src="'.$data['img_path'].'" class="display_picture">
 					</div>
 					<div class="post_buttons_comment">
 						<section class="buttons">

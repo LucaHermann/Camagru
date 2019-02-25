@@ -35,7 +35,7 @@ session_start();
 				<div class="container_content_left">
 					<div class="insta_post">  
 						<div class="post_content">
-							<div style="position:absolute;width:100%;height:100%;"><img id="fifi" src="" style="" name="" alt=""></div>
+							<div style="position:absolute;width:100%;height:100%;"><img id="fifi" src=""></div>
 							<div id="prev"></div>
 							<video id="sourcevid" width='600' autoplay="true" style="display:none;margin-bottom: 15px;margin-top: 15px;"></video>
 							<canvas id="cvs" style="display:none;"></canvas>      
@@ -98,8 +98,7 @@ session_start();
 					while($datafilter = $reppicfilter->fetch()){
 					echo 
 						'<div class="last_post">
-						<div style="position:absolute;z-index:1;" class="display_picture_filter" ><img id="fifi" src="'.$datafilter['filter_path'].'" style="'.$datafilter['filter_style_profile'].'"></div>
-						<img  name="a" class="display_picture_filter" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($datafilter['img_path']). '"/>
+							<img  name="a" class="display_picture_filter" src="'.$datafilter['img_path'].'"/>
 						</div>';
 					}
 					?>

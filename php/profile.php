@@ -2,6 +2,8 @@
 require_once('../config/connect.php');
 session_start();
 
+
+
 if(isset($_GET['id']))
 {
 	if ($_GET['id'] == $_SESSION['id'])
@@ -182,14 +184,9 @@ while ($data = $reponse->fetch())
 						{
 							if ($j == $nbdata)
 								break;
-							echo ' <div id="prof" class="profile_picture">
-									<form onclick="on(this)" style="margin:0;">
-										<input type="hidden" id="'.$data[$j]['idimg'].'" value="'.$j.'" name="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" >
-										<input type="hidden" id="'.$data[$j]['filter_path'].'" name="'.$data[$j]['filter_style'].'">
-										<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifi" src="'.$data[$j]['filter_path'].'" style="'.$data[$j]['filter_style_profile'].'"></div>
-										<img  name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '"/>						      
-									</form>
-								</div>';
+							echo ' <div id="prof"  class="profile_picture">
+										<img onclick="on(this)" name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="'.$data[$j]['img_path'].'"/>						      
+									</div>';
 							$j++;
 							$i++;
 							}

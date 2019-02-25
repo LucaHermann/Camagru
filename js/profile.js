@@ -1,20 +1,17 @@
 var img_id;
 
-function on(form) {
-  img_id = form.elements[0];
-  var filtre = form.elements[1];
+function on(imgprofile) {
+  img_id = imgprofile.id; 
   document.getElementById("overlay").style.display = "block";
   prev = document.querySelector('#img_over');
-  document.getElementById("fifioverlay").src = form.elements[1].id;
-  document.getElementById("fifioverlay").style = form.elements[1].name;
   var imgElement = document.createElement('img');
       imgElement.style.width = '100%';
-      imgElement.src = form.elements[0].name;
+      imgElement.src = imgprofile.src
       imgElement.id = "childpic";
       prev.appendChild(imgElement);
-      isliked(form.elements[0].id);
-      nblike(form.elements[0].id);
-      comment(form.elements[0]);
+      isliked(imgprofile.id);
+      nblike(imgprofile.id);
+      comment(imgprofile.id);
 }
 
 function off() {
@@ -88,7 +85,7 @@ xhr.onreadystatechange = function(){
 }
 xhr.open("POST","aff_profile_comment.php",true);
 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-xhr.send("idimg="+image.id);
+xhr.send("idimg="+image);
 }
 
 function comment_send(){
@@ -103,7 +100,7 @@ xhr.onreadystatechange = function(){
 }
 xhr.open('POST','comment.php',true);
 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-xhr.send("idimg="+image.id+"&text="+donnee);
+xhr.send("idimg="+image+"&text="+donnee);
 }
 
 function nblike(imgid) {
@@ -127,8 +124,8 @@ image.src = "../ressources/logo_liked.png"
 var xhr = new XMLHttpRequest();
 xhr.open('POST','./like.php',true);
 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-xhr.send("idimg="+img.id);
-nblike(img.id);
+xhr.send("idimg="+img);
+nblike(img);
 }
 else{
     image.alt  = 2;
@@ -136,8 +133,8 @@ else{
     var xhr = new XMLHttpRequest();
     xhr.open('POST','./unlike.php',true);
     xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    xhr.send("idimg="+img.id);
-    nblike(img.id);
+    xhr.send("idimg="+img);
+    nblike(img);
 }
 }
 

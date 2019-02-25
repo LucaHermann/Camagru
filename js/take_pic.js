@@ -71,7 +71,7 @@ function ouvrir_camera() {
   var ajax = new XMLHttpRequest();
   ajax.open('POST', './take_pic.php', true);
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  ajax.send('photo=' + datas + '&filter_path=' + filter.src + "&filter_style=" + filter.name+ "&filter_style_profile=" + filter.alt);
+  ajax.send('photo=' + datas + '&filter_path=' + filter.src);
   }
   
 
