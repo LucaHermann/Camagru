@@ -127,9 +127,17 @@ while ($data = $reponse->fetch())
 				</a>
 		</div>
 		<div class="header_content_right">
-			<a href="setting.php">
-				<div class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>
-			</a>
+		<?php
+			if ($uppic == "none"){
+				echo '<a href="profile.php">
+						<div class="logo_account"><img src="../ressources/logo_account.png"width="30px"height="30px"></div>
+					  </a>';
+			} else {
+				echo '<a href="setting.php">
+						<div class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>
+					  </a>';
+			}
+			?>
 			<a href="sign_out.php">
 				<div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
 			</a>

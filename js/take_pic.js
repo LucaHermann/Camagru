@@ -1,4 +1,5 @@
 function ouvrir_camera() {
+  document.getElementById("lazone").style.display = "flex";
   var imgElementss = document.querySelector('#uploadpic');
           if (imgElementss){
           prev.removeChild(imgElementss);
@@ -12,7 +13,7 @@ function ouvrir_camera() {
 
     var tracks = mediaStream.getTracks();
 
-    document.getElementById("message").innerHTML="message: "+tracks[0].label+" connecté"
+    //document.getElementById("message").innerHTML="message: "+tracks[0].label+" connecté"
     video.onloadedmetadata = function(e) {
     video.play();
     };
@@ -147,14 +148,14 @@ fileInput.addEventListener('change', function() {
   }
 
   function fermer(){
-
+  document.getElementById("lazone").style.display = "none";
   var video = document.getElementById('sourcevid');
   video.style.display = "none";
   var mediaStream=video.srcObject;
   var tracks = mediaStream.getTracks();
   tracks.forEach(function(track) {
     track.stop();
-    document.getElementById("message").innerHTML="message: "+tracks[0].label+" déconnecté"
+    //document.getElementById("message").innerHTML="message: "+tracks[0].label+" déconnecté"
   });
 
 

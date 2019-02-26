@@ -166,6 +166,7 @@ button{
   flex-direction: column;
   display: flex;
   max-height: 700px;
+  display: none;
 }
 
 .container_content_right{
@@ -631,11 +632,28 @@ button{
   display: none;
 }
 
+.vidz{
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
 @media screen and (max-width: 935px){
   .container_content_right{
-      display: none;
+      position: inherit;
+      margin-left: 0px;
   }
   .container_content_left{
-      margin: auto;
+      max-width: 310px;
+  }
+  .container_content_top{
+      justify-content: center;
+  }
+  .container_content_bot{
+    max-width: 631px;
+    margin: 0 auto;
+  }
+  .vidz{
+    width: 300px;
   }
 }

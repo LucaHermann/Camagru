@@ -2,7 +2,7 @@
 require_once('../config/connect.php');
 session_start();
 
-$date_name = date("H-i__d:m:Y");
+$date_name = date("H-i-s__d:m:Y");
 $date = date("Y-m-d");
 $trick = "../ressources/";
 
