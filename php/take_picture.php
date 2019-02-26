@@ -70,9 +70,14 @@ session_start();
 							<div class="alignment_user">
 								<div class="here_it_is">
 									<div class="header_alignment">
-										<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 166px; margin-left: 10px;" alt="margin-top: 62.5px; width:172px; height:162.5px;">
+										<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 166px; margin-left: 10px;" alt="0/151">
 										<!-- <img onclick="filtre(this)" src="../ressources/test_sd.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 50px; margin-left: 200px; width:200px; height:200px;" alt="margin-top: 25px; margin-left: 100px; width:100px; height:100px;"> -->
-										<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 150px; min-width:300px; height:300px;" alt="margin-left: 75px; width:150px; height:150px;">
+										<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 210px; margin-top: 53px" alt="200/40">
+										<img onclick="filtre(this)" src="../ressources/test_frth.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 420px; margin-top: 100px" alt="410/80">
+									</div>
+									<div class="header_alignment">
+										<img onclick="filtre(this)" src="../ressources/test_sth.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 376px; margin-top: 56px" alt="366/16">
+										<img onclick="filtre(this)" src="../ressources/large.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 287px; margin-top: 106px" alt="275/92">
 									</div>
 								</div>
 							</div>
@@ -93,7 +98,7 @@ session_start();
 			<div class="container_content_bot">
 				<div class="filter_pic">
 					<?PHP 
-					$reppicfilter = $bdd->prepare('SELECT * FROM image WHERE filter_path != "" ORDER BY idimg DESC');
+					$reppicfilter = $bdd->prepare('SELECT * FROM image ORDER BY idimg DESC');
 					$reppicfilter->execute();
 					while($datafilter = $reppicfilter->fetch()){
 					echo 

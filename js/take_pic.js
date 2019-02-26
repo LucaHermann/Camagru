@@ -64,25 +64,30 @@ function ouvrir_camera() {
   function prepare_envoi(){
   var filter = document.getElementById("fifi");
   if (filter.src == "")
-    alert("yo");
+    alert("Something goes wrong..");
   else
-    alert(filter.src);
+    alert("Picture saved");
   var canvas = document.getElementById("cvs");
   var datas = canvas.toDataURL('image/jpeg');
   var ajax = new XMLHttpRequest();
   ajax.open('POST', './take_pic.php', true);
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  ajax.send('photo=' + datas + '&filter_path=' + filter.src);
+  ajax.send('photo=' + datas + '&filter_path=' + filter.src + '&position=' + filter.name);
   }
   
 
   function env(){
+  var filter = document.getElementById("fifi");
+  if (filter.src == "")
+    alert("Something goes wrong..");
+  else
+    alert("Picture saved");
   var image = document.getElementById("uploadpic");
   var datas = image.src
   var ajax = new XMLHttpRequest();
-  ajax.open('POST', './upload_picture.php', true);
+  ajax.open('POST', './take_pic.php', true);
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  ajax.send('photo=' + datas);
+  ajax.send('photo=' + datas + '&filter_path=' + filter.src + '&position=' + filter.name);
   console.log("ok");
   }
 
@@ -93,20 +98,21 @@ function createThumbnail(file) {
     var reader = new FileReader();
 
     reader.addEventListener('load', function() {
-
+        
         var imgElementss = document.querySelector('#uploadpic');
         if (imgElementss){
         prev.removeChild(imgElementss);
         }
         var imgElement = document.createElement('img');
-        imgElement.style.maxWidth = '600px';
-        imgElement.style.maxHeight = '450px';
+        imgElement.style.width = '600px';
+        imgElement.style.height = '450px';
         imgElement.style.marginTop = "15px";
         imgElement.style.marginBottom = "15px";
         imgElement.style.width = "100%";
         imgElement.src = this.result;
         imgElement.id = 'uploadpic';
         prev.appendChild(imgElement);
+        document.getElementById("lazone").style.display = "flex";
         document.getElementById('sourcevid').style.display = "none";
         document.getElementById('cvs').style.display = "none"
         document.getElementById("jaxa").style.display = "none";
@@ -143,8 +149,7 @@ fileInput.addEventListener('change', function() {
   function filtre(image){
       document.getElementById("fifi").src = image.src;
       document.getElementById("fifi").style = image.name;
-      document.getElementById("fifi").name = image.name;
-      document.getElementById("fifi").alt = image.alt;
+      document.getElementById("fifi").name = image.alt;
   }
 
   function fermer(){

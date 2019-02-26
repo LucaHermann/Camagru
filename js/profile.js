@@ -48,7 +48,7 @@ function createThumbnail(file) {
     reader.addEventListener('load', function() {
         var imgElement = document.createElement('img');
         imgElement.style.maxWidth = '620px';
-        imgElement.style.maxHeight = '462px';
+        imgElement.style.maxHeight = '450px';
         imgElement.src = this.result;
         imgElement.id = 'uppic';
         prev.appendChild(imgElement);
