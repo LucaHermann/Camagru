@@ -31,7 +31,7 @@ require_once('../config/connect.php');
 			</div>
 			<div id="formulary_sd"></div>
 			<div id="formulary_bot_container">
-				<p id="formulary_sign_up_link"> Have an account? <a href="sign_in.php">Sign in </a></p>
+				<p id="formulary_sign_up_link"> Have an account?<a href="sign_in.php">Sign in </a></p>
 			</div>
 					</div>
 			</div>
