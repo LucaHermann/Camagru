@@ -21,7 +21,8 @@ else{
 	$uppic = "block";
 }
 
-$reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
+$reponse = $bdd->prepare('SELECT * FROM user WHERE id = :idasked');
+$reponse->bindvalue(':idasked', $idasked, PDO::PARAM_INT);
 $reponse->execute();
 while ($data = $reponse->fetch())
 {
@@ -108,6 +109,34 @@ while ($data = $reponse->fetch())
 		</div>
 	</div>
 </div>
+<div id="overlay_td" onclick="off_td()">
+	<div class="add_img_profile">
+		<div class="content_upload">
+			<div class="title_upload">
+				<h3 classe="title">Settings</h3>
+			</div>
+			<div class="div_button">
+				<div class="settings_choice">
+					<a href="changepassword.php">
+						<p>Change password</p>
+					</a>
+				</div>
+				<div class="settings_choice">
+					<a href="changeusername.php">
+						<p>Change username</p>
+					</a>
+				</div>
+				<div class="settings_choice">
+					<a href="changemail.php">
+						<p>Change mail adress</p>
+					</a>
+				</div>
+				<button class="up_button_cancel">Cancel</button>
+			</div>
+
+		</div>
+	</div>
+</div>
 <!-- CSS A REGLER -->
 </div>
 <head>
@@ -133,9 +162,7 @@ while ($data = $reponse->fetch())
 						<div class="logo_account"><img src="../ressources/logo_account.png"width="30px"height="30px"></div>
 					  </a>';
 			} else {
-				echo '<a href="setting.php">
-						<div class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>
-					  </a>';
+				echo '<div onclick="on_td()" class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>';
 			}
 			?>
 			<a href="sign_out.php">

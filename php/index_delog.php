@@ -49,22 +49,19 @@ require_once('../config/connect.php');
 						}
 					}
 					else{
-						// echo $datalike[$i]['id_image'];
-						// echo $data['idimg'];
 						$da = 0;
 					}
 					$i++;
 				}
-				//echo $da;
 			echo '
 				<div class="insta_post">  
 					<div class="header_post">
-						<a href="profile.php?id='.$data['id'].'" class="roundedimage">
+						<div class="roundedimage">
 							<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>
-						</a>
+						</div>
 						<div class="header_name">
 							<div class="header_name_sd">
-								<a href="profile.php?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
+								<p  class="account_name_header"> '.$data['username'].' </p>
 							</div>
 						</div>
 					</div>
@@ -89,7 +86,8 @@ require_once('../config/connect.php');
 						<section class="like_area">
 							<div class="likes" >
 							<input type="hidden" id="likesss" value="'.$j.'">';
-							$nblike = $bdd->prepare('SELECT COUNT(id_image) AS nblike FROM likes WHERE id_image = '.$data['idimg'].'');
+							$nblike = $bdd->prepare('SELECT COUNT(id_image) AS nblike FROM likes WHERE id_image = :idimg');
+							$nblike->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 							$nblike->execute();
 							$datanb = $nblike->fetch();
 							echo '<span id="likedisp'.$data['idimg'].'">'.$datanb['nblike'].'</span> likes';
@@ -120,7 +118,7 @@ require_once('../config/connect.php');
 				$j++;
 			}
 			?>				
-		</div>
+		<div>
 	</div>
 </div>
 <div id="footer">

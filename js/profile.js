@@ -3,7 +3,7 @@ var img_id;
 function on(imgprofile) {
   img_id = imgprofile.id; 
   document.getElementById("overlay").style.display = "block";
-  prev = document.querySelector('#img_over');
+  prev = document.getElementById('#img_over');
   var imgElement = document.createElement('img');
       imgElement.style.width = '100%';
       imgElement.src = imgprofile.src
@@ -16,8 +16,8 @@ function on(imgprofile) {
 
 function off() {
 document.getElementById("overlay").style.display = "none";
-var prev = document.querySelector('#img_over');
-var imgElement = document.querySelector('#childpic');
+var prev = document.getElementById('#img_over');
+var imgElement = document.getElementById('#childpic');
 prev.removeChild(imgElement);
 }
 
@@ -27,6 +27,14 @@ document.getElementById("overlay_sd").style.display = "flex";
 
 function off_sd() {
 document.getElementById("overlay_sd").style.display = "none";
+}
+
+function on_td() {
+    document.getElementById("overlay_td").style.display = "flex";
+}
+
+function off_td() {
+    document.getElementById("overlay_td").style.display = "none";
 }
 
 function env(){
