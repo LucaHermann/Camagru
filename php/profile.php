@@ -116,21 +116,21 @@ while ($data = $reponse->fetch())
 				<h3 classe="title">Settings</h3>
 			</div>
 			<div class="div_button">
-				<div class="settings_choice">
-					<a href="changepassword.php">
-						<p>Change password</p>
-					</a>
-				</div>
-				<div class="settings_choice">
-					<a href="changeusername.php">
+				<a href="changepassword.php" style="text-decoration: none; color: black;">	
+					<div class="settings_choice">
+						<p>Change password</p>					
+					</div>
+				</a>
+				<a href="changeusername.php" style="text-decoration: none; color: black;">
+					<div class="settings_choice">
 						<p>Change username</p>
-					</a>
-				</div>
-				<div class="settings_choice">
-					<a href="changemail.php">
+					</div>
+				</a>
+				<a href="changemail.php" style="text-decoration: none; color: black;">
+					<div class="settings_choice">
 						<p>Change mail adress</p>
-					</a>
-				</div>
+					</div>
+				</a>
 				<button class="up_button_cancel">Cancel</button>
 			</div>
 

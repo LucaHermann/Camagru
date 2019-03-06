@@ -8,13 +8,10 @@ $fail = "Failure !";
 
 
 $iduser = $_SESSION["id"];
-$reponse = $bdd->prepare('SELECT * FROM user WHERE id = :idasked');
-$reponse->bindvalue(':idasked', $iduser, PDO::PARAM_INT);
-$reponse->execute();
-$data = $reponse->fetch();
 
-if (isset($_POST['New_password']) && isset($_POST['Confim_password'])){
-	if ($_POST['New_password'] == $_POST['Confim_password']){
+
+if (isset($_POST['New_password']) && isset($_POST['Confirm_password'])){
+	if ($_POST['New_password'] == $_POST['Confirm_password']){
 		try{
 			$pw =  hash('whirlpool', $_POST['Confirm_password']);
 			$res = $bdd->prepare('UPDATE user SET password = :pw WHERE id = :id');
@@ -22,22 +19,57 @@ if (isset($_POST['New_password']) && isset($_POST['Confim_password'])){
 			$res->bindValue(':id', $iduser, PDO::PARAM_INT);
 			$res->execute();
 			$test = "ok";
+			$message = "Your password has been changed";
 		}
 		catch (Exception $e)
 		{
 			$test = "no";
+			$message = "You have to wite the same password for confirmation";
 			echo $e->getMessage();
 		}
 	} else {
+		$message = "Something goes wrong..";
 		$test = "no";
 	}
 }
 
 if (isset($_POST['New_mail']) && isset($_POST['Confim_mail'])){
-
+	if ($_POST['New_mail'] == $_POST['Confirm_mail']){
+		try{
+			$res = $bdd->prepare('UPDATE user SET email = :mail WHERE id = :id');
+			$res->bindValue(':mail', $_POST['Confirm_mail'], PDO::PARAM_STR);
+			$res->bindValue(':id', $iduser, PDO::PARAM_INT);
+			$res->execute();
+			$test = "ok";
+			$message = "Your mail has been changed";
+		}
+		catch (Exception $e)
+		{
+			$test = "no";
+			$message = "You have to wite the same mail for confirmation";
+			echo $e->getMessage();
+		}
+	} else {
+		$message = "Something goes wrong..";
+		$test = "no";
+	}
 }
 if (isset($_POST['username'])){
-
+	try{
+		$un = htmlspecialchars($_POST['username']);
+		$res = $bdd->prepare('UPDATE user SET username = :un WHERE id = :id');
+		$res->bindValue(':un', $un, PDO::PARAM_STR);
+		$res->bindValue(':id', $iduser, PDO::PARAM_INT);
+		$res->execute();
+		$test = "ok";
+		$message = "Your username has been changed";
+	}
+	catch (Exception $e)
+	{
+		$test = "no";
+		$message = "Something goes wrong..";
+		echo $e->getMessage();
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -54,12 +86,12 @@ if (isset($_POST['username'])){
 				<div class="logo_appareil">
 					<img src="../ressources/logo_appareil.png"width="30px"height="30px">
 				</div>
-							</a>
-							<a href="index.php">
-									<div class="logo_camagru">
+			</a>
+			<a href="index.php">
+				<div class="logo_camagru">
 					<img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left7px">
 				</div>
-							</a>
+			</a>
 		</div>
 		<div class="header_content_right">
 			<a href="profile.php">
@@ -68,10 +100,10 @@ if (isset($_POST['username'])){
 				</div>
 			</a>
 			<a href="sign_out.php">
-									<div class="logo_logout">
+				<div class="logo_logout">
 					<img src="../ressources/logo_logout.png" width="30px"height="30px">
 				</div>
-							</a>
+			</a>
 		</div>
 	</div>
 </div>
@@ -88,7 +120,7 @@ if (isset($_POST['username'])){
 				?>
             </div>
             <div classe="text">
-                <p>You will receive an email with a code for change your password</p>
+                <?php echo '<p>'.$message.'</p>'?>
             </div>
 		</div>
 	</div>

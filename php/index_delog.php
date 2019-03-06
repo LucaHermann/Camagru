@@ -56,12 +56,20 @@ require_once('../config/connect.php');
 			echo '
 				<div class="insta_post">  
 					<div class="header_post">
+<<<<<<< HEAD
 						<div class="roundedimage">
+=======
+						<a ?id='.$data['id'].'" class="roundedimage">
+>>>>>>> fd2a157298a8322c47df3fa46b4f747a4c6f1429
 							<img alt="1" class="pp" src="data:image/jpeg;base64,' .base64_decode($data['img']). '"/>
 						</div>
 						<div class="header_name">
 							<div class="header_name_sd">
+<<<<<<< HEAD
 								<p  class="account_name_header"> '.$data['username'].' </p>
+=======
+								<a ?id='.$data['id'].'" class="account_name_header" title="#">'.$data['username'].'</a>
+>>>>>>> fd2a157298a8322c47df3fa46b4f747a4c6f1429
 							</div>
 						</div>
 					</div>

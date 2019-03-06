@@ -22,12 +22,12 @@ $data = $reponse->fetch()
 				<div class="logo_appareil">
 					<img src="../ressources/logo_appareil.png"width="30px"height="30px">
 				</div>
-							</a>
-							<a href="index.php">
-									<div class="logo_camagru">
+			</a>
+			<a href="index.php">
+				<div class="logo_camagru">
 					<img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left7px">
 				</div>
-							</a>
+			</a>
 		</div>
 		<div class="header_content_right">
 			<a href="profile.php">
@@ -36,10 +36,10 @@ $data = $reponse->fetch()
 				</div>
 			</a>
 			<a href="sign_out.php">
-									<div class="logo_logout">
+				<div class="logo_logout">
 					<img src="../ressources/logo_logout.png" width="30px"height="30px">
 				</div>
-							</a>
+			</a>
 		</div>
 	</div>
 </div>
@@ -61,10 +61,10 @@ $data = $reponse->fetch()
 					<label for="Confirm_password" class="label_design">Confirm password </label>
 					<input type="password" name="Confirm_password" id="Confirm_password" class="input_design" required/><br />
 				</div>
-				<div class="align_form">
+				<!-- <div class="align_form">
 					<label for="code" class="label_design">Code</label>
 					<input type="text" name="code" id="code" class="input_design" required/><br />
-                </div>
+                </div> -->
                 <div class="submit_bouton">
 					<input type="submit"  class="submit_butt" value="Send"/><br />
 				</div>

@@ -3,10 +3,10 @@ var img_id;
 function on(imgprofile) {
   img_id = imgprofile.id; 
   document.getElementById("overlay").style.display = "block";
-  prev = document.getElementById('#img_over');
+  prev = document.getElementById('img_over');
   var imgElement = document.createElement('img');
       imgElement.style.width = '100%';
-      imgElement.src = imgprofile.src
+      imgElement.src = imgprofile.src;
       imgElement.id = "childpic";
       prev.appendChild(imgElement);
       isliked(imgprofile.id);
@@ -16,8 +16,8 @@ function on(imgprofile) {
 
 function off() {
 document.getElementById("overlay").style.display = "none";
-var prev = document.getElementById('#img_over');
-var imgElement = document.getElementById('#childpic');
+var prev = document.getElementById('img_over');
+var imgElement = document.getElementById('childpic');
 prev.removeChild(imgElement);
 }
 
@@ -66,8 +66,8 @@ function createThumbnail(file) {
     reader.readAsDataURL(file);
 }
 var allowedTypes = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'],
-    fileInput = document.querySelector('#file'),
-    prev = document.querySelector('#prev');
+    fileInput = document.getElementById('file'),
+    prev = document.getElementById('prev');
 
 fileInput.addEventListener('change', function() {
     var files = this.files,
