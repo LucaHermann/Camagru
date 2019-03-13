@@ -81,8 +81,8 @@ while ($data = $reponse->fetch())
 								<input type="hidden"  id="idimg" >
 							</form>
 					</section>
-					<div class="comments"  id="comment_profile">
-					</div>
+						<div class="comments"  id="comment_profile">
+						</div>
 					</div>
 			</article>
 		</div>
@@ -151,9 +151,9 @@ while ($data = $reponse->fetch())
 			<a href="take_picture.php">
 				<div class="logo_appareil"><img src="../ressources/logo_appareil.png"width="30px"height="30px"></div>
 			</a>
-				<a href="index.php">
-					<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
-				</a>
+			<a href="index.php">
+				<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
+			</a>
 		</div>
 		<div class="header_content_right">
 		<?php
@@ -224,10 +224,28 @@ while ($data = $reponse->fetch())
 									</div>';
 							$j++;
 							$i++;
+							if ($j == $nbdata){
+								if($i == 1){
+										echo ' <div id="prof"  class="profile_picture">
+													<div class="dislay_pic" style="background-color: rgba(250, 250, 250, 1);"></div>						      
+												</div>';
+										echo ' <div id="prof"  class="profile_picture">
+											<div class="dislay_pic" style="background-color: rgba(250, 250, 250, 1);"></div>						      
+										</div>';
+								}
+							}
+							if ($j == $nbdata){
+								if($i == 2){
+										echo ' <div id="prof"  class="profile_picture">
+													<div class="dislay_pic" style="background-color: rgba(250, 250, 250, 1);"></div>						      
+												</div>';
+								}
+							}
 							}
 							echo '</div>';
-						if ($j == $nbdata)
+						if ($j == $nbdata){
 								break;
+						}
 					}	
 				}
 				$reponse->closeCursor();

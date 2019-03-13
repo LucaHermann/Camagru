@@ -99,15 +99,18 @@ require_once('../config/connect.php');
 						</section>
 						<div class="comments" id="comment'.$data['idimg'].'">';
 							echo '<ul class="comment_area">';
-							$rep = $bdd->prepare('SELECT DISTINCT id, text, username FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
+							$rep = $bdd->prepare('SELECT DISTINCT id, text, username, idcomment FROM user, comment, image WHERE comment.user_id = user.id AND comment.img_id = :idimg');
 							$rep->bindvalue(':idimg', $data['idimg'], PDO::PARAM_INT);
 							$rep->execute();
 							while($repdata = $rep->fetch()){
-								echo '	<li class="the_comment">
+								echo '	<li class="the_comment" id="com'.$repdata['idcomment'].'">
 									<div class="name_aera">
 											<a class="name" href="profile.php?id='.$repdata['id'].'" title="#">'.$repdata['username'].'</a>
-											<span class="quote">'.$repdata['text'].'</span>
-									</div>
+											<span class="quote">'.$repdata['text'].'</span>';
+											if ($_SESSION['id'] == $repdata['id']){
+												echo '<img onclick="deletecom(this)" src="../ressources/trash.png" class="trash_icon" name="'.$repdata['idcomment'].'" alt="'.$data['idimg'].'"/> ';
+											}
+									echo '</div>
 								</li>';}
 						echo '</ul>
 						</div>
@@ -116,20 +119,6 @@ require_once('../config/connect.php');
 							<input id="comment_index'.$data['idimg'].'" type="text" name="text" class="comment_box" autocomplete="off" autocorrect="off" aria-label="Add a comment…" placeholder="Add a comment…">
 							<input type="hidden" id="idimg" name="idimg"  value="'.$data['idimg'].'">
 							</form>';
-							// ?><script>
-							// var image = document.getElementById('idimg').value;
-							// alert(image);
-							// var xhr = new XMLHttpRequest();
-							// xhr.onreadystatechange = function(){
-							// 	if(xhr.readyState == 4 && xhr.status == 200){
-							// 		leselect = xhr.responseText;
-							// 		document.getElementById('comment'+image).innerHTML = leselect;
-							// 	}
-							// }
-							// xhr.open("POST","aff_index_comment.php",true);
-							// xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-							// xhr.send("idimg="+image);
-							// </script><?PHP
 					echo '</section>
 					</div>
 				</div>';

@@ -137,15 +137,16 @@ body{
 
 .settings{
   max-width: 935px;
-  width: 933px;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  padding-top: 150px;
+  display: flex;
 }
 
 .settings_design{
   width: 100%;
   display: flex;
+  margin-top: -200px;
   flex-direction: column;
   justify-content: center;
   align-items: center;

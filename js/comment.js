@@ -25,3 +25,17 @@ function comment(image){
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	xhr.send("idimg="+image);
 }
+
+function deletecom(com){
+	if (confirm("Are you sur you want delete this comment ?")) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){    
+			comment(com.alt);
+		}
+	}
+	xhr.open('POST','./comment.php',true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.send("idcom="+com.name);
+	}
+}
