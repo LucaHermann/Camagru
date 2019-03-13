@@ -12,7 +12,7 @@ $rep = $bdd->prepare('SELECT DISTINCT id, text, username, idcomment FROM user, c
                   <a class="name" href="profile.php?id='.htmlentities($repdata['id']).'" title="#">'.htmlentities($repdata['username']).'</a>
                   <span class="quote">'.htmlentities($repdata['text']).'</span>';
                   if ($_SESSION['id'] == $repdata['id']){
-                    echo '<img onclick="deletecom(this)" src="../ressources/trash.png" class="trash_icon" name="'.$repdata['idcomment'].'" alt="'.$data['idimg'].'"/> ';
+                    echo '<img onclick="deletecom(this)" src="../ressources/trash.png" class="trash_icon" name="'.$repdata['idcomment'].'" alt="'.$_POST['idimg'].'"/> ';
                   }
               echo '</div>
             </li>';}

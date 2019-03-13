@@ -12,5 +12,5 @@ function nblike(imgid) {
 }
 
 function like_send(image){
-  alert("Vous devez etre connecté pour liker une photo!");
+  alert("You have to be logged for like this picture!");
 }

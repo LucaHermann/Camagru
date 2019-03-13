@@ -38,90 +38,103 @@ $repond = $bdd->prepare('SELECT username, id FROM user WHERE id = :id');
           $pd = $repond->fetch();
           $username = str_replace(" ", "_", $pd['username']);
 
-// function fct_redim_image($Wmax, $Hmax, $rep_Dst, $img_Dst, $rep_Src, $img_Src) {
-//   $condition = 0;
-//   // Si certains paramètres ont pour valeur '' :
-//     if ($rep_Dst == '') { $rep_Dst = $rep_Src; }  // (meme repertoire)
-//     if ($img_Dst == '') { $img_Dst = $img_Src; }  // (meme nom)
-//     if ($Wmax == '') { $Wmax = 0; }
-//     if ($Hmax == '') { $Hmax = 0; }
-//   // si le fichier existe dans le répertoire, on continue...
-//   if (file_exists($rep_Src.$img_Src) && ($Wmax!=0 || $Hmax!=0)) { 
-//     // extensions acceptées : 
-//     $ExtfichierOK = '" jpg jpeg png"';  // (l espace avant jpg est important)
-//     // extension
-//     $tabimage = explode('.',$img_Src);
-//     $extension = $tabimage[sizeof($tabimage)-1];  // dernier element
-//     $extension = strtolower($extension);  // on met en minuscule
-//     // extension OK ? on continue ...
-//     if (strpos($ExtfichierOK,$extension) != '') {
-//         // récupération des dimensions de l image Src
-//       $size = getimagesize($rep_Src.$img_Src);
-//       $W_Src = $size[0];  // largeur
-//       $H_Src = $size[1];  // hauteur
-//         // condition de redimensionnement et dimensions de l image finale
-//         // A- LARGEUR ET HAUTEUR maxi fixes
-//       if ($Wmax != 0 && $Hmax != 0) {
-//           $ratiox = $W_Src / $Wmax;  // ratio en largeur
-//           $ratioy = $H_Src / $Hmax;  // ratio en hauteur
-//           $ratio = max($ratiox,$ratioy);  // le plus grand
-//           $W = $W_Src/$ratio;
-//           $H = $H_Src/$ratio;   
-//           $condition = ($W_Src>$W) || ($W_Src>$H);  // 1 si vrai (true)
-//       }
-//         // B- LARGEUR maxi fixe
-//       if ($Hmax != 0 && $Wmax == 0) {
-//           $H = $Hmax;
-//           $W = $H * ($W_Src / $H_Src);
-//           $condition = $H_Src > $Hmax;  // 1 si vrai (true)
-//         // C- HAUTEUR maxi fixe
-//       if ($Wmax != 0 && $Hmax == 0) {
-//           $W = $Wmax;
-//           $H = $W * ($H_Src / $W_Src);         
-//           $condition = $W_Src > $Wmax;  // 1 si vrai (true)
-//       }
-//         // on REDIMENSIONNE si la condition est vraie
-//       if ($condition == 1) {
-//           // création de la ressource-image"Src" en fonction de l extension
-//           // et on crée une ressource-image"Dst" vide aux dimensions finales
-//           switch($extension) {
-//           case 'jpg':
-//           case 'jpeg':
-//             $Ress_Src = imagecreatefromjpeg($rep_Src.$img_Src);
-//             $Ress_Dst = ImageCreateTrueColor($W,$H);
-//             break;
-//           case 'png':
-//             $Ress_Src = imagecreatefrompng($rep_Src.$img_Src);
-//             $Ress_Dst = ImageCreateTrueColor($W,$H);
-//             // fond transparent (pour les png avec transparence)
-//             imagesavealpha($Ress_Dst, true);
-//             $trans_color = imagecolorallocatealpha($Ress_Dst, 0, 0, 0, 127);
-//             imagefill($Ress_Dst, 0, 0, $trans_color);
-//             break;
-//           }
-//           // REDIMENSIONNEMENT (copie, redimensionne, ré-echantillonne)
-//           ImageCopyResampled($Ress_Dst, $Ress_Src, 0, 0, 0, 0, $W, $H, $W_Src, $H_Src);
-//           // ENREGISTREMENT dans le répertoire (avec la fonction appropriée)
-//           switch ($extension) { 
-//           case 'jpg':
-//           case 'jpeg':
-//             ImageJpeg ($Ress_Dst, $rep_Dst.$img_Dst);
-//             break;
-//           case 'png':
-//             imagepng ($Ress_Dst, $rep_Dst.$img_Dst);
-//             break;
-//           }
-//           // libération des ressources-image
-//           imagedestroy ($Ress_Src);
-//           imagedestroy ($Ress_Dst);
-//       }
-//     }
-//   }
-//   // retourne : 1 (vrai) si le redimensionnement et l enregistrement ont bien eu lieu, sinon rien (false)
-//   // si le fichier a bien été créé
-//   if ($condition == 1 && file_exists($rep_Dst.$img_Dst)) { return true; }
-//   else { return false; }
-// }
+function fctdeformimage($W_fin, $H_fin, $rep_Dst, $img_Dst, $rep_Src, $img_Src) {
+  // Si certains paramètres ont pour valeur '' :
+  if ($rep_Dst == '') { $rep_Dst = $rep_Src; } // (même répertoire)
+  if ($img_Dst == '') { $img_Dst = $img_Src; } // (même nom)
+// ------------------------
+// si le fichier existe dans le répertoire, on continue...
+if (file_exists($rep_Src.$img_Src) && ($W_fin!=0 || $H_fin!=0)) { 
+  // ------------------------
+  // extensions acceptées : 
+  $extension_Allowed = 'jpg,jpeg,png';	// (sans espaces)
+  // extension fichier Source
+  $extension_Src = strtolower(pathinfo($img_Src,PATHINFO_EXTENSION));
+  // ------------------------
+  // extension OK ? on continue ...
+  if(in_array($extension_Src, explode(',', $extension_Allowed))) {
+      // ------------------------
+      // récupération des dimensions de l'image Src
+      $img_size = getimagesize($rep_Src.$img_Src);
+      $W_Src = $img_size[0]; // largeur
+      $H_Src = $img_size[1]; // hauteur
+      // ------------------------
+      // condition de redimensionnement et dimensions de l'image finale
+      // Dans TOUS les cas : redimensionnement non-proportionnel
+      // ------------------------
+      // A- LARGEUR ET HAUTEUR fixes
+      if ($W_fin != 0 && $H_fin != 0) {
+        $W = $W_fin;
+        $H = $H_fin;
+      }
+      // ------------------------
+      // B- HAUTEUR fixe
+      if ($W_fin == 0 && $H_fin != 0) {
+        $W = $W_Src;
+        $H = $H_fin;
+      }
+      // ------------------------
+      // C- LARGEUR fixe
+      if ($W_fin != 0 && $H_fin == 0) {
+        $W = $W_fin;
+        $H = $H_Src;
+      }
+      // ------------------------------------------------
+      // REDIMENSIONNEMENT
+      // ------------------------------------------------
+      // creation de la ressource-image "Src" en fonction de l extension
+      switch($extension_Src) {
+      case 'jpg':
+      case 'jpeg':
+        $Ress_Src = imagecreatefromjpeg($rep_Src.$img_Src);
+        break;
+      case 'png':
+        $Ress_Src = imagecreatefrompng($rep_Src.$img_Src);
+        break;
+      }
+      // ------------------------
+      // creation d une ressource-image "Dst" aux dimensions finales
+      // fond noir (par defaut)
+      switch($extension_Src) {
+      case 'jpg':
+      case 'jpeg':
+        $Ress_Dst = imagecreatetruecolor($W,$H);
+        break;
+      case 'png':
+        $Ress_Dst = imagecreatetruecolor($W,$H);
+        // fond transparent (pour les png avec transparence)
+        imagesavealpha($Ress_Dst, true);
+        $trans_color = imagecolorallocatealpha($Ress_Dst, 0, 0, 0, 127);
+        imagefill($Ress_Dst, 0, 0, $trans_color);
+        break;
+      }
+      // ------------------------------------------------
+      // REDIMENSIONNEMENT (copie, redimensionne, re-echantillonne)
+      imagecopyresampled($Ress_Dst, $Ress_Src, 0, 0, 0, 0, $W, $H, $W_Src, $H_Src); 
+      // ------------------------------------------------
+      // ENREGISTREMENT dans le repertoire (avec la fonction appropriee)
+      switch ($extension_Src) { 
+      case 'jpg':
+      case 'jpeg':
+        imagejpeg ($Ress_Dst, $rep_Dst.$img_Dst);
+        break;
+      case 'png':
+        imagepng ($Ress_Dst, $rep_Dst.$img_Dst);
+        break;
+      }
+      // ------------------------
+      // liberation des ressources-image
+      imagedestroy ($Ress_Src);
+      imagedestroy ($Ress_Dst);
+      // ------------------------
+  }
+}
+// ---------------------------------------------------
+// retourne : true si le redimensionnement et l'enregistrement ont bien eu lieu, sinon false
+if (file_exists($rep_Dst.$img_Dst)) { return true; }
+else { return false; }
+// ---------------------------------------------------
+};
 
 function setTransparency($new_image,$image_source) 
 { 
@@ -142,6 +155,12 @@ $data = $base;
 $data = base64_decode($data);
 $im = imagecreatefromstring($data);
 $destination = $im;
+if (isset($_POST['upload'])){
+  imagejpeg($destination, "../pic_taken/$username.$date_name.jpg");
+  $img_src = "$username.$date_name.jpg";
+  $redimOK = fctdeformimage(600, 450,'','','../pic_taken/',$img_src);
+  if ($redimOK == 1) { $destination = imagecreatefromjpeg("../pic_taken/$username.$date_name.jpg"); }
+}
 $source = imagecreatefrompng($path); // Le logo est la source
 setTransparency($source,$destination);
 $largeur_source = imagesx($source);

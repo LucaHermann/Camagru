@@ -596,7 +596,6 @@ h1 {
   border-top-width: thin;
   border-color: rgba(230, 230, 230, 1);
   order: 2;
-  display: flex;
   max-height: 40px;
   margin-top: 4px;
   flex-shrink: 0;
@@ -727,4 +726,21 @@ h1 {
   width: 13px;
   float: right;
   cursor: pointer;
+}
+
+.trash_icon_sd{
+ height: 24px;
+ width: 24px;
+}
+
+.trash_button{
+  float: right;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 40px;
+  width: 40px; 
 }

@@ -21,7 +21,6 @@ canvas{
 }
 
 button{
-  background-image: url(../ressources/logo_appareil.png);
   border: none;
   padding: 0;
   margin: auto;
@@ -631,7 +630,22 @@ button{
 }
 
 .but_pic{
+  background-color: lightskyblue;
+  border: none;
+  color: white;
+  text-align: center;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  height: 30px;
+}
+
+.but_div{
   display: none;
+  width: 100%;
 }
 
 .vidz{

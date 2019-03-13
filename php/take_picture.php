@@ -57,7 +57,7 @@ session_start();
 								</a>
 							</div>
 							<button onclick="ouvrir_camera()" >Open</button>
-							<button onclick="photo()" class="logo_take_pic"><img src="../ressources/logo_appareil.png" class="logo_take_pic"></button>
+							<button onclick="verif()" id="btn" class="logo_take_pic"><img src="../ressources/logo_appareil.png" class="logo_take_pic"></button>
 							<button onclick="fermer()" >Close</button>
 						</div>';
 					?>
@@ -84,13 +84,13 @@ session_start();
 						</div>
 					</div>
 					<hr class="for_beauty">
-					<form class="button_up_pic">
+					<form class="button_up_pic" style="display: flex;height: 100px;flex-direction: column;align-items: center;justify-content: center;">
 						<input id="file" type="file"/>
-						<div class="but_pic" id="dispbut">
-						<button onclick='env()' id="saveup">Save uploaded picture</button>
+						<div id="dispbut" class="but_div">
+							<button class="but_pic" onclick='env()' id="saveup">Save uploaded picture</button>
 						</div>
-						<div id="jaxa" class="but_pic">
-							<button onclick='prepare_envoi()' id="savecam">Save picture !</button>
+						<div id="jaxa" class="but_div">
+							<button class="but_pic" onclick='prepare_envoi()' id="savecam">Save picture !</button>
 						</div>
 					</form>
 				</div>

@@ -1,5 +1,5 @@
 function comment_send(form){
-  alert("Vous devez etre connecté pour commenter une photo!");
+  alert("You have to be logged for comment this picture!");
 }
 
 function comment(image){

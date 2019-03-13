@@ -69,6 +69,13 @@ while ($data = $reponse->fetch())
 							<div class="comment_button">
 								<img src="../ressources/logo_commentary.png" class="post_button">
 							</div>
+							<?php
+								if ($uppic == "block"){
+									echo'	<div class="trash_button">
+												<img onclick="deleteimg(this)" id="trash" src="../ressources/trash.png" class="trash_icon_sd" name=""/>
+											</div>';
+								}
+							?>
 					</section>
 						<section class="like_area">
 							<div class="likes">
@@ -220,7 +227,7 @@ while ($data = $reponse->fetch())
 							if ($j == $nbdata)
 								break;
 							echo ' <div id="prof"  class="profile_picture">
-										<img onclick="on(this)" name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="'.$data[$j]['img_path'].'"/>						      
+										<img onclick="on(this)" name="'.$uppic.'" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="'.$data[$j]['img_path'].'"/>						      
 									</div>';
 							$j++;
 							$i++;

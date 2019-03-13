@@ -1,6 +1,8 @@
+var btn = 0;
+
 function ouvrir_camera() {
   document.getElementById("lazone").style.display = "flex";
-  var imgElementss = document.querySelector('#uploadpic');
+  var imgElementss = document.getElementById('uploadpic');
           if (imgElementss){
           prev.removeChild(imgElementss);
           }
@@ -87,7 +89,7 @@ function ouvrir_camera() {
   var ajax = new XMLHttpRequest();
   ajax.open('POST', './take_pic.php', true);
   ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  ajax.send('photo=' + datas + '&filter_path=' + filter.src + '&position=' + filter.name);
+  ajax.send('photo=' + datas + '&filter_path=' + filter.src + '&position=' + filter.name + '&upload='+ image.name);
   console.log("ok");
   }
 
@@ -99,7 +101,7 @@ function createThumbnail(file) {
 
     reader.addEventListener('load', function() {
         
-        var imgElementss = document.querySelector('#uploadpic');
+        var imgElementss = document.getElementById('uploadpic');
         if (imgElementss){
         prev.removeChild(imgElementss);
         }
@@ -108,9 +110,9 @@ function createThumbnail(file) {
         imgElement.style.height = '450px';
         imgElement.style.marginTop = "15px";
         imgElement.style.marginBottom = "15px";
-        imgElement.style.width = "100%";
         imgElement.src = this.result;
         imgElement.id = 'uploadpic';
+        imgElement.name = 'up';
         prev.appendChild(imgElement);
         document.getElementById("lazone").style.display = "flex";
         document.getElementById('sourcevid').style.display = "none";
@@ -122,8 +124,8 @@ function createThumbnail(file) {
 
 }
 var allowedTypes = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'],
-    fileInput = document.querySelector('#file'),
-    prev = document.querySelector('#prev');
+    fileInput = document.getElementById('file'),
+    prev = document.getElementById('prev');
 
 fileInput.addEventListener('change', function() {
 
@@ -147,6 +149,8 @@ fileInput.addEventListener('change', function() {
 })();
   
   function filtre(image){
+      btn = 1;
+      document.getElementById("btn").disabled = false;
       document.getElementById("fifi").src = image.src;
       document.getElementById("fifi").style = image.name;
       document.getElementById("fifi").name = image.alt;
@@ -165,4 +169,12 @@ fileInput.addEventListener('change', function() {
 
 
 video.srcObject = null;
+}
+
+function verif(){
+  if (btn === 0){
+    alert("You have to choose a filter");
+  } else {
+    photo();  
+  }
 }

@@ -1,7 +1,7 @@
 var img_id;
 
 function on(imgprofile) {
-  img_id = imgprofile.id; 
+  img_id = imgprofile.id;
   document.getElementById("overlay").style.display = "block";
   prev = document.getElementById('img_over');
   var imgElement = document.createElement('img');
@@ -12,6 +12,9 @@ function on(imgprofile) {
       isliked(imgprofile.id);
       nblike(imgprofile.id);
       comment(imgprofile.id);
+      if (document.getElementById("trash")){
+        document.getElementById("trash").name = imgprofile.id;
+      }
 }
 
 function off() {
@@ -112,7 +115,7 @@ xhr.send("idimg="+image+"&text="+donnee);
 }
 
 function deletecom(com){
-	if (confirm("Are you sur you want delete this comment ?")) {
+	if (confirm("Are you sur you want to delete this comment ?")) {
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState == 4 && xhr.status == 200){    
@@ -122,6 +125,21 @@ function deletecom(com){
 	xhr.open('POST','./comment.php',true);
 	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	xhr.send("idcom="+com.name);
+	}
+}
+
+function deleteimg(com){
+	if (confirm("Are you sur you want to delete this picture ?")) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+                document.getElementById("overlay").style.display = "none";
+                window.location.reload();
+		}
+	}
+	xhr.open('POST','./delete_img.php',true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send("idimg="+com.name);
 	}
 }
 
