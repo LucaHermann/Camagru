@@ -152,7 +152,7 @@ fileInput.addEventListener('change', function() {
       btn = 1;
       document.getElementById("btn").disabled = false;
       document.getElementById("fifi").src = image.src;
-      document.getElementById("fifi").style = image.name;
+      document.getElementById("fifi").className = image.name;
       document.getElementById("fifi").name = image.alt;
   }
 

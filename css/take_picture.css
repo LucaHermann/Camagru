@@ -654,6 +654,31 @@ button{
   margin-top: 15px;
 }
 
+.filtre_respons1{
+  margin-top: 166px;
+  margin-left: 10px;
+}
+
+.filtre_respons2{
+  margin-left: 210px;
+  margin-top: 53px;
+}
+
+.filtre_respons3{
+  margin-left: 420px;
+  margin-top: 100px;
+}
+
+.filtre_respons4{
+  margin-left: 376px;
+  margin-top: 56px;
+}
+
+.filtre_respons5{
+  margin-left: 287px;
+  margin-top: 106px;
+}
+
 @media screen and (max-width: 935px){
   .container_content_right{
       position: inherit;
@@ -671,5 +696,57 @@ button{
   }
   .vidz{
     width: 300px;
+  }
+  .filtre_respons{
+    margin-top: 90.75px;
+    width: 225px;
+    margin-left: 5px;
+  }
+  .filtre_respons2 {
+    margin-left: 112px;
+    margin-top: 31.5px;
+    width: 35%;
+  }
+  .filtre_respons3 {
+    margin-left: 210px;
+    margin-top: 50px;
+    width: 26%;
+  }
+  .filtre_respons4 {
+    margin-left: 185px;
+    margin-top: 25.5px;
+    width: 36%;
+  }
+  .filtre_respons5 {
+    margin-left: 143px;
+    margin-top: 73px;
+    width: 50%;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+  .filtre_respons{
+    margin-top: 167px;
+  }
+  .filtre_respons2 {
+    margin-left: 112px;
+    margin-top: 31.5px;
+    width: 35%;
+  }
+  .filtre_respons3 {
+    margin-left: 210px;
+    margin-top: 50px;
+    width: 26%;
+  }
+  .filtre_respons4 {
+    margin-left: 185px;
+    margin-top: 25.5px;
+    width: 36%;
+  }
+  .filtre_respons5 {
+    margin-left: 283px;
+    margin-top: 130px;
+    width: 50%;
   }
 }

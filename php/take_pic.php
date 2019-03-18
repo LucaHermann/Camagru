@@ -176,9 +176,12 @@ $decoded = "../pic_taken/$username.$date_name.jpg";
 
 try {
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = "INSERT INTO image (img_path, date, id_user, filter_path)
-  VALUES ('".$decoded."', '".$date."', '".$_SESSION['id']."', '".$path."')";
-  $bdd->exec($sql);
+  $sql = $bdd->prepare('INSERT INTO `image` (img_path, date, id_user, filter_path) VALUES (:img, :date, :iduser, :path)');
+  $sql->bindvalue(':img', $decoded, PDO::PARAM_STR);
+  $sql->bindparam(':date', $date);
+  $sql->bindvalue(':iduser', $_SESSION['id'], PDO::PARAM_INT);
+  $sql->bindvalue(':path', $path, PDO::PARAM_STR);
+  $sql->execute();
   echo "New record created successfully";
   }
 catch(PDOException $e)

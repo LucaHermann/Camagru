@@ -35,7 +35,7 @@ session_start();
 				<div id="lazone" class="container_content_left">
 					<div class="insta_post">  
 						<div class="post_content">
-							<div style="position:absolute;width:100%;height:100%;"><img id="fifi" src=""></div>
+							<div style="position:absolute;width:100%;height:100%;"><img id="fifi" src="" class=""></div>
 							<div id="prev"></div>
 							<video id="sourcevid" width='600' autoplay="true" class="vidz"></video>
 							<canvas id="cvs" style="display:none;"></canvas>      
@@ -70,14 +70,14 @@ session_start();
 							<div class="alignment_user">
 								<div class="here_it_is">
 									<div class="header_alignment">
-										<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 166px; margin-left: 10px;" alt="0/151">
+										<img onclick="filtre(this)" src="../ressources/test.png" style="width:50px; height:50px; margin-left:30px;" name="filtre_respons1" alt="0/151">
 										<!-- <img onclick="filtre(this)" src="../ressources/test_sd.png" style="width:50px; height:50px; margin-left:30px;" name="margin-top: 50px; margin-left: 200px; width:200px; height:200px;" alt="margin-top: 25px; margin-left: 100px; width:100px; height:100px;"> -->
-										<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 210px; margin-top: 53px" alt="200/40">
-										<img onclick="filtre(this)" src="../ressources/test_frth.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 420px; margin-top: 100px" alt="410/80">
+										<img onclick="filtre(this)" src="../ressources/test_td.png" style="width:50px; height:50px; margin-left:30px;" name="filtre_respons2" alt="200/40">
+										<img onclick="filtre(this)" src="../ressources/test_frth.png" style="width:50px; height:50px; margin-left:30px;" name="filtre_respons3" alt="410/80">
 									</div>
 									<div class="header_alignment">
-										<img onclick="filtre(this)" src="../ressources/test_sth.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 376px; margin-top: 56px" alt="366/16">
-										<img onclick="filtre(this)" src="../ressources/large.png" style="width:50px; height:50px; margin-left:30px;" name="margin-left: 287px; margin-top: 106px" alt="275/92">
+										<img onclick="filtre(this)" src="../ressources/test_sth.png" style="width:50px; height:50px; margin-left:30px;" name="filtre_respons4" alt="366/16">
+										<img onclick="filtre(this)" src="../ressources/large.png" style="width:50px; height:50px; margin-left:30px;" name="filtre_respons5" alt="275/92">
 									</div>
 								</div>
 							</div>
