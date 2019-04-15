@@ -37,24 +37,36 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
   $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
   $headers .= 'From: "Camagru"<nepasrepondre@camagru.fr>'."\n";
   mail($email, $sujet, $message, $headers);
+
+  try {
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = $bdd->prepare('INSERT INTO comment (user_id, img_id, text, date)
+    VALUES (:iduser, :idimg , :text, :date)');
+    $sql->bindvalue(':idimg', $imgid, PDO::PARAM_INT);
+    $sql->bindvalue(':iduser', $userid, PDO::PARAM_INT);
+    $sql->bindvalue(':text', $text, PDO::PARAM_STR);
+    $sql->bindparam(':date', $date);
+    $sql->execute();
+  }
+  catch(PDOException $e)
+  {
+    var_dump($e->getMessage());
+  }
 }
 
-try {
+if (isset($_POST['idcom'])){
+  $idcomment = $_POST['idcom'];
+  try {
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql = $bdd->prepare('INSERT INTO comment (user_id, img_id, text, date)
-  VALUES (:iduser, :idimg , :text, :date)');
-  $sql->bindvalue(':idimg', $imgid, PDO::PARAM_INT);
-  $sql->bindvalue(':iduser', $userid, PDO::PARAM_INT);
-  $sql->bindvalue(':text', $text, PDO::PARAM_STR);
-  $sql->bindparam(':date', $date);
+  $sql = $bdd->prepare('DELETE FROM comment WHERE idcomment = :idcomment');
+  $sql->bindvalue(':idcomment', $idcomment, PDO::PARAM_INT);
   $sql->execute();
-  echo "New record created successfully";
-  //header('Location: index_log.php');
-  //exit();
 }
 catch(PDOException $e)
 {
   var_dump($e->getMessage());
 }
+}
+
 
 ?>

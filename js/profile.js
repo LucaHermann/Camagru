@@ -1,26 +1,26 @@
 var img_id;
 
-function on(form) {
-  img_id = form.elements[0];
-  var filtre = form.elements[1];
+function on(imgprofile) {
+  img_id = imgprofile.id;
   document.getElementById("overlay").style.display = "block";
-  prev = document.querySelector('#img_over');
-  document.getElementById("fifioverlay").src = form.elements[1].id;
-  document.getElementById("fifioverlay").style = form.elements[1].name;
+  prev = document.getElementById('img_over');
   var imgElement = document.createElement('img');
       imgElement.style.width = '100%';
-      imgElement.src = form.elements[0].name;
+      imgElement.src = imgprofile.src;
       imgElement.id = "childpic";
       prev.appendChild(imgElement);
-      isliked(form.elements[0].id);
-      nblike(form.elements[0].id);
-      comment(form.elements[0]);
+      isliked(imgprofile.id);
+      nblike(imgprofile.id);
+      comment(imgprofile.id);
+      if (document.getElementById("trash")){
+        document.getElementById("trash").name = imgprofile.id;
+      }
 }
 
 function off() {
 document.getElementById("overlay").style.display = "none";
-var prev = document.querySelector('#img_over');
-var imgElement = document.querySelector('#childpic');
+var prev = document.getElementById('img_over');
+var imgElement = document.getElementById('childpic');
 prev.removeChild(imgElement);
 }
 
@@ -30,6 +30,14 @@ document.getElementById("overlay_sd").style.display = "flex";
 
 function off_sd() {
 document.getElementById("overlay_sd").style.display = "none";
+}
+
+function on_td() {
+    document.getElementById("overlay_td").style.display = "flex";
+}
+
+function off_td() {
+    document.getElementById("overlay_td").style.display = "none";
 }
 
 function env(){
@@ -51,7 +59,7 @@ function createThumbnail(file) {
     reader.addEventListener('load', function() {
         var imgElement = document.createElement('img');
         imgElement.style.maxWidth = '620px';
-        imgElement.style.maxHeight = '462px';
+        imgElement.style.maxHeight = '450px';
         imgElement.src = this.result;
         imgElement.id = 'uppic';
         prev.appendChild(imgElement);
@@ -61,8 +69,8 @@ function createThumbnail(file) {
     reader.readAsDataURL(file);
 }
 var allowedTypes = ['png', 'jpg', 'jpeg', 'PNG', 'JPG', 'JPEG'],
-    fileInput = document.querySelector('#file'),
-    prev = document.querySelector('#prev');
+    fileInput = document.getElementById('file'),
+    prev = document.getElementById('prev');
 
 fileInput.addEventListener('change', function() {
     var files = this.files,
@@ -88,7 +96,7 @@ xhr.onreadystatechange = function(){
 }
 xhr.open("POST","aff_profile_comment.php",true);
 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-xhr.send("idimg="+image.id);
+xhr.send("idimg="+image);
 }
 
 function comment_send(){
@@ -103,7 +111,36 @@ xhr.onreadystatechange = function(){
 }
 xhr.open('POST','comment.php',true);
 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-xhr.send("idimg="+image.id+"&text="+donnee);
+xhr.send("idimg="+image+"&text="+donnee);
+}
+
+function deletecom(com){
+	if (confirm("Are you sur you want to delete this comment ?")) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){    
+			comment(com.alt);
+		}
+	}
+	xhr.open('POST','./comment.php',true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	xhr.send("idcom="+com.name);
+	}
+}
+
+function deleteimg(com){
+	if (confirm("Are you sur you want to delete this picture ?")) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+                document.getElementById("overlay").style.display = "none";
+                window.location.reload();
+		}
+	}
+	xhr.open('POST','./delete_img.php',true);
+	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.send("idimg="+com.name);
+	}
 }
 
 function nblike(imgid) {
@@ -127,8 +164,8 @@ image.src = "../ressources/logo_liked.png"
 var xhr = new XMLHttpRequest();
 xhr.open('POST','./like.php',true);
 xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-xhr.send("idimg="+img.id);
-nblike(img.id);
+xhr.send("idimg="+img);
+nblike(img);
 }
 else{
     image.alt  = 2;
@@ -136,8 +173,8 @@ else{
     var xhr = new XMLHttpRequest();
     xhr.open('POST','./unlike.php',true);
     xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    xhr.send("idimg="+img.id);
-    nblike(img.id);
+    xhr.send("idimg="+img);
+    nblike(img);
 }
 }
 

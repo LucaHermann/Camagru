@@ -33,7 +33,7 @@ h1 {
   overflow: scroll;
   display:flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   left: 0;
   right: 0;
   flex-direction: column;
@@ -156,6 +156,7 @@ h1 {
   max-width: 935px;
   background-color: rgba(250, 250, 250, 1);
   padding-top: 60px;
+  min-height: 254px;
 }
 
 
@@ -227,6 +228,9 @@ h1 {
   flex-direction: column;
   flex-shrink: 0;
   margin: 0;
+  max-width: 935px;
+  width: 100%;
+  margin-bottom: 80px;
   padding: 0;
   position: relative;
 }
@@ -242,13 +246,6 @@ h1 {
   position: relative;
 }
 
-.profile_picture_base{
-  flex-direction: column;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  height: 300px;
-}
-
 .profile_row_picture{
   display: flex;
   margin-bottom: 28px;
@@ -258,16 +255,17 @@ h1 {
 }
 
 .profile_picture{
-  margin: 0px 15px;
-  min-width: 293px;
+  margin: 0px 8px;
   max-height: 293px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .dislay_pic{
-  width: 100%;
   display: flex;
   max-width: 300px;
   max-height: 225px;
+  width: 100%;
 }
 
 .aff_img_profile{
@@ -298,6 +296,23 @@ h1 {
 }
 
 #overlay_sd{
+  align-items: center;
+  overflow: auto;
+  position: fixed; 
+  display: none; 
+  width: 100%; 
+  height: 100%; 
+  justify-content: space-around;
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  z-index: 2; 
+  cursor: pointer;
+}
+
+#overlay_td{
   align-items: center;
   overflow: auto;
   position: fixed; 
@@ -581,7 +596,6 @@ h1 {
   border-top-width: thin;
   border-color: rgba(230, 230, 230, 1);
   order: 2;
-  display: flex;
   max-height: 40px;
   margin-top: 4px;
   flex-shrink: 0;
@@ -684,8 +698,49 @@ h1 {
   resize: none;
 }
 
+.logo_account{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
 .off{
   width: 100%;
   height: 100%;
   position: absolute;
+}
+
+.settings_choice{
+  margin: 16px 0px;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #efefef;
+}
+
+.trash_icon{
+  width: 13px;
+  float: right;
+  cursor: pointer;
+}
+
+.trash_icon_sd{
+ height: 24px;
+ width: 24px;
+}
+
+.trash_button{
+  float: right;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 40px;
+  width: 40px; 
 }

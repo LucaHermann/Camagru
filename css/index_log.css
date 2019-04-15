@@ -22,6 +22,7 @@ body{
   width: 100%;
   left: 0;
   right: 0;
+  height: 100vh;
   position: relative;
   background-color: rgba(250, 250, 250, 1);
   justify-content: center;
@@ -70,7 +71,7 @@ position: fixed;
   width: 935px;
   max-width: 935px;
   background-color: rgba(250, 250, 250, 1);
-  height: 1275px;
+  height: 85vh;
   padding-top: 60px;
 }
 
@@ -152,9 +153,10 @@ position: fixed;
   float: left;
   max-width: 614px;
   width: 100%;
-  height: 1150vw;
   flex-direction: column;
   display: flex;
+  margin-bottom: 100px;
+  height: fit-content;
 }
 
 .container_content_right{
@@ -559,6 +561,12 @@ position: fixed;
     margin: 0 0 12px;
     width: 100%;
     padding: 0;
+}
+
+.trash_icon{
+  width: 13px;
+  float: right;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 935px){

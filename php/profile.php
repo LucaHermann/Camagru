@@ -2,6 +2,8 @@
 require_once('../config/connect.php');
 session_start();
 
+
+
 if(isset($_GET['id']))
 {
 	if ($_GET['id'] == $_SESSION['id'])
@@ -19,7 +21,8 @@ else{
 	$uppic = "block";
 }
 
-$reponse = $bdd->prepare('SELECT * FROM user WHERE id = '.$idasked.'');
+$reponse = $bdd->prepare('SELECT * FROM user WHERE id = :idasked');
+$reponse->bindvalue(':idasked', $idasked, PDO::PARAM_INT);
 $reponse->execute();
 while ($data = $reponse->fetch())
 {
@@ -66,6 +69,13 @@ while ($data = $reponse->fetch())
 							<div class="comment_button">
 								<img src="../ressources/logo_commentary.png" class="post_button">
 							</div>
+							<?php
+								if ($uppic == "block"){
+									echo'	<div class="trash_button">
+												<img onclick="deleteimg(this)" id="trash" src="../ressources/trash.png" class="trash_icon_sd" name=""/>
+											</div>';
+								}
+							?>
 					</section>
 						<section class="like_area">
 							<div class="likes">
@@ -78,8 +88,8 @@ while ($data = $reponse->fetch())
 								<input type="hidden"  id="idimg" >
 							</form>
 					</section>
-					<div class="comments"  id="comment_profile">
-					</div>
+						<div class="comments"  id="comment_profile">
+						</div>
 					</div>
 			</article>
 		</div>
@@ -106,6 +116,34 @@ while ($data = $reponse->fetch())
 		</div>
 	</div>
 </div>
+<div id="overlay_td" onclick="off_td()">
+	<div class="add_img_profile">
+		<div class="content_upload">
+			<div class="title_upload">
+				<h3 classe="title">Settings</h3>
+			</div>
+			<div class="div_button">
+				<a href="changepassword.php" style="text-decoration: none; color: black;">	
+					<div class="settings_choice">
+						<p>Change password</p>					
+					</div>
+				</a>
+				<a href="changeusername.php" style="text-decoration: none; color: black;">
+					<div class="settings_choice">
+						<p>Change username</p>
+					</div>
+				</a>
+				<a href="changemail.php" style="text-decoration: none; color: black;">
+					<div class="settings_choice">
+						<p>Change mail adress</p>
+					</div>
+				</a>
+				<button class="up_button_cancel">Cancel</button>
+			</div>
+
+		</div>
+	</div>
+</div>
 <!-- CSS A REGLER -->
 </div>
 <head>
@@ -120,14 +158,20 @@ while ($data = $reponse->fetch())
 			<a href="take_picture.php">
 				<div class="logo_appareil"><img src="../ressources/logo_appareil.png"width="30px"height="30px"></div>
 			</a>
-				<a href="index.php">
-					<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
-				</a>
+			<a href="index.php">
+				<div class="logo_camagru"><img src="../ressources/logo_name.png"width="105px"height="35px"style="margin-left:7px"></div>
+			</a>
 		</div>
 		<div class="header_content_right">
-			<a href="setting.php">
-				<div class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>
-			</a>
+		<?php
+			if ($uppic == "none"){
+				echo '<a href="profile.php">
+						<div class="logo_account"><img src="../ressources/logo_account.png"width="30px"height="30px"></div>
+					  </a>';
+			} else {
+				echo '<div onclick="on_td()" class="logo_setting"><img src="../ressources/logo_setting.png"width="30px"height="30px"></div>';
+			}
+			?>
 			<a href="sign_out.php">
 				<div class="logo_logout"><img src="../ressources/logo_logout.png" width="30px"height="30px"></div>
 			</a>
@@ -169,7 +213,6 @@ while ($data = $reponse->fetch())
 		$reponse->execute();
 		?>
 		<div id="container_profile_picture">
-			<div class="profile_picture_base">
 				<?php
 				$j = 0;					
 				while ($data = $reponse->fetchAll())
@@ -183,25 +226,37 @@ while ($data = $reponse->fetch())
 						{
 							if ($j == $nbdata)
 								break;
-							echo ' <div id="prof" class="profile_picture">
-									<form onclick="on(this)">
-										<input type="hidden" id="'.$data[$j]['idimg'].'" value="'.$j.'" name="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '" >
-										<input type="hidden" id="'.$data[$j]['filter_path'].'" name="'.$data[$j]['filter_style'].'">
-										<div style="position:absolute;z-index:1;" class="dislay_pic" ><img id="fifi" src="'.$data[$j]['filter_path'].'" style="'.$data[$j]['filter_style_profile'].'"></div>
-										<img  name="a" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="data:image/jpeg;charset:utf-8;base64,' .base64_decode($data[$j]['img_path']). '"/>						      
-									</form>
-								</div>';
+							echo ' <div id="prof"  class="profile_picture">
+										<img onclick="on(this)" name="'.$uppic.'" class="dislay_pic" id="'.$data[$j]['idimg'].'" value="'.$j.'" src="'.$data[$j]['img_path'].'"/>						      
+									</div>';
 							$j++;
 							$i++;
+							if ($j == $nbdata){
+								if($i == 1){
+										echo ' <div id="prof"  class="profile_picture">
+													<div class="dislay_pic" style="background-color: rgba(250, 250, 250, 1);"></div>						      
+												</div>';
+										echo ' <div id="prof"  class="profile_picture">
+											<div class="dislay_pic" style="background-color: rgba(250, 250, 250, 1);"></div>						      
+										</div>';
+								}
+							}
+							if ($j == $nbdata){
+								if($i == 2){
+										echo ' <div id="prof"  class="profile_picture">
+													<div class="dislay_pic" style="background-color: rgba(250, 250, 250, 1);"></div>						      
+												</div>';
+								}
+							}
 							}
 							echo '</div>';
-						if ($j == $nbdata)
+						if ($j == $nbdata){
 								break;
+						}
 					}	
 				}
 				$reponse->closeCursor();
 				?>
-			</div>
 		</div>
 	</div>
 </div>

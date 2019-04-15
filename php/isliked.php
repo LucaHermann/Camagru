@@ -28,11 +28,11 @@ while($datalike[$i]){
 }
 
 if ($da == 1) {
-  echo '<img onclick="like_send(this)" alt="1"  id="like" src="../ressources/logo_liked.png" class="post_button">';
+  echo '<img onclick="like_send(this)" alt="1" name="'.$idimg.'" id="like" src="../ressources/logo_liked.png" class="post_button">';
   //break;
 }
 else{
-  echo '<img onclick="like_send(this)" alt="2"  id="like" src="../ressources/logo_like.png" class="post_button">';
+  echo '<img onclick="like_send(this)" alt="2" name="'.$idimg.'" id="like" src="../ressources/logo_like.png" class="post_button">';
 }
 
 ?>
