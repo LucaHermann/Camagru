@@ -1,0 +1,1 @@
+Forgot Password from the sign_up don't work.
