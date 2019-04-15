@@ -6,9 +6,9 @@ function generatePIN($digits = 4){
   $i = 0; //counter
   $pin = ""; //our default pin is blank.
   while($i < $digits){
-      //generate a random number between 0 and 9.
-      $pin .= mt_rand(0, 9);
-      $i++;
+    //generate a random number between 0 and 9.
+    $pin .= mt_rand(0, 9);
+    $i++;
   }
   return $pin;
 }
@@ -36,7 +36,7 @@ $message = '<html>';
 $message .= '<head><title> New Password ! </title></head>';
 $message .= '<p> Hello,</p> If you not ask for new password ignor this mail ! </p>';
 $message .= '<p> or go on http://localhost/Camagru/php/new_password.php for change your password</p>';
-$message .= '<p> enter your $pin and the new password </p>';
+$message .= '<p> enter your pin : '.$pin.' and the new password </p>';
 $message .= '<p> go on Camagru.</p>';
 $message .= '</html>';
 $headers .= 'MIME-Version: 1.0'."\r\n";
