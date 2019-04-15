@@ -24,9 +24,10 @@ $res->bindValue(':email', $email, PDO::PARAM_STR);
 $res->execute();
 // check if the email was on the bdd 
 $email_check_available = $res->fetch();
-if ($email_check_available['nb'] != 1){
+if ($email_check_available['nb'] != 1) {
 	echo "L'email " . $email . " n'est pas attibuer a un compte existant<br>";
-exit();}
+exit();
+}
 //If I want a 4-digit PIN code.
 $pin = generatePIN();
 echo $pin, '<br>';
