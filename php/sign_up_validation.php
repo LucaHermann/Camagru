@@ -70,9 +70,9 @@ $email = htmlspecialchars($_POST['email']);
 // send email to the new user for notify her/his account was succesfully created
 $sujet = 'Welcome on Camagru';
 $message = '<html>';
-$message .= '<head><title> Felicitation ! </title></head>';
-$message .= '<p>Bonjour, <br> Felicitation ton compte a bien été crée ! </p>';
-$message .= '<p>Rendez-vous sur Camagru.</p>';
+$message .= '<head><title> Congratulations ! </title></head>';
+$message .= '<p>Bonjour, <br> Congrstulation your account are sucefully created ! </p>';
+$message .= '<p>Wait you on Camagru.</p>';
 $message .= '</html>';
 $headers .= 'MIME-Version: 1.0'."\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";

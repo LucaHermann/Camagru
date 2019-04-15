@@ -30,8 +30,8 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
   $sujet = 'New Comment';
   $message = '<html>';
   $message .= '<head><title> New comment! </title></head>';
-  $message .= '<p>Bonjour, <br> Tu as recu un nouveau commentaire! </p>';
-  $message .= '<p>Rendez-vous sur Camagru.</p>';
+  $message .= '<p>Bonjour, <br> YOu receive a new comment ! </p>';
+  $message .= '<p>Go on Camagru.</p>';
   $message .= '</html>';
   $headers .= 'MIME-Version: 1.0'."\r\n";
   $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";

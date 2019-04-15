@@ -15,7 +15,7 @@ $sujet = 'Change Password';
 $message = '<html>';
 $message .= '<head><title> Change Password! </title></head>';
 $message .= '<p>Bonjour, <br> code for change password: '.$code.' </p>';
-$message .= '<p>Rendez-vous sur Camagru.</p>';
+$message .= '<p>Go on Camagru.</p>';
 $message .= '</html>';
 $headers .= 'MIME-Version: 1.0'."\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
