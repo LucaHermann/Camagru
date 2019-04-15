@@ -30,7 +30,7 @@ if (isset($_POST['text']) && isset($_POST['idimg'])){
   $sujet = 'New Comment';
   $message = '<html>';
   $message .= '<head><title> New comment! </title></head>';
-  $message .= '<p>Bonjour, <br> YOu receive a new comment ! </p>';
+  $message .= '<p>Bonjour, <br> You receive a new comment ! </p>';
   $message .= '<p>Go on Camagru.</p>';
   $message .= '</html>';
   $headers .= 'MIME-Version: 1.0'."\r\n";
