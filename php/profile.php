@@ -72,7 +72,7 @@ while ($data = $reponse->fetch())
 							<?php
 								if ($uppic == "block"){
 									echo'	<div class="trash_button">
-												<img onclick="deleteimg(this)" id="trash" src="../ressources/trash.png" class="trash_icon_sd" name=""/>
+												<img onclick="deleteimg(this)" id="trash" src="../ressources/logo_trash.png" class="trash_icon_sd" name=""/>
 											</div>';
 								}
 							?>
