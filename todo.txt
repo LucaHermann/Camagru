@@ -1,2 +1,2 @@
-Forgot Password from the sign_up don't work.
+Forgot Password from the sign_up are not really good still need improvements.
 Need to add account activaton mail when you create a account. 
