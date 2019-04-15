@@ -1,24 +1,25 @@
-strong{
+strong {
   margin-right: 30px;
   float: right;
   color: grey;
 }
 
-body{
+body {
   font-size: 14px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  position:relative;
-  display:flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  display: flex;
   justify-content: flex-start;
-  flex-direction:column;
-  margin:0;
-  width:100vw;
-  overflow:hidden;
+  flex-direction: column;
+  margin: 0;
+  width: 100vw;
+  overflow: hidden;
 }
 
-#container{
+#container {
   overflow: scroll;
-  display:flex;
+  display: flex;
   width: 100%;
   left: 0;
   right: 0;
@@ -28,9 +29,9 @@ body{
   justify-content: center;
 }
 
-.header{
-  position:relative;
-  display:flex;
+.header {
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
   border-bottom-style: solid;
@@ -42,16 +43,16 @@ body{
   border-color: rgba(230, 230, 230, 1);
 }
 
-#footer{
-height: 90px;
-width: 100%;
-position: absolute;
-bottom: 0;
+#footer {
+  height: 90px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
-#footer_bar{
-position: fixed;
-/*  background-color: rgba(255, 255, 255, 0);*/
+#footer_bar {
+  position: fixed;
+  /*  background-color: rgba(255, 255, 255, 0);*/
   height: 50px;
   width: 101%;
   margin-top: -10px;
@@ -64,9 +65,9 @@ position: fixed;
   background-color: white;
 }
 
-#layout_picture{
-  position:relative;
-  display:flex;
+#layout_picture {
+  position: relative;
+  display: flex;
   width: 935px;
   max-width: 935px;
   background-color: rgba(250, 250, 250, 1);
@@ -75,9 +76,7 @@ position: fixed;
   justify-content: center;
 }
 
-
-
-.position_navbar{
+.position_navbar {
   max-width: 935px;
   width: 935px;
   display: flex;
@@ -88,7 +87,7 @@ position: fixed;
   height: 75px;
 }
 
-.logo_appareil{
+.logo_appareil {
   position: relative;
   width: 35px;
   height: 35px;
@@ -99,7 +98,7 @@ position: fixed;
   float: left;
 }
 
-.logo_camagru{
+.logo_camagru {
   border-left-style: solid;
   border-left-width: thin;
   border-color: rgba(0, 0, 0, 1);
@@ -114,7 +113,7 @@ position: fixed;
   float: left;
 }
 
-.logo_sign_in{
+.logo_sign_in {
   position: relative;
   width: 30px;
   height: 30px;
@@ -125,7 +124,7 @@ position: fixed;
   margin-left: 20px;
 }
 
-.logo_sign_up{
+.logo_sign_up {
   position: relative;
   width: 30px;
   height: 30px;
@@ -135,21 +134,21 @@ position: fixed;
 }
 
 .header_content_left {
-  display:flex;
-  overflow:hidden;
+  display: flex;
+  overflow: hidden;
   margin-left: 5px;
   margin-bottom: 10px;
 }
 
 .header_content_right {
-  display:flex;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-right: 2px;
 }
 
-.container_content_left{
-  position:relative;
+.container_content_left {
+  position: relative;
   float: left;
   max-width: 614px;
   width: 100%;
@@ -159,7 +158,7 @@ position: fixed;
   height: fit-content;
 }
 
-.insta_post{
+.insta_post {
   border-bottom-style: solid;
   border-bottom-width: thin;
   border-right-style: solid;
@@ -177,7 +176,7 @@ position: fixed;
   margin-right: -1px;
 }
 
-.header_post{
+.header_post {
   border-bottom-style: solid;
   border-bottom-width: thin;
   border-color: rgba(230, 230, 230, 1);
@@ -193,7 +192,7 @@ position: fixed;
   vertical-align: baseline;
 }
 
-.post_content{
+.post_content {
   max-height: 450px;
   box-sizing: border-box;
   display: flex;
@@ -205,13 +204,13 @@ position: fixed;
   background-color: white;
 }
 
-.display_picture{
+.display_picture {
   width: 100%;
   display: flex;
   max-height: 450px;
 }
 
-.post_buttons_comment{
+.post_buttons_comment {
   position: relative;
   flex-shrink: 0;
   margin: 0;
@@ -222,7 +221,7 @@ position: fixed;
   background-color: white;
 }
 
-.buttons{
+.buttons {
   display: flex;
   max-height: 40px;
   margin-top: 4px;
@@ -233,7 +232,7 @@ position: fixed;
   flex-direction: row;
 }
 
-.like_button{
+.like_button {
   float: left;
   min-height: 40px;
   min-width: 40px;
@@ -245,7 +244,7 @@ position: fixed;
   width: 40px;
 }
 
-.comment_button{
+.comment_button {
   float: left;
   min-height: 40px;
   min-width: 40px;
@@ -254,15 +253,15 @@ position: fixed;
   cursor: pointer;
   align-items: center;
   height: 40px;
-  width: 40px;    
+  width: 40px;
 }
 
-.post_button{
+.post_button {
   height: 24px;
   width: 24px;
 }
 
-.like_area{
+.like_area {
   width: auto;
   max-height: 18px;
   margin-bottom: 8px;
@@ -274,7 +273,7 @@ position: fixed;
   position: relative;
 }
 
-.likes{
+.likes {
   margin: 0;
   padding: 0;
   border: 0;
@@ -283,10 +282,9 @@ position: fixed;
   text-decoration: none;
   font-weight: 600;
   color: #262626;
-
 }
 
-.comments{
+.comments {
   overflow-x: hidden;
   overflow-y: auto;
   background: 0 0;
@@ -300,7 +298,7 @@ position: fixed;
   overflow-y: auto;
 }
 
-.comment_area{
+.comment_area {
   width: 100%;
   list-style: none;
   margin: 0;
@@ -308,7 +306,7 @@ position: fixed;
   border: 0;
 }
 
-.the_comment{
+.the_comment {
   line-height: 17px;
   overflow: hidden;
   padding-bottom: 6px;
@@ -321,20 +319,20 @@ position: fixed;
   padding-right: 2px;
 }
 
-.name_aera{
+.name_aera {
   width: calc(100% - 28px);
   display: inline-block;
   flex-direction: row;
 }
 
-.name_aera_sd{
+.name_aera_sd {
   width: 100%;
   flex-shrink: 1;
   min-width: 0;
   display: inline-block;
 }
 
-.name{
+.name {
   font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -344,12 +342,12 @@ position: fixed;
   color: #262626;
 }
 
-.quote{
+.quote {
   text-decoration: none;
   color: black;
 }
 
-.roundedimage{
+.roundedimage {
   overflow: hidden;
   border-radius: 50px;
   width: 30px;
@@ -360,24 +358,24 @@ position: fixed;
   position: relative;
 }
 
-.pp{
+.pp {
   width: 30px;
   height: 30px;
 }
 
-.pp_sd{
+.pp_sd {
   width: 50px;
   height: 50px;
 }
 
-.header_name{
+.header_name {
   margin-top: -43px;
   margin-left: 42px;
 }
 
-.account_name_header{ 
+.account_name_header {
   color: #262626;
-  flex-grow: 0;   
+  flex-grow: 0;
   font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -387,7 +385,7 @@ position: fixed;
   flex-shrink: 1;
 }
 
-.writing_area{
+.writing_area {
   background-color: white;
   border-top-style: solid;
   border-top-width: thin;
@@ -399,7 +397,7 @@ position: fixed;
   padding-bottom: 16px;
 }
 
-.enter_comment{
+.enter_comment {
   max-height: 18px;
   flex-direction: row;
   flex-shrink: 1;
@@ -409,10 +407,10 @@ position: fixed;
   align-items: center;
   margin: 0px;
   border: none;
-  width: 100%
+  width: 100%;
 }
 
-.comment_box{
+.comment_box {
   width: 44vw;
   background: 0 0;
   border: 0;

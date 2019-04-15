@@ -1,23 +1,24 @@
-strong{
+strong {
   margin-right: 30px;
   float: right;
   color: grey;
 }
 
-body{
+body {
   font-size: 14px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  position:relative;
-  display:flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  display: flex;
   justify-content: flex-start;
-  flex-direction:column;
-  margin:0;
-  width:100vw;
-  overflow:hidden;
+  flex-direction: column;
+  margin: 0;
+  width: 100vw;
+  overflow: hidden;
 }
 
-#container{
-  display:flex;
+#container {
+  display: flex;
   width: 100%;
   height: 100vh;
   left: 0;
@@ -27,9 +28,9 @@ body{
   justify-content: center;
 }
 
-.header{
-  position:relative;
-  display:flex;
+.header {
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
   border-bottom-style: solid;
@@ -41,16 +42,16 @@ body{
   border-color: rgba(230, 230, 230, 1);
 }
 
-#footer{
+#footer {
   height: 90px;
   width: 100%;
   position: absolute;
   bottom: 0;
 }
 
-#footer_bar{
+#footer_bar {
   position: fixed;
-/*  background-color: rgba(255, 255, 255, 0);*/
+  /*  background-color: rgba(255, 255, 255, 0);*/
   height: 50px;
   width: 101%;
   margin-top: -10px;
@@ -63,7 +64,7 @@ body{
   background-color: white;
 }
 
-.position_navbar{
+.position_navbar {
   max-width: 935px;
   width: 935px;
   display: flex;
@@ -74,7 +75,7 @@ body{
   height: 75px;
 }
 
-.logo_appareil{
+.logo_appareil {
   position: relative;
   width: 35px;
   height: 35px;
@@ -85,7 +86,7 @@ body{
   float: left;
 }
 
-.logo_camagru{
+.logo_camagru {
   border-left-style: solid;
   border-left-width: thin;
   border-color: rgba(0, 0, 0, 1);
@@ -100,7 +101,7 @@ body{
   float: left;
 }
 
-.logo_setting{
+.logo_setting {
   position: relative;
   width: 30px;
   height: 30px;
@@ -111,7 +112,7 @@ body{
   margin-left: 20px;
 }
 
-.logo_logout{
+.logo_logout {
   position: relative;
   width: 30px;
   height: 30px;
@@ -122,20 +123,20 @@ body{
 }
 
 .header_content_left {
-  display:flex;
-  overflow:hidden;
+  display: flex;
+  overflow: hidden;
   margin-left: 5px;
   margin-bottom: 10px;
 }
 
 .header_content_right {
-  display:flex;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-right: 2px;
 }
 
-.settings{
+.settings {
   max-width: 935px;
   width: 100%;
   justify-content: center;
@@ -143,7 +144,7 @@ body{
   display: flex;
 }
 
-.settings_design{
+.settings_design {
   width: 100%;
   display: flex;
   margin-top: -200px;
@@ -154,36 +155,36 @@ body{
   border: 1px solid rgba(230, 230, 230, 1);
 }
 
-.form{
+.form {
   padding: 15px;
   width: 100%;
 }
 
-.align_form{
+.align_form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.input_design{
+.input_design {
   max-height: 36px;
   height: 36px;
   width: 250px;
 }
 
-.label_design{
+.label_design {
   margin: 20px 0px;
 }
 
-.submit_bouton{
+.submit_bouton {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.submit_butt{
+.submit_butt {
   background-color: lightskyblue;
   border: none;
   color: white;
