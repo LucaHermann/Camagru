@@ -16,14 +16,12 @@ function ouvrir_camera() {
 
       var tracks = mediaStream.getTracks()
 
-      //document.getElementById("message").innerHTML="message: "+tracks[0].label+" connecté"
       video.onloadedmetadata = function(e) {
         video.play()
       }
     })
     .catch(function(err) {
       console.log(err.name + ": " + err.message)
-
       document.getElementById("message").innerHTML =
         "message: connection refusé"
     })
@@ -41,10 +39,6 @@ function photo() {
   canvas1.height = vivi.videoHeight
   canvas1.width = vivi.videoWidth
   ctx.drawImage(vivi, 0, 0, vivi.videoWidth, vivi.videoHeight)
-
-  //var base64=canvas1.toDataURL("image/png"); //l'image au format base 64
-  //document.getElementById('tar').value='';
-  //document.getElementById('tar').value=base64;
 }
 
 function sauver() {
@@ -166,7 +160,6 @@ function fermer() {
     track.stop()
     //document.getElementById("message").innerHTML="message: "+tracks[0].label+" déconnecté"
   })
-
   video.srcObject = null
 }
 
