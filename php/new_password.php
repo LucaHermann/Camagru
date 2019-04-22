@@ -16,9 +16,7 @@
 						<p class="advertisement">Reset your password just here</p>
 				</div>
 				<form method="post" action="new_password_validation.php" class="form_design">
-					<input type="pin" id="formulary_new_password" placeholder="pin" />
-					<br />
-					<input type="password" placeholder="New Password" />
+					<input type="password" id="formulary_new_password" placeholder="New Password">
 				</form>
 					<div class="position_button">
 							<button class="button">Reset password</button>
@@ -27,7 +25,7 @@
 </div>
 <div id="footer">
 	<div id="footer_bar">
-		<strong> © Mdauphin Lhermann </strong>
+		<strong> © Mdauphin </strong>
 	</div>
 </div>
 </body>

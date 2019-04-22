@@ -113,7 +113,7 @@ session_start();
 	</div>
 	<div id="footer">
 		<div id="footer_bar">
-			<strong> © Mdauphin Lhermann </strong>
+			<strong> © Mdauphin</strong>
 		</div>
 	</div>
 	<script src="../js/take_pic.js"></script>

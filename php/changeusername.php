@@ -67,7 +67,7 @@ $data = $reponse->fetch()
 </div>
 <div id="footer">
 	<div id="footer_bar">
-		<strong> © Mdauphin Lhermann </strong>
+		<strong> © Mdauphin </strong>
 	</div>
 </div>
 </body>

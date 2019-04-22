@@ -41,7 +41,7 @@ if (isset($_POST['New_password']) && isset($_POST['Confirm_password']) && isset(
 	}
 }
 
-if (isset($_POST['New_mail']) && isset($_POST['Confim_mail'])){
+if (isset($_POST['New_mail']) && isset($_POST['Confirm_mail'])){
 	if ($_POST['New_mail'] == $_POST['Confirm_mail']){
 		try{
 			$res = $bdd->prepare('UPDATE user SET email = :mail WHERE id = :id');
@@ -62,6 +62,19 @@ if (isset($_POST['New_mail']) && isset($_POST['Confim_mail'])){
 		$test = "no";
 	}
 }
+
+if (isset($_POST['notifmail'])){
+		$res = $bdd->prepare('UPDATE user SET NotifEmail = :mail WHERE id = :id');
+		$res->bindValue(':mail', $_POST['notifmail'], PDO::PARAM_STR);
+		$res->bindValue(':id', $iduser, PDO::PARAM_INT);
+		$res->execute();
+		$test = "ok";
+		$message = "Your choice has been saved !";
+	} else {
+		$message = "Something goes wrong..";
+		$test = "no";
+	}
+
 if (isset($_POST['username'])){
 	try{
 		$un = htmlspecialchars($_POST['username']);
@@ -135,7 +148,7 @@ if (isset($_POST['username'])){
 </div>
 <div id="footer">
 	<div id="footer_bar">
-		<strong> © Mdauphin Lhermann </strong>
+		<strong> © Mdauphin </strong>
 	</div>
 </div>
 </body>

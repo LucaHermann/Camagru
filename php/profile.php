@@ -72,7 +72,7 @@ while ($data = $reponse->fetch())
 							<?php
 								if ($uppic == "block"){
 									echo'	<div class="trash_button">
-												<img onclick="deleteimg(this)" id="trash" src="../ressources/logo_trash.png" class="trash_icon_sd" name=""/>
+												<img onclick="deleteimg(this)" id="trash" src="../ressources/trash.png" class="trash_icon_sd" name=""/>
 											</div>';
 								}
 							?>
@@ -136,6 +136,11 @@ while ($data = $reponse->fetch())
 				<a href="changemail.php" style="text-decoration: none; color: black;">
 					<div class="settings_choice">
 						<p>Change mail adress</p>
+					</div>
+				</a>
+				<a href="mailnotif.php" style="text-decoration: none; color: black;">
+					<div class="settings_choice">
+						<p>Mail notification</p>
 					</div>
 				</a>
 				<button class="up_button_cancel">Cancel</button>
@@ -262,7 +267,7 @@ while ($data = $reponse->fetch())
 </div>
 <div id="footer">
 	<div id="footer_bar">
-		<strong> © Mdauphin Lhermann </strong>
+		<strong> © Mdauphin </strong>
 	</div>
 </div>
 </body>

@@ -108,7 +108,7 @@ require_once('../config/connect.php');
 											<a class="name" href="profile.php?id='.$repdata['id'].'" title="#">'.$repdata['username'].'</a>
 											<span class="quote">'.$repdata['text'].'</span>';
 											if ($_SESSION['id'] == $repdata['id']){
-												echo '<img onclick="deletecom(this)" src="../ressources/logo_trash.png" class="trash_icon" name="'.$repdata['idcomment'].'" alt="'.$data['idimg'].'"/> ';
+												echo '<img onclick="deletecom(this)" src="../ressources/trash.png" class="trash_icon" name="'.$repdata['idcomment'].'" alt="'.$data['idimg'].'"/> ';
 											}
 									echo '</div>
 								</li>';}
@@ -185,7 +185,7 @@ require_once('../config/connect.php');
 </div>
 <div id="footer">
 	<div id="footer_bar">
-		<strong> © Mdauphin Lhermann </strong>
+		<strong> © Mdauphin </strong>
 	</div>
 </div>
 </body>

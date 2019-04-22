@@ -7,7 +7,7 @@ $iduser = $_SESSION["id"];
 $reponse = $bdd->prepare('SELECT * FROM user WHERE id = :idasked');
 $reponse->bindvalue(':idasked', $iduser, PDO::PARAM_INT);
 $reponse->execute();
-$data = $reponse->fetch()
+$data = $reponse->fetch();
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,19 +48,29 @@ $data = $reponse->fetch()
 	<div class="settings">
 		<div class="settings_design">
             <div classe="title">
-                <h1>Change mail</h1>
+                <h1>Change mail notification</h1>
             </div>
             <div classe="text">
-                <p>You can change your email adress here</p>
+                <p>You can choose if you want notification for every comment</p>
             </div>
 			<form method="post" action="setting_validation.php" class="form">
 				<div class="align_form">
-					<label for="New_mail" class="label_design">New mail </label>
-					<input type="text" name="New_mail" id="New_mail" class="input_design"  placeholder="New mail"/><br />
+                    <?PHP if ($data['NotifEmail'] == 'yes'){
+                        echo '<label for="yes_mail" class="label_design">Yes</label>
+                              <input type="radio" name="notifmail" value="yes" checked/><br />';
+                    } else {
+                        echo '<label for="yes_mail" class="label_design">Yes</label>
+                              <input type="radio" name="notifmail" value="yes" /><br />';
+                    }?>
 				</div>
 				<div class="align_form">
-					<label for="Confirm_mail" class="label_design">Confirm mail </label>
-					<input type="text" name="Confirm_mail" id="Confirm_mail" class="input_design" placeholder="Confirm mail" required/><br />
+                    <?PHP if ($data['NotifEmail'] == 'no'){
+                        echo '<label for="Confirm_mail" class="label_design">No</label>
+                              <input type="radio" name="notifmail" value="no" checked/><br />';
+                    } else {
+                        echo '<label for="Confirm_mail" class="label_design">No</label>
+                              <input type="radio" name="notifmail" value="no"/><br />';
+                    }?>
                 </div>
                 <div class="submit_bouton">
 					<input type="submit"  class="submit_butt" value="Send"/><br />

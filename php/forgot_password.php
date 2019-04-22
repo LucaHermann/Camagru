@@ -19,10 +19,10 @@
 		<form method="post" action="forgot_password_validation.php" class="form_design">
 			<label for="formulary_email"></label>
 			<input type="text" name="email" id="formulary_email" placeholder="Email">
-			<div class="position_button">
-				<button class="button" type="submit">Reset password</button>
-			</div>
 		</form>
+			<div class="position_button">
+				<button class="button">Reset password</button>
+			</div>
 	</div>
 	<div id="formulary_bot">
 		<div id="formulary_sign_in">
@@ -42,7 +42,7 @@
 </div>
 <div id="footer">
   <div id="footer_bar">
-	<strong> © Mdauphin Lhermann </strong>
+	<strong> © Mdauphin </strong>
   </div>
 </div>
 </body>
